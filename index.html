@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM & Coding Summer Camp Portal</title>
+    <!-- Inline SVG Favicon representing branding cubes -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 L85 32 L50 50 L15 32 Z' fill='%23a855f7'/%3E%3Cpath d='M15 32 L50 50 L50 85 L15 67 Z' fill='%237c3aed'/%3E%3Cpath d='M50 50 L85 32 L85 67 L50 85 Z' fill='%236d28d9'/%3E%3Cpath d='M50 35 L68 44 L50 53 L32 44 Z' fill='%23ec4899'/%3E%3Cpath d='M32 44 L50 53 L50 71 L32 62 Z' fill='%23db2777'/%3E%3Cpath d='M50 53 L68 44 L68 62 L50 71 Z' fill='%23be185d'/%3E%3C/svg%3E">
+    <!-- Google Fonts for Modern Playful and Professional Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..900&family=Quicksand:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- FontAwesome Icons for Beautiful Visuals -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme ltr">
+
+    <!-- GLOBAL HEADER (Visible on Landing Pages, Hidden on Dashboards) -->
+    <header class="global-header">
+        <div class="header-container">
+            <a href="#" class="logo" id="logo-main" data-target="home-1">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-highlight">STEM</span>Camp
+                </div>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Home <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item" data-target="home-1">Home 1</a></li>
+                            <li><a href="#" class="dropdown-item" data-target="home-2">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-target="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-target="services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-target="contact">Contact</a>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Dashboard <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item" data-target="user-dashboard">User Dashboard</a></li>
+                            <li><a href="#" class="dropdown-item" data-target="admin-dashboard">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Drawer actions (theme toggles & login) -->
+                <div class="mobile-menu-actions">
+                    <div class="mobile-toggles">
+                        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                        <button class="dir-toggle" aria-label="Toggle LTR/RTL Text Direction">
+                            <span>RTL</span>
+                        </button>
+                    </div>
+                    <a href="login.html" class="btn btn-primary login-btn w-100">
+                        <i class="fa-solid fa-user-lock"></i> <span>Login</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Dark/Light Theme Toggle -->
+                <button class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
+                <!-- LTR/RTL Text Direction Toggle -->
+                <button class="dir-toggle" aria-label="Toggle LTR/RTL Text Direction">
+                    <span>RTL</span>
+                </button>
+                
+                <!-- Login Button -->
+                <a href="login.html" class="btn btn-primary login-btn">
+                    <i class="fa-solid fa-user-lock"></i> <span>Login</span>
+                </a>
+
+                <!-- Mobile Navigation Toggle -->
+                <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN SPA CONTAINER -->
+    <main class="spa-container">
+
+        <!-- ============================================== -->
+        <!-- VIEW 1: HOME 1 (CLASSIC LANDING)               -->
+        <!-- ============================================== -->
+        <div id="view-home-1" class="spa-view active">
+            <!-- Section 1: Hero Section -->
+            <section class="hero-section section-h1-1">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Empowering Future Innovators through Hands-on STEM & Coding</h1>
+                        <p class="hero-desc">Welcome to the ultimate summer experience for kids ages 6-15! Where logic meets creativity, and kids learn coding, robotics, and science while building lifelong friendships.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary btn-lg" data-target="services">Explore Pathways</button>
+                            <a href="register.html" class="btn btn-secondary btn-lg">Register Now</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-mini">
+                                <span class="stat-num">15+</span>
+                                <span class="stat-lbl">STEM Pathways</span>
+                            </div>
+                            <div class="stat-mini">
+                                <span class="stat-num">98%</span>
+                                <span class="stat-lbl">Parent Trust Score</span>
+                            </div>
+                            <div class="stat-mini">
+                                <span class="stat-num">1:6</span>
+                                <span class="stat-lbl">Counselor Ratio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="glass-card hero-interactive-card">
+                            <div class="card-header-icon"><i class="fa-solid fa-rocket animate-bounce"></i></div>
+                            <h3>Active Learning</h3>
+                            <p>Build real robots, code apps, and run scientific chemical experiments in a collaborative space.</p>
+                            <div class="progress-bar-container">
+                                <div class="progress-label"><span>Robotics Project Completion</span> <span>85%</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Curriculum Pathways -->
+            <section class="pathways-section section-h1-2 bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-purple">STEM Curriculum Pathways</span>
+                        <h2 class="section-title">Nurturing curiosity from beginner block coding to advanced AI</h2>
+                        <p class="section-desc">Our tiered learning paths ensure every camper finds their perfect level of challenge and discovery.</p>
+                    </div>
+                    <div class="grid grid-3">
+                        <!-- Card 1 -->
+                        <div class="pathway-card">
+                            <div class="pathway-icon bg-pink-light text-pink"><i class="fa-solid fa-code"></i></div>
+                            <h3>Coding & Game Design</h3>
+                            <p>From Scratch blocks to Python script. Campers build custom 2D/3D games, program algorithms, and learn critical problem-solving skills.</p>
+                            <ul class="pathway-details">
+                                <li><i class="fa-solid fa-check text-green"></i> Ages: 7-9 &amp; 10-14</li>
+                                <li><i class="fa-solid fa-check text-green"></i> Scratch, Python, Unity 3D</li>
+                                <li><i class="fa-solid fa-check text-green"></i> Build 4 publishable games</li>
+                            </ul>
+                            <a href="#" class="pathway-link" data-target="services">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="pathway-card">
+                            <div class="pathway-icon bg-blue-light text-blue"><i class="fa-solid fa-robot"></i></div>
+                            <h3>Robotics &amp; Engineering</h3>
+                            <p>Build, wire, and command smart machines. Campers master mechanical structures, micro-controllers, and custom sensor integrations.</p>
+                            <ul class="pathway-details">
+                                <li><i class="fa-solid fa-check text-green"></i> Ages: 8-11 &amp; 12-15</li>
+                                <li><i class="fa-solid fa-check text-green"></i> Arduino, LEGO SPIKE Prime</li>
+                                <li><i class="fa-solid fa-check text-green"></i> Solve obstacle course maps</li>
+                            </ul>
+                            <a href="#" class="pathway-link" data-target="services">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="pathway-card">
+                            <div class="pathway-icon bg-green-light text-green"><i class="fa-solid fa-flask"></i></div>
+                            <h3>Science &amp; Tinkering</h3>
+                            <p>Hands-on physics, chemistry, and environmental science. Kids experiment with polymers, clean energy systems, and rocketry.</p>
+                            <ul class="pathway-details">
+                                <li><i class="fa-solid fa-check text-green"></i> Ages: 6-8 &amp; 9-12</li>
+                                <li><i class="fa-solid fa-check text-green"></i> Polymer experiments &amp; solar power</li>
+                                <li><i class="fa-solid fa-check text-green"></i> Take-home lab kits</li>
+                            </ul>
+                            <a href="#" class="pathway-link" data-target="services">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Safety & Compliance -->
+            <section class="safety-section section-h1-3">
+                <div class="container grid grid-2-equal">
+                    <div class="safety-visual">
+                        <div class="badge-grid">
+                            <div class="badge-card">
+                                <div class="badge-icon text-yellow"><i class="fa-solid fa-shield-halved"></i></div>
+                                <h4>CPR &amp; First Aid Certified</h4>
+                                <p>Every counselor holds active emergency care certifications.</p>
+                            </div>
+                            <div class="badge-card">
+                                <div class="badge-icon text-blue"><i class="fa-solid fa-user-shield"></i></div>
+                                <h4>Background Screened</h4>
+                                <p>Rigorous federal background check for all faculty &amp; directors.</p>
+                            </div>
+                            <div class="badge-card">
+                                <div class="badge-icon text-green"><i class="fa-solid fa-user-doctor"></i></div>
+                                <h4>Medical Director</h4>
+                                <p>On-site pediatric nurse managing waivers &amp; prescription schedules.</p>
+                            </div>
+                            <div class="badge-card">
+                                <div class="badge-icon text-purple"><i class="fa-solid fa-door-closed"></i></div>
+                                <h4>Secure Access</h4>
+                                <p>Fingerprint scan check-in/out and 24/7 security guard presence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="safety-content">
+                        <span class="subtitle text-yellow">High-Trust Safety Protocols</span>
+                        <h2 class="section-title">Your Child's Physical and Digital Safety is Our #1 Priority</h2>
+                        <p class="section-desc">We combine premium academic programming with medical-grade operations safety. From strict allergy management in our allergen-free facility to filtered digital networks, we guarantee a safe, creative harbor for young minds.</p>
+                        <ul class="safety-list">
+                            <li><i class="fa-solid fa-check-double text-yellow"></i> HIPAA compliant digital waiver storage</li>
+                            <li><i class="fa-solid fa-check-double text-yellow"></i> Max 1:6 instructor-to-camper ratios for coding</li>
+                            <li><i class="fa-solid fa-check-double text-yellow"></i> 100% fenced campus with supervised breaks</li>
+                        </ul>
+                        <button class="btn btn-secondary mt-3" data-target="about">Read Safety Document</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Teacher Certification Bios -->
+            <section class="teachers-section section-h1-4 bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-blue">World-Class Educators</span>
+                        <h2 class="section-title">Learn from Certified Teachers &amp; MIT/Stanford Graduates</h2>
+                        <p class="section-desc">Our instructors aren't just great coders; they are passionate mentors trained in positive behavioral support and dynamic lesson structures.</p>
+                    </div>
+                    <div class="grid grid-3">
+                        <!-- Teacher 1 -->
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="./s2.jpg" alt="Dr. Evelyn Thorne" class="teacher-image">
+                                <span class="teacher-role bg-purple text-white">Lead Robotics Director</span>
+                            </div>
+                            <div class="teacher-info">
+                                <h3>Dr. Evelyn Thorne</h3>
+                                <p class="teacher-degree"><i class="fa-solid fa-graduation-cap"></i> Ph.D. in Robotics, Stanford University</p>
+                                <p class="teacher-bio">Evelyn spent 8 years designing autonomous systems before transitioning to childhood education. She specializes in making Arduino coding intuitive and exciting.</p>
+                                <div class="teacher-badges">
+                                    <span class="teacher-badge"><i class="fa-solid fa-award text-yellow"></i> 10+ Years Exp</span>
+                                    <span class="teacher-badge"><i class="fa-solid fa-heart-pulse text-pink"></i> CPR Trained</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Teacher 2 -->
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="./s3.jpg" alt="Mr. Marcus Vance" class="teacher-image">
+                                <span class="teacher-role bg-pink text-white">Senior Coding Specialist</span>
+                            </div>
+                            <div class="teacher-info">
+                                <h3>Mr. Marcus Vance</h3>
+                                <p class="teacher-degree"><i class="fa-solid fa-graduation-cap"></i> M.S. in Computer Science, MIT</p>
+                                <p class="teacher-bio">Marcus is a former lead software engineer at a major tech startup. He designed our Python curriculum and Roblox engineering modules to challenge advanced thinkers.</p>
+                                <div class="teacher-badges">
+                                    <span class="teacher-badge"><i class="fa-solid fa-award text-yellow"></i> Certified Educator</span>
+                                    <span class="teacher-badge"><i class="fa-solid fa-heart-pulse text-pink"></i> First Aid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Teacher 3 -->
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="./s4.jpg" alt="Ms. Sarah Jenkins" class="teacher-image">
+                                <span class="teacher-role bg-green text-white">Science Lab Coordinator</span>
+                            </div>
+                            <div class="teacher-info">
+                                <h3>Ms. Sarah Jenkins</h3>
+                                <p class="teacher-degree"><i class="fa-solid fa-graduation-cap"></i> B.S. in Chemistry, UC Berkeley</p>
+                                <p class="teacher-bio">Sarah is a certified middle school science teacher with a passion for creative chemistry. Her lab is renowned for chemical reactions that glow, pop, and fizz safely.</p>
+                                <div class="teacher-badges">
+                                    <span class="teacher-badge"><i class="fa-solid fa-award text-yellow"></i> K-8 Certified</span>
+                                    <span class="teacher-badge"><i class="fa-solid fa-heart-pulse text-pink"></i> Pediatric CPR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Interactive FAQ Accordion -->
+            <section class="faq-section section-h1-5">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-purple">Frequently Asked Questions</span>
+                        <h2 class="section-title">Everything parents need to know about STEM Camp</h2>
+                        <p class="section-desc">Got questions? We have answers. If you don't find what you need, contact our helpful support desk.</p>
+                    </div>
+                    <div class="faq-accordion">
+                        <!-- Accordion Item 1 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>What is the camper-to-staff ratio in coding labs?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="accordion-body">
+                                <p>We maintain a strict 1:6 ratio for computer and robotics lab settings. This ensures that every child receives immediate debugging help, customized mentorship, and personal attention to prevent frustration.</p>
+                            </div>
+                        </div>
+                        <!-- Accordion Item 2 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>How do you handle severe nut and food allergies?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="accordion-body">
+                                <p>Our entire facility is strictly nut-free. Parents submit allergy details in our medical waiver portal, and campers with allergies wear color-coded wristbands. Our registered nurse coordinates and stores epinephrine autoinjectors in central, labeled safety cabinets.</p>
+                            </div>
+                        </div>
+                        <!-- Accordion Item 3 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Can absolute beginners with no coding experience join?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="accordion-body">
+                                <p>Absolutely! We design our entry pathways (like Scratch Coding and LEGO Robotics Foundations) specifically for absolute beginners. We split campers by age and skill group to ensure everyone works at a comfortable, rewarding pace.</p>
+                            </div>
+                        </div>
+                        <!-- Accordion Item 4 -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>How does the weekly photo gallery work?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="accordion-body">
+                                <p>Registered parents receive a secure, password-protected link inside the parent dashboard. Photos taken by our staff are uploaded every Monday and Wednesday evening, allowing you to see your child's creations in real-time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Testimonials -->
+            <section class="testimonials-section section-h1-6 bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-pink">Parent Stories &amp; Testimonials</span>
+                        <h2 class="section-title">What parents say about the STEM Camp experience</h2>
+                        <p class="section-desc">Join thousands of families who have seen their children build immense coding confidence over a single summer.</p>
+                    </div>
+                    <div class="grid grid-3">
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="testimonial-text">"My daughter Sophia had never touched computer programming. After two weeks of python game design, she came home explaining how loops work. The safety waivers and pediatrician review gave me complete peace of mind."</p>
+                            <div class="testimonial-author">
+                                <h4>Amanda Jenkins</h4>
+                                <span class="author-sub">Mother of Sophia (Age 11)</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="testimonial-text">"The dashboard made it so easy to upload medical waivers and track schedules. Leo was always excited for the morning coding projects and absolutely loved the outdoor water-balloon physics break!"</p>
+                            <div class="testimonial-author">
+                                <h4>Robert Chen</h4>
+                                <span class="author-sub">Father of Leo (Age 8)</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="testimonial-text">"What a stellar team. Having MIT graduates teaching my son Arduino circuits made a massive difference. He wasn't just copying code; he understood how transistors work. We have registered for three terms already."</p>
+                            <div class="testimonial-author">
+                                <h4>Sarah Higgins</h4>
+                                <span class="author-sub">Mother of Daniel (Age 13)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 2: HOME 2 (INTERACTIVE FINDER)            -->
+        <!-- ============================================== -->
+        <div id="view-home-2" class="spa-view">
+            <!-- Section 1: Hero & Camp Finder -->
+            <section class="hero-finder section-h2-1">
+                <div class="container">
+                    <div class="finder-hero-wrapper text-center">
+                        <div class="badge-interactive bg-blue text-white"><i class="fa-solid fa-magnifying-glass"></i> Interactive Camp Finder</div>
+                        <h1 class="hero-title mt-2">Find the Perfect Summer STEM Experience</h1>
+                        <p class="hero-desc">Enter your child's age and main interest area, and find tailored curriculum tracks that fit your weekly summer schedule.</p>
+                        
+                        <!-- Interactive Filter System -->
+                        <div class="glass-card finder-filter-box mt-4">
+                            <div class="filter-controls-row">
+                                <div class="filter-control">
+                                    <label for="finder-age"><i class="fa-solid fa-child"></i> Camper Age</label>
+                                    <select id="finder-age" class="form-select">
+                                        <option value="all">Show All Ages</option>
+                                        <option value="6-8">Ages 6-8 (Junior Tinkers)</option>
+                                        <option value="9-11">Ages 9-11 (Intermediate Coders)</option>
+                                        <option value="12-15">Ages 12-15 (Advanced Engineers)</option>
+                                    </select>
+                                </div>
+                                <div class="filter-control">
+                                    <label for="finder-category"><i class="fa-solid fa-flask"></i> Primary Subject</label>
+                                    <select id="finder-category" class="form-select">
+                                        <option value="all">All Subjects</option>
+                                        <option value="coding">Coding &amp; Games</option>
+                                        <option value="robotics">Robotics &amp; Arduino</option>
+                                        <option value="science">Applied Science</option>
+                                    </select>
+                                </div>
+                                <div class="filter-control">
+                                    <label for="finder-week"><i class="fa-solid fa-calendar-week"></i> Target Week</label>
+                                    <select id="finder-week" class="form-select">
+                                        <option value="all">Any Week (June - July)</option>
+                                        <option value="w1">Week 1 (June 15 - 19)</option>
+                                        <option value="w2">Week 2 (June 22 - 26)</option>
+                                        <option value="w3">Week 3 (June 29 - July 3)</option>
+                                    </select>
+                                </div>
+                                <div class="filter-control flex-end">
+                                    <button class="btn btn-primary w-100" id="btn-find-camps">
+                                        <i class="fa-solid fa-search"></i> Find Camps
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Dynamic Curriculum Explorer -->
+            <section class="curriculum-explorer section-h2-2 bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-purple">STEM Curriculum Explorer</span>
+                        <h2 class="section-title">Age-Appropriate Development Paths</h2>
+                        <p class="section-desc">Select an age segment to explore the tools, technologies, and projects your camper will build.</p>
+                    </div>
+                    
+                    <!-- Interactive Age Tabs -->
+                    <div class="tabs-container">
+                        <div class="tabs-list">
+                            <button class="tab-btn active" data-tab="junior">Junior (Ages 6-8)</button>
+                            <button class="tab-btn" data-tab="inter">Intermediate (Ages 9-11)</button>
+                            <button class="tab-btn" data-tab="senior">Senior (Ages 12-15)</button>
+                        </div>
+                        <div class="tabs-content-wrapper">
+                            <!-- Junior Content -->
+                            <div class="tab-pane active" id="tab-junior">
+                                <div class="grid grid-2-equal">
+                                    <div class="tab-text-content">
+                                        <h3>Junior Explorers: Building Analytical Foundations</h3>
+                                        <p>For our youngest campers, we prioritize tangible learning, spatial reasoning, and introductory coding concepts using block visual tools.</p>
+                                        <ul class="tab-list-bullets">
+                                            <li><strong>Scratch Junior:</strong> Program simple animations and interactive digital greeting cards.</li>
+                                            <li><strong>LEGO Education WeDo:</strong> Build smart motor gears and program simple reactions to light sensors.</li>
+                                            <li><strong>Tinkering Lab:</strong> Build mini-racers driven by solar panels and rubber bands.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-visual-content">
+                                        <div class="outcome-card bg-pink-light">
+                                            <h4>Junior Outcomes:</h4>
+                                            <div class="outcome-stat"><span class="outcome-val">100%</span> Visual Block Mastery</div>
+                                            <div class="outcome-stat"><span class="outcome-val">4+</span> Working Motor Assemblies</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Intermediate Content -->
+                            <div class="tab-pane" id="tab-inter">
+                                <div class="grid grid-2-equal">
+                                    <div class="tab-text-content">
+                                        <h3>Intermediate Architects: Expanding Engineering Depth</h3>
+                                        <p>Middle campers transition into logical scripting and build more complex structural robotic projects.</p>
+                                        <ul class="tab-list-bullets">
+                                            <li><strong>Scratch &amp; Python Basics:</strong> Transition from block coding to writing raw syntax commands.</li>
+                                            <li><strong>LEGO SPIKE Prime:</strong> Build multi-wheeled rovers that navigate custom logic grids.</li>
+                                            <li><strong>3D Designing &amp; Printing:</strong> Model original keychains and structures in CAD, then watch them print.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-visual-content">
+                                        <div class="outcome-card bg-blue-light">
+                                            <h4>Intermediate Outcomes:</h4>
+                                            <div class="outcome-stat"><span class="outcome-val">100%</span> Basic Python Scripting</div>
+                                            <div class="outcome-stat"><span class="outcome-val">5+</span> Functional CAD Models</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Senior Content -->
+                            <div class="tab-pane" id="tab-senior">
+                                <div class="grid grid-2-equal">
+                                    <div class="tab-text-content">
+                                        <h3>Senior Innovators: Advanced Applied Engineering</h3>
+                                        <p>Senior students build production-ready projects, using text-based scripts, microprocessors, and custom electronic circuits.</p>
+                                        <ul class="tab-list-bullets">
+                                            <li><strong>Robotics with Arduino:</strong> Assemble and solder real microprocessors, wire resistors, and code in C++.</li>
+                                            <li><strong>Unity 3D Game Engineering:</strong> Develop complex interactive physics engines and test original builds.</li>
+                                            <li><strong>Web Development &amp; AI:</strong> Write raw HTML/CSS websites and train basic machine learning datasets.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-visual-content">
+                                        <div class="outcome-card bg-green-light">
+                                            <h4>Senior Outcomes:</h4>
+                                            <div class="outcome-stat"><span class="outcome-val">100%</span> Text-Based Coding (Python/C++)</div>
+                                            <div class="outcome-stat"><span class="outcome-val">1+</span> Advanced Electronic Prototype to Keep</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Camp Photo Stream Gallery -->
+            <section class="camp-gallery-preview section-h2-3">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-green">Weekly Photo Stream</span>
+                        <h2 class="section-title">Campers in Action: Visual Highlights</h2>
+                        <p class="section-desc">See the energy and concentration inside our smart labs. These images are captured daily by our photography team.</p>
+                    </div>
+                    <div class="photo-stream-grid">
+                        <div class="stream-item"><img src="./s4.jpg" alt="Coding class stream" class="stream-img"></div>
+                        <div class="stream-item"><img src="./s6.jpg" alt="Robotics test stream" class="stream-img"></div>
+                        <div class="stream-item"><img src="./s7.jpg" alt="Tinkering lab stream" class="stream-img"></div>
+                        <div class="stream-item"><img src="./s8.jpg" alt="Outdoor science stream" class="stream-img"></div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="login.html" class="btn btn-secondary">Access Secure Parent Gallery</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Daily Schedule Interactive Timeline -->
+            <section class="daily-schedule section-h2-4 bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-yellow">Daily Schedule Tracker</span>
+                        <h2 class="section-title">A Balanced Day-in-the-Life at STEM Camp</h2>
+                        <p class="section-desc">Our schedule alternates intensive coding workshops with collaborative outdoor exercises to maintain energy levels and focus.</p>
+                    </div>
+                    <div class="interactive-timeline">
+                        <div class="timeline-step">
+                            <div class="time-label">8:30 AM - 9:00 AM</div>
+                            <div class="timeline-content">
+                                <h4>Morning Check-In &amp; Brain Gym</h4>
+                                <p>Campers arrive, settle in, and participate in logic warmups, riddles, and collaborative icebreaker games.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="time-label">9:00 AM - 11:30 AM</div>
+                            <div class="timeline-content">
+                                <h4>Coding Lab (Core Coding/Robotics)</h4>
+                                <p>Guided development session focused on programming theory, system design, and hardware troubleshooting.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="time-label">11:30 AM - 12:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Catered Lunch &amp; Outdoor Play</h4>
+                                <p>Healthy balanced lunch followed by outdoor sports, obstacle courses, or physical water balloon physics challenges.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="time-label">12:30 PM - 2:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Tinkering Labs &amp; Collaborative Projects</h4>
+                                <p>Hands-on engineering, 3D printing assemblies, chemistry experiments, and team hackathons.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="time-label">2:30 PM - 3:30 PM</div>
+                            <div class="timeline-content">
+                                <h4>Presentation &amp; Wrap-Up</h4>
+                                <p>Campers showcase their daily achievements in a group presentation, fostering public speaking confidence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Why STEM? Impact Numbers -->
+            <section class="impact-section section-h2-5">
+                <div class="container grid grid-4">
+                    <div class="counter-card text-center">
+                        <div class="counter-icon text-pink"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="counter-num">12,000+</div>
+                        <h4>Graduated Campers</h4>
+                        <p>Successful registrations and camp certificates awarded since 2018.</p>
+                    </div>
+                    <div class="counter-card text-center">
+                        <div class="counter-icon text-blue"><i class="fa-solid fa-code-branch"></i></div>
+                        <div class="counter-num">450k+</div>
+                        <h4>Lines of Python Written</h4>
+                        <p>Total code syntax written and debugged inside our systems.</p>
+                    </div>
+                    <div class="counter-card text-center">
+                        <div class="counter-icon text-green"><i class="fa-solid fa-shield"></i></div>
+                        <div class="counter-num">100%</div>
+                        <h4>Background-Checked Staff</h4>
+                        <p>Strict safety checks ensure top academic instructors and counselors.</p>
+                    </div>
+                    <div class="counter-card text-center">
+                        <div class="counter-icon text-yellow"><i class="fa-solid fa-handshake"></i></div>
+                        <div class="counter-num">42</div>
+                        <h4>Partner Schools</h4>
+                        <p>Collaborating school districts for year-round curriculum development.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Early Bird discount and Calculator -->
+            <section class="earlybird-section section-h2-6 bg-purple text-white">
+                <div class="container grid grid-2-equal">
+                    <div class="earlybird-text">
+                        <span class="badge-discount">Save 15% Today</span>
+                        <h2>Early Bird Registration Open!</h2>
+                        <p>Secure your slots today. Early registration ensures priority choosing for coding tracks, specific summer weeks, and customized camp counselor requests.</p>
+                        <ul class="earlybird-bullets">
+                            <li><i class="fa-solid fa-circle-check"></i> Free take-home robotics starter kit ($60 value)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Cancel or reschedule with zero fee up to 14 days prior</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Installment payment options available</li>
+                        </ul>
+                    </div>
+                    <div class="earlybird-calculator glass-card text-dark">
+                        <h3>Interactive Quote Estimator</h3>
+                        <p class="text-muted">Estimate total camp fee with early-bird discounts applied.</p>
+                        <div class="form-group mt-3">
+                            <label for="calc-camps">Number of Camps/Weeks</label>
+                            <input type="number" id="calc-camps" class="form-input" min="1" max="6" value="1">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="calc-siblings">Number of Siblings Registered</label>
+                            <input type="number" id="calc-siblings" class="form-input" min="0" max="4" value="0">
+                        </div>
+                        <div class="price-output-box mt-3 text-center">
+                            <div class="output-label">Estimated Total Fee</div>
+                            <div class="output-value text-purple" id="calc-total">$425</div>
+                            <span class="text-green text-sm" id="calc-savings">You saved $75 (Early Bird)</span>
+                        </div>
+                        <a href="register.html" class="btn btn-primary w-100 mt-3 text-center">Book Camp Slot Now</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 3: ABOUT                                  -->
+        <!-- ============================================== -->
+        <div id="view-about" class="spa-view">
+            <!-- Section 1: Mission & Vision Hero -->
+            <section class="about-hero section-ab-1">
+                <div class="container text-center">
+                    <span class="subtitle text-purple">Our Story &amp; Purpose</span>
+                    <h1 class="hero-title">Pioneering Bright Minds for the Digital Frontier</h1>
+                    <p class="hero-desc max-width-700">Founded in 2018, STEMCamp was built on the core belief that computer science is not a passive topic. It is a creative medium that allows kids to build original ideas, test concepts, and gain logical resilience.</p>
+                    <div class="about-hero-stats grid grid-3 mt-4">
+                        <div class="about-stat-box">
+                            <div class="stat-icon text-pink"><i class="fa-solid fa-heart"></i></div>
+                            <h3>8+ Years</h3>
+                            <p>Inspiring young minds with hands-on labs.</p>
+                        </div>
+                        <div class="about-stat-box">
+                            <div class="stat-icon text-blue"><i class="fa-solid fa-code"></i></div>
+                            <h3>100% Original</h3>
+                            <p>Curriculum designed by academic scientists.</p>
+                        </div>
+                        <div class="about-stat-box">
+                            <div class="stat-icon text-green"><i class="fa-solid fa-face-smile"></i></div>
+                            <h3>98.7% Ratio</h3>
+                            <p>Parent safety approval score.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Leadership Team Bios -->
+            <section class="leadership-section section-ab-2 bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-blue">Camp Founders &amp; Directors</span>
+                        <h2 class="section-title">The leadership team guiding summer camp operations</h2>
+                        <p class="section-desc">Meet the researchers and educators committed to providing secure, inspiring camp learning environments.</p>
+                    </div>
+                    <div class="grid grid-3">
+                        <!-- Leader 1 -->
+                        <div class="leader-card">
+                            <img src="./s1.jpg" alt="Dr. Alistair Cross" class="leader-img">
+                            <div class="leader-info">
+                                <h3>Dr. Alistair Cross</h3>
+                                <span class="leader-title">Founder &amp; Managing Director</span>
+                                <p>Former researcher at MIT Learning Lab. Alistair dedicated his academic career to understanding how visual blocks help children build algorithmic frameworks early.</p>
+                            </div>
+                        </div>
+                        <!-- Leader 2 -->
+                        <div class="leader-card">
+                            <img src="./s9.jpg" alt="Dr. Melissa Vance" class="leader-img">
+                            <div class="leader-info">
+                                <h3>Dr. Melissa Vance</h3>
+                                <span class="leader-title">Co-Founder &amp; Curriculum Director</span>
+                                <p>Ph.D. in Child Development from Stanford. Melissa coordinates all course syllabi and counselor development guidelines to maintain our positive support standard.</p>
+                            </div>
+                        </div>
+                        <!-- Leader 3 -->
+                        <div class="leader-card">
+                            <img src="./s3.jpg" alt="Mr. Jordan Kross" class="leader-img">
+                            <div class="leader-info">
+                                <h3>Mr. Jordan Kross</h3>
+                                <span class="leader-title">Operations &amp; Security Director</span>
+                                <p>Over 12 years managing youth camp safety and emergency response. Jordan leads all background verification processes and facility access security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Our Learning Philosophy (3 Pillars) -->
+            <section class="philosophy-section section-ab-3">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-green">How We Teach</span>
+                        <h2 class="section-title">The 3 Pillars of STEMCamp Learning Philosophy</h2>
+                        <p class="section-desc">Traditional lectures fail kids. We replace listening with building, tinkering, and testing.</p>
+                    </div>
+                    <div class="grid grid-3">
+                        <div class="philosophy-card text-center">
+                            <div class="philosophy-icon bg-pink-light text-pink"><i class="fa-solid fa-compass"></i></div>
+                            <h3>1. Scaffolded Challenge</h3>
+                            <p>We divide complex engineering principles into bite-sized milestones. Campers experience steady, rewarding victories that build coding resilience.</p>
+                        </div>
+                        <div class="philosophy-card text-center">
+                            <div class="philosophy-icon bg-blue-light text-blue"><i class="fa-solid fa-hand-holding-hand"></i></div>
+                            <h3>2. Peer Mentorship</h3>
+                            <p>Logic is collaborative. Campers work in design pairs, sharing ideas, brainstorming algorithms, and debugging scripts together.</p>
+                        </div>
+                        <div class="philosophy-card text-center">
+                            <div class="philosophy-icon bg-green-light text-green"><i class="fa-solid fa-puzzle-piece"></i></div>
+                            <h3>3. Safe Failure</h3>
+                            <p>In coding, errors are just information! We teach campers to view syntax errors and mechanical issues as puzzles to solve, not blocks to stop at.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Campus Facilities Security Tour -->
+            <section class="facility-section section-ab-4 bg-alt">
+                <div class="container grid grid-2-equal">
+                    <div class="facility-content">
+                        <span class="subtitle text-yellow">Smart Campus Infrastructure</span>
+                        <h2 class="section-title">High-Security Labs Fitted with Tomorrow's Tech</h2>
+                        <p class="section-desc">Our physical spaces are designed specifically for creative technology development, safety compliance, and active recreation.</p>
+                        <ul class="facility-list">
+                            <li><i class="fa-solid fa-server text-purple"></i> <strong>A-Grade Tech Labs:</strong> Fitted with individual dual-screen workstations and high-speed local intranet servers.</li>
+                            <li><i class="fa-solid fa-microchip text-purple"></i> <strong>Engineering Stations:</strong> Soldering tools, 3D printers, and Arduino prototyping units.</li>
+                            <li><i class="fa-solid fa-tree text-purple"></i> <strong>Fenced Activity Grounds:</strong> Fenced green zones for camper lunches and physical science experiments.</li>
+                        </ul>
+                    </div>
+                    <div class="facility-visual">
+                        <img src="./s11.jpg" alt="Smart Lab Facility" class="img-responsive rounded-card box-shadow-lg">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Partnerships & Accreditation -->
+            <section class="partners-section section-ab-5">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <span class="subtitle text-purple">Academic Validation</span>
+                        <h2 class="section-title">Accredited Curriculums &amp; Industry Partnerships</h2>
+                        <p class="section-desc">We collaborate with top academic bodies and technology providers to ensure our educational standards remain premium.</p>
+                    </div>
+                    <div class="partners-grid text-center mt-3">
+                        <div class="partner-logo"><i class="fa-solid fa-cubes"></i> <span>Scratch Alliance</span></div>
+                        <div class="partner-logo"><i class="fa-solid fa-code"></i> <span>Python Educator Guild</span></div>
+                        <div class="partner-logo"><i class="fa-solid fa-circle-nodes"></i> <span>Arduino Certified Partner</span></div>
+                        <div class="partner-logo"><i class="fa-solid fa-shield-halved"></i> <span>ACA Compliance Accredited</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Historical Milestones Timeline -->
+            <section class="milestones-section section-ab-6 bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-pink">Our Journey</span>
+                        <h2 class="section-title">Milestones from Founders' Vision to Multi-Campus Scale</h2>
+                        <p class="section-desc">How we grew to become one of the region's most trusted STEM programs.</p>
+                    </div>
+                    <div class="timeline-classic">
+                        <div class="classic-node">
+                            <div class="node-year">2018</div>
+                            <div class="node-content">
+                                <h4>First Pilot Summer Term</h4>
+                                <p>Launched with 40 campers in a rented classroom, testing Scratch visual frameworks with customized motor kits.</p>
+                            </div>
+                        </div>
+                        <div class="classic-node">
+                            <div class="node-year">2020</div>
+                            <div class="node-content">
+                                <h4>First Smart Facility Open</h4>
+                                <p>Moved to our custom high-security building with dedicated tech and chemistry labs.</p>
+                            </div>
+                        </div>
+                        <div class="classic-node">
+                            <div class="node-year">2023</div>
+                            <div class="node-content">
+                                <h4>Medical-Grade Portal Integration</h4>
+                                <p>Introduced our parent dashboard with digital waiver signing and secure weekly photo uploads.</p>
+                            </div>
+                        </div>
+                        <div class="classic-node">
+                            <div class="node-year">2026</div>
+                            <div class="node-content">
+                                <h4>12,000+ Campers Graduated</h4>
+                                <p>Recognized as a leading STEM organization in regional curriculum testing and safety operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 4: SERVICES                               -->
+        <!-- ============================================== -->
+        <div id="view-services" class="spa-view">
+            <!-- Section 1: Summer Camps Catalog -->
+            <section class="services-hero section-sv-1">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <span class="subtitle text-blue">Weekly Summer Programs</span>
+                        <h2 class="section-title">Summer Camps: Program Pathways Catalog</h2>
+                        <p class="section-desc">Choose from our core 1-week summer camps, designed for specific age segments and skill sets.</p>
+                    </div>
+                    
+                    <!-- Filters inside catalog -->
+                    <div class="text-center catalog-filters mb-4">
+                        <button class="btn btn-filter active" data-filter="all">All Camps</button>
+                        <button class="btn btn-filter" data-filter="coding">Coding &amp; Games</button>
+                        <button class="btn btn-filter" data-filter="robotics">Robotics &amp; Engineering</button>
+                        <button class="btn btn-filter" data-filter="science">Applied Science</button>
+                    </div>
+
+                    <div class="grid grid-3" id="catalog-grid">
+                        <!-- Camp Item 1 -->
+                        <div class="camp-catalog-card" data-category="coding">
+                            <div class="catalog-badge">Ages 7-10</div>
+                            <img src="./s12.jpg" alt="Scratch Game Design" class="camp-cat-img">
+                            <div class="camp-cat-info">
+                                <h3>Scratch Game Design Foundations</h3>
+                                <p>Learn game logic, variables, and sprite physics. Campers build 4 full games they can share and play at home.</p>
+                                <div class="camp-meta">
+                                    <span><i class="fa-solid fa-calendar"></i> June 15-19</span>
+                                    <span><i class="fa-solid fa-chair text-red"></i> 4 Seats Left</span>
+                                </div>
+                                <div class="camp-footer-price">
+                                    <span class="price-val">$390</span>
+                                    <a href="register.html" class="btn btn-secondary btn-sm">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Camp Item 2 -->
+                        <div class="camp-catalog-card" data-category="robotics">
+                            <div class="catalog-badge">Ages 8-11</div>
+                            <img src="./s13.jpg" alt="LEGO Engineering" class="camp-cat-img">
+                            <div class="camp-cat-info">
+                                <h3>LEGO SPIKE Prime Robotics</h3>
+                                <p>Construct motorized robotic gears and write logic loops to help motors avoid obstacle course walls.</p>
+                                <div class="camp-meta">
+                                    <span><i class="fa-solid fa-calendar"></i> June 22-26</span>
+                                    <span><i class="fa-solid fa-chair text-green"></i> Available</span>
+                                </div>
+                                <div class="camp-footer-price">
+                                    <span class="price-val">$425</span>
+                                    <a href="register.html" class="btn btn-secondary btn-sm">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Camp Item 3 -->
+                        <div class="camp-catalog-card" data-category="coding">
+                            <div class="catalog-badge">Ages 11-15</div>
+                            <img src="./s15.jpg" alt="Python Hackathon" class="camp-cat-img">
+                            <div class="camp-cat-info">
+                                <h3>Python Scripting &amp; AI Algorithms</h3>
+                                <p>Write actual text syntax. Seniors code calculators, chat networks, and program simple neural arrays.</p>
+                                <div class="camp-meta">
+                                    <span><i class="fa-solid fa-calendar"></i> June 29-July 3</span>
+                                    <span><i class="fa-solid fa-chair text-green"></i> Available</span>
+                                </div>
+                                <div class="camp-footer-price">
+                                    <span class="price-val">$450</span>
+                                    <a href="register.html" class="btn btn-secondary btn-sm">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Camp Item 4 -->
+                        <div class="camp-catalog-card" data-category="robotics">
+                            <div class="catalog-badge">Ages 12-15</div>
+                            <img src="./s16.jpg" alt="Arduino Engineering" class="camp-cat-img">
+                            <div class="camp-cat-info">
+                                <h3>Arduino Circuits &amp; C++ Microprocessors</h3>
+                                <p>Solder components, wire sensors, and write C++ routines. Campers take home their final microprocessor board.</p>
+                                <div class="camp-meta">
+                                    <span><i class="fa-solid fa-calendar"></i> July 6-10</span>
+                                    <span><i class="fa-solid fa-chair text-red"></i> 2 Seats Left</span>
+                                </div>
+                                <div class="camp-footer-price">
+                                    <span class="price-val">$480</span>
+                                    <a href="register.html" class="btn btn-secondary btn-sm">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Camp Item 5 -->
+                        <div class="camp-catalog-card" data-category="science">
+                            <div class="catalog-badge">Ages 6-9</div>
+                            <img src="./s6.jpg" alt="Tinkering Lab junior" class="camp-cat-img">
+                            <div class="camp-cat-info">
+                                <h3>Solar Racers &amp; Junior Tinkering</h3>
+                                <p>Learn solar power, kinetic force, and wind energy. Kids assemble small cars that run on sunlight.</p>
+                                <div class="camp-meta">
+                                    <span><i class="fa-solid fa-calendar"></i> July 13-17</span>
+                                    <span><i class="fa-solid fa-chair text-green"></i> Available</span>
+                                </div>
+                                <div class="camp-footer-price">
+                                    <span class="price-val">$380</span>
+                                    <a href="register.html" class="btn btn-secondary btn-sm">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Camp Item 6 -->
+                        <div class="camp-catalog-card" data-category="science">
+                            <div class="catalog-badge">Ages 9-12</div>
+                            <img src="./s8.jpg" alt="Chemistry lab science" class="camp-cat-img">
+                            <div class="camp-cat-info">
+                                <h3>Experimental Chemistry &amp; Rocket Physics</h3>
+                                <p>Run safe experiments with polymers, thermal reactions, and rocket trajectories. Includes take-home kits.</p>
+                                <div class="camp-meta">
+                                    <span><i class="fa-solid fa-calendar"></i> July 20-24</span>
+                                    <span><i class="fa-solid fa-chair text-green"></i> Available</span>
+                                </div>
+                                <div class="camp-footer-price">
+                                    <span class="price-val">$410</span>
+                                    <a href="register.html" class="btn btn-secondary btn-sm">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: School-Year Programs -->
+            <section class="schoolyear-section section-sv-2 bg-alt">
+                <div class="container grid grid-2-equal">
+                    <div class="schoolyear-visual">
+                        <div class="grid grid-2">
+                            <div class="mini-card bg-pink-light">
+                                <h4>After-School Clubs</h4>
+                                <p>Weekly 90-minute coding support sessions held on Tuesdays &amp; Thursdays.</p>
+                            </div>
+                            <div class="mini-card bg-blue-light">
+                                <h4>Coding Mentors</h4>
+                                <p>Help students build high school CS portfolios and pass AP computer tests.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schoolyear-content">
+                        <span class="subtitle text-purple">Year-Round Learning</span>
+                        <h2 class="section-title">After-School STEM Clubs &amp; Tutoring</h2>
+                        <p class="section-desc">Our mission doesn't stop when summer ends. We offer school-year coding clubs and private tutors to support your child's academic growth and prepare them for computer science credentials.</p>
+                        <button class="btn btn-secondary mt-3" data-target="contact">Inquire for School Term</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Weekend Workshops -->
+            <section class="weekend-section section-sv-3">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <span class="subtitle text-green">Short term learning sessions</span>
+                        <h2 class="section-title">Weekend STEM Jams &amp; Workshops</h2>
+                        <p class="section-desc">Short, 3-hour weekend sessions to introduce kids to specific technologies and tools.</p>
+                    </div>
+                    <div class="grid grid-3 mt-3">
+                        <div class="workshop-box border-pink">
+                            <span class="date-badge bg-pink text-white">Sat, June 20</span>
+                            <h3>Minecraft Modding Jam</h3>
+                            <p>Write simple loops to build automated towers and construct custom maps in Minecraft Education Edition.</p>
+                            <span class="w-price">$55</span>
+                        </div>
+                        <div class="workshop-box border-blue">
+                            <span class="date-badge bg-blue text-white">Sat, July 11</span>
+                            <h3>Roblox Game Scripting</h3>
+                            <p>Learn script properties in Lua. Kids program teleporters, trapdoors, and high-score systems.</p>
+                            <span class="w-price">$60</span>
+                        </div>
+                        <div class="workshop-box border-green">
+                            <span class="date-badge bg-green text-white">Sat, July 25</span>
+                            <h3>3D Print &amp; Modeling Lab</h3>
+                            <p>Learn CAD, design a customized action figure, and print it using high-grade PLA printer units.</p>
+                            <span class="w-price">$65</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Birthday Parties -->
+            <section class="parties-section section-sv-4 bg-alt">
+                <div class="container grid grid-2-equal">
+                    <div class="parties-content">
+                        <span class="subtitle text-yellow">Celebrate with STEM</span>
+                        <h2 class="section-title">Host a Customized STEM &amp; Coding Birthday Party!</h2>
+                        <p class="section-desc">Give your child an unforgettable birthday. We host fully structured 2.5-hour events at our secure campus facility, complete with custom science labs or coding tournaments run by certified instructors.</p>
+                        <div class="themes-row">
+                            <span class="theme-tag"><i class="fa-solid fa-gamepad"></i> Roblox Mod Party</span>
+                            <span class="theme-tag"><i class="fa-solid fa-flask"></i> Slime &amp; Chemical Fizz Party</span>
+                            <span class="theme-tag"><i class="fa-solid fa-robot"></i> Robot Battle Arena Party</span>
+                        </div>
+                        <button class="btn btn-primary mt-3" data-target="contact">Book Party Date</button>
+                    </div>
+                    <div class="parties-visual">
+                        <div class="party-card-visual glass-card text-center">
+                            <div class="party-icon"><i class="fa-solid fa-cake-candles animate-bounce"></i></div>
+                            <h3>Birthday Package Includes:</h3>
+                            <ul class="party-details-list">
+                                <li>Up to 15 children</li>
+                                <li>Personal certified lab instructor</li>
+                                <li>All STEM parts, gears, and lab coats provided</li>
+                                <li>Custom invitations &amp; cupcakes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Private Tutoring Packages -->
+            <section class="tutoring-section section-sv-5">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <span class="subtitle text-purple">1-on-1 Academic Support</span>
+                        <h2 class="section-title">Private Coding Mentorship Packages</h2>
+                        <p class="section-desc">Personalized, face-to-face coding guidance from Stanford, Berkeley, or MIT computer majors.</p>
+                    </div>
+                    <div class="grid grid-3 mt-3">
+                        <div class="pricing-card text-center">
+                            <h4>Starter Path</h4>
+                            <div class="price-circle"><span class="price-val">$180</span>/mo</div>
+                            <ul class="pricing-bullets">
+                                <li>2 Tutoring Sessions (60m each)</li>
+                                <li>1-on-1 Debugging Slack access</li>
+                                <li>Scratch &amp; Python curriculum</li>
+                                <li>Progress report dashboard updates</li>
+                            </ul>
+                            <button class="btn btn-secondary w-100 mt-3" data-target="contact">Inquire Starter</button>
+                        </div>
+                        <div class="pricing-card active text-center">
+                            <span class="badge-popular">Best Choice</span>
+                            <h4>Accelerator Path</h4>
+                            <div class="price-circle"><span class="price-val">$320</span>/mo</div>
+                            <ul class="pricing-bullets">
+                                <li>4 Tutoring Sessions (60m each)</li>
+                                <li>24/7 priority debugger channel</li>
+                                <li>Arduino circuit boards included</li>
+                                <li>Interactive portfolio development</li>
+                            </ul>
+                            <button class="btn btn-primary w-100 mt-3" data-target="contact">Inquire Accelerator</button>
+                        </div>
+                        <div class="pricing-card text-center">
+                            <h4>Advanced CS Path</h4>
+                            <div class="price-circle"><span class="price-val">$580</span>/mo</div>
+                            <ul class="pricing-bullets">
+                                <li>8 Tutoring Sessions (60m each)</li>
+                                <li>College application CS review</li>
+                                <li>Unity game project publishing</li>
+                                <li>24/7 director support line</li>
+                            </ul>
+                            <button class="btn btn-secondary w-100 mt-3" data-target="contact">Inquire Advanced</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: School Groups & Field Trips -->
+            <section class="schoolgroups-section section-sv-6 bg-alt">
+                <div class="container grid grid-2-equal">
+                    <div class="sg-visual">
+                        <img src="./s7.jpg" alt="School Group Tinkering" class="img-responsive rounded-card box-shadow-lg">
+                    </div>
+                    <div class="sg-content">
+                        <span class="subtitle text-pink">Educational Collaborations</span>
+                        <h2 class="section-title">Field Trips &amp; District Bookings</h2>
+                        <p class="section-desc">We offer custom STEM field trips for public and private school districts. Bring your classroom (up to 45 students) for a 4-hour hands-on robotics tournament and chemical lab session run by certified teachers.</p>
+                        <ul class="sg-checklist">
+                            <li><i class="fa-solid fa-circle-check text-pink"></i> Meets regional NGSS science curriculum targets</li>
+                            <li><i class="fa-solid fa-circle-check text-pink"></i> Fully insured facility up to $5M</li>
+                            <li><i class="fa-solid fa-circle-check text-pink"></i> All teachers are background check verified</li>
+                        </ul>
+                        <button class="btn btn-secondary mt-3" data-target="contact">Download School Catalog</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 5: CONTACT                                -->
+        <!-- ============================================== -->
+        <div id="view-contact" class="spa-view">
+            <!-- Section 1: Contact Map Hero -->
+            <section class="contact-hero section-ct-1">
+                <div class="container text-center">
+                    <span class="subtitle text-purple">Reach out to us</span>
+                    <h1 class="hero-title">We are here to help your family's STEM journey</h1>
+                    <p class="hero-desc max-width-700">Have questions about registration details, medical waivers, class schedules, or specific coding tracks? Our support staff answers emails within 2 hours during office hours.</p>
+                    
+                    <!-- Contact Quick Cards -->
+                    <div class="grid grid-3 mt-4">
+                        <div class="contact-mini-card">
+                            <div class="c-icon text-pink"><i class="fa-solid fa-phone"></i></div>
+                            <h3>Phone Support</h3>
+                            <p class="text-purple">+1 (800) 555-STEM</p>
+                            <p class="text-muted text-sm">Mon-Fri: 8:00 AM - 5:00 PM</p>
+                        </div>
+                        <div class="contact-mini-card">
+                            <div class="c-icon text-blue"><i class="fa-solid fa-envelope"></i></div>
+                            <h3>Email Desk</h3>
+                            <p class="text-purple">support@stemcamp.org</p>
+                            <p class="text-muted text-sm">We respond in under 2 hours.</p>
+                        </div>
+                        <div class="contact-mini-card">
+                            <div class="c-icon text-green"><i class="fa-solid fa-location-dot"></i></div>
+                            <h3>Smart Campus</h3>
+                            <p class="text-purple">512 Innovation Dr, Suite A</p>
+                            <p class="text-muted text-sm">Fenced facility with guest access.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Inquiries & Registration Help Form -->
+            <section class="contact-form-section section-ct-2 bg-alt">
+                <div class="container grid grid-2-equal">
+                    <div class="c-form-text">
+                        <span class="subtitle text-blue">Parent Helpdesk</span>
+                        <h2>Send us an Inquiry</h2>
+                        <p>Complete the form, and our registrar will contact you with specific curriculum guides, seat availability, and pricing quotes tailored to your children's details.</p>
+                        <div class="support-avatar-row mt-3">
+                            <img src="./s2.jpg" alt="Registrar Sarah" class="support-avatar">
+                            <div>
+                                <h4>Sarah Jenkins</h4>
+                                <p class="text-muted text-sm">Lead Registrar (10+ Years Helping Parents)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-form-box glass-card">
+                        <h3>Registration Inquiry Form</h3>
+                        <form id="contact-inquiry-form" class="mt-3">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="p-name">Parent Name</label>
+                                    <input type="text" id="p-name" class="form-input" placeholder="Amanda Jenkins" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="p-email">Email Address</label>
+                                    <input type="email" id="p-email" class="form-input" placeholder="amanda@mail.com" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c-age">Camper Age</label>
+                                    <input type="number" id="c-age" class="form-input" min="5" max="17" placeholder="9">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-subject">Primary Interest</label>
+                                    <select id="c-subject" class="form-select">
+                                        <option value="coding">Coding &amp; Games</option>
+                                        <option value="robotics">Robotics &amp; Hardware</option>
+                                        <option value="science">Applied Science</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-message">How can we assist you?</label>
+                                <textarea id="c-message" class="form-textarea" rows="4" placeholder="My child is a beginner programmer, can she register..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mt-2">Send Message</button>
+                        </form>
+                        <div id="form-success" class="alert alert-success mt-2 hidden">
+                            <i class="fa-solid fa-circle-check"></i> Thank you! Our Registrar will contact you shortly.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Campus Directory -->
+            <section class="campus-directory section-ct-3">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <span class="subtitle text-green">Emergency &amp; Direct Numbers</span>
+                        <h2 class="section-title">Direct Campus Hotline Directory</h2>
+                        <p class="section-desc">Connect directly to our specific campus sections during active camp hours.</p>
+                    </div>
+                    <div class="grid grid-3 mt-3">
+                        <div class="directory-card">
+                            <h4>Medical Room &amp; Nurse</h4>
+                            <p class="text-purple"><i class="fa-solid fa-heart-pulse"></i> Ext: 402</p>
+                            <p class="text-muted">Reach our on-site pediatrician nurse directly for waiver updates or medication guidelines.</p>
+                        </div>
+                        <div class="directory-card">
+                            <h4>Registrar &amp; Billing</h4>
+                            <p class="text-purple"><i class="fa-solid fa-credit-card"></i> Ext: 105</p>
+                            <p class="text-muted">Billing changes, cancellations, invoices, or certificate reprint requests.</p>
+                        </div>
+                        <div class="directory-card">
+                            <h4>Counselor Central Desk</h4>
+                            <p class="text-purple"><i class="fa-solid fa-chalkboard-user"></i> Ext: 201</p>
+                            <p class="text-muted">Urgent check-in coordination, early pick-up alerts, or camper messages.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Parent Support Messenger Simulator -->
+            <section class="contact-chat section-ct-4 bg-alt">
+                <div class="container grid grid-2-equal">
+                    <div class="chat-visual">
+                        <!-- Simulated Interactive Chat Widget -->
+                        <div class="chat-simulator-box glass-card">
+                            <div class="chat-sim-header bg-purple text-white">
+                                <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+                                <div>
+                                    <h4>STEMy Bot</h4>
+                                    <span class="status-online"><span class="dot"></span> Online</span>
+                                </div>
+                            </div>
+                            <div class="chat-sim-messages" id="chat-messages-container">
+                                <div class="message msg-bot">
+                                    <p>Hello! I am STEMy, your camp assistant. Are you looking to register a child, sign waivers, or explore curriculum pathways?</p>
+                                    <span class="msg-time">6:47 PM</span>
+                                </div>
+                            </div>
+                            <div class="chat-sim-input-row">
+                                <input type="text" id="chat-input" class="form-input" placeholder="Type 'waivers' or 'coding'...">
+                                <button class="btn btn-primary btn-icon" id="btn-send-chat"><i class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-text-info">
+                        <span class="subtitle text-yellow">Instant Virtual Assistant</span>
+                        <h2>Interactive Help Bot</h2>
+                        <p>Need quick answers? Try our chatbot simulator. It can explain registration steps, safety compliance rules, waiver status checks, and curriculum segments instantly.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Camp Tour Booking Calendar -->
+            <section class="tour-booking section-ct-5">
+                <div class="container grid grid-2-equal">
+                    <div class="tour-text">
+                        <span class="subtitle text-purple">Visit our Smart Campus</span>
+                        <h2>Book a Physical Campus Tour</h2>
+                        <p>We believe seeing is believing. Book a guided 20-minute tour of our smart tech labs, science classrooms, and outdoor play space. Meet lead counselors and inspect safety controls.</p>
+                        <div class="tour-requirements mt-3">
+                            <p><i class="fa-solid fa-circle-info text-purple"></i> Tours held every Tuesday and Thursday at 4:30 PM (after camper checkout).</p>
+                            <p><i class="fa-solid fa-circle-info text-purple"></i> Valid ID required for facility entrance registration.</p>
+                        </div>
+                    </div>
+                    <div class="tour-form glass-card">
+                        <h3>Select a Tour Slot</h3>
+                        <div class="form-group mt-3">
+                            <label for="tour-date">Target Date</label>
+                            <input type="date" id="tour-date" class="form-input" required>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="tour-time">Available Time</label>
+                            <select id="tour-time" class="form-select">
+                                <option value="16:30">4:30 PM (Tues/Thurs)</option>
+                                <option value="17:00">5:00 PM (Tues/Thurs)</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="tour-visitors">Number of Visitors</label>
+                            <input type="number" id="tour-visitors" class="form-input" min="1" max="5" value="2">
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3" id="btn-book-tour">Submit Tour Booking</button>
+                        <div id="tour-success" class="alert alert-success mt-2 hidden">
+                            <i class="fa-solid fa-circle-check"></i> Tour booked successfully! Check your email for details.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Directions & Hours -->
+            <section class="directions-section section-ct-6 bg-alt">
+                <div class="container grid grid-2-equal">
+                    <div class="directions-info">
+                        <span class="subtitle text-pink">Smart Campus Operations</span>
+                        <h2>Directions &amp; Administration Hours</h2>
+                        <p>Our facility is situated close to the central technology park, with convenient parent drop-off lanes and ample guest parking slots.</p>
+                        <table class="hours-table mt-3">
+                            <tr>
+                                <td><strong>Monday - Friday:</strong></td>
+                                <td>8:00 AM - 5:30 PM (Active Camp Hours)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saturday:</strong></td>
+                                <td>9:00 AM - 1:00 PM (Weekend Workshops)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sunday:</strong></td>
+                                <td>Closed (Facility Maintenance)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="directions-visual">
+                        <!-- Real-time Leaflet Map -->
+                        <div id="contact-map" class="rounded-card box-shadow-lg" style="height: 320px; z-index: 10;"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 6: USER DASHBOARD (PARENT PORTAL)         -->
+        <!-- ============================================== -->
+        <div id="view-user-dashboard" class="spa-view dashboard-view">
+            <!-- Left Sidebar -->
+            <aside class="dashboard-sidebar">
+                <a href="#" class="sidebar-logo" data-target="home-1">
+                    <div class="logo-icon"><i class="fa-solid fa-cubes-stacked text-white"></i></div>
+                    <div class="logo-text text-white"><span class="logo-highlight">STEM</span>Camp</div>
+                </a>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#" class="sidebar-link active" data-panel="u-overview"><i class="fa-solid fa-columns"></i> Overview</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="u-register"><i class="fa-solid fa-child-reaching"></i> Register Child</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="u-waivers"><i class="fa-solid fa-file-signature"></i> Medical Waivers <span class="badge-pending" id="badge-waiver-count">1</span></a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="u-schedule"><i class="fa-solid fa-calendar-days"></i> Daily Schedules</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="u-gallery"><i class="fa-solid fa-images"></i> Photo Galleries</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="u-support"><i class="fa-solid fa-headset"></i> Support &amp; Chat</a></li>
+                        <li class="logout-item"><a href="#" class="sidebar-link text-red logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Right Content Area -->
+            <div class="dashboard-content">
+                <!-- Top Header Bar -->
+                <header class="dashboard-topbar">
+                    <div class="topbar-left">
+                        <button class="dashboard-sidebar-toggle" aria-label="Toggle Dashboard Sidebar">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <h2 id="user-panel-title">Parent Overview</h2>
+                    </div>
+                    <div class="topbar-right">
+                        <!-- Toggles inside Dashboard Content Area -->
+                        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                        <button class="dir-toggle" aria-label="Toggle LTR/RTL Text Direction"><span>RTL</span></button>
+                        
+                        <div class="topbar-notification"><i class="fa-solid fa-bell"></i><span class="notif-dot"></span></div>
+                        <div class="topbar-profile">
+                            <img src="./s15.jpg" alt="Parent Profile" class="profile-img">
+                            <span class="profile-name">Amanda J.</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="dashboard-panel-container">
+                    <!-- PANEL 1: USER OVERVIEW -->
+                    <div class="dashboard-panel active" id="panel-u-overview">
+                        <div class="grid grid-3 mb-4">
+                            <div class="stat-card border-left-purple">
+                                <div class="stat-card-body">
+                                    <div class="card-details">
+                                        <span class="text-muted text-uppercase text-sm">Active Campers</span>
+                                        <h3>1 Child (Sophia)</h3>
+                                    </div>
+                                    <div class="card-icon text-purple"><i class="fa-solid fa-child"></i></div>
+                                </div>
+                            </div>
+                            <div class="stat-card border-left-green">
+                                <div class="stat-card-body">
+                                    <div class="card-details">
+                                        <span class="text-muted text-uppercase text-sm">Waiver Status</span>
+                                        <h3 id="overview-waiver-status" class="text-red">1 Pending Action</h3>
+                                    </div>
+                                    <div class="card-icon text-red"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+                                </div>
+                            </div>
+                            <div class="stat-card border-left-blue">
+                                <div class="stat-card-body">
+                                    <div class="card-details">
+                                        <span class="text-muted text-uppercase text-sm">Next Session</span>
+                                        <h3>June 15 (9:00 AM)</h3>
+                                    </div>
+                                    <div class="card-icon text-blue"><i class="fa-solid fa-clock"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Section & Child Profile -->
+                        <div class="grid grid-2-equal">
+                            <div class="glass-card">
+                                <h3>Registered Child: Sophia Jenkins</h3>
+                                <p class="text-muted">Age: 11 | Skill Group: Scratch Game Design Foundations</p>
+                                <div class="progress-section mt-3">
+                                    <h4>Weekly Curriculum Milestones Completion</h4>
+                                    <div class="progress-bar-row">
+                                        <span>Milestone 1: Variables &amp; Logic</span>
+                                        <span class="text-green">100%</span>
+                                    </div>
+                                    <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+                                    
+                                    <div class="progress-bar-row mt-2">
+                                        <span>Milestone 2: Sprite Physics Loops</span>
+                                        <span class="text-green">80%</span>
+                                    </div>
+                                    <div class="progress-track"><div class="progress-fill" style="width: 80%;"></div></div>
+                                </div>
+                            </div>
+                            <div class="glass-card">
+                                <h3>Camp Attendance Activity</h3>
+                                <!-- Simple SVG Chart for Visual Interest -->
+                                <div class="svg-chart-wrapper mt-2">
+                                    <svg viewBox="0 0 400 150" class="svg-chart">
+                                        <line x1="40" y1="120" x2="360" y2="120" stroke="#ccc" stroke-width="2"/>
+                                        <text x="40" y="140" fill="#666" font-size="12">Mon</text>
+                                        <text x="120" y="140" fill="#666" font-size="12">Tue</text>
+                                        <text x="200" y="140" fill="#666" font-size="12">Wed</text>
+                                        <text x="280" y="140" fill="#666" font-size="12">Thu</text>
+                                        <text x="360" y="140" fill="#666" font-size="12">Fri</text>
+                                        
+                                        <!-- Bar plots -->
+                                        <rect x="35" y="40" width="20" height="80" rx="3" fill="#ec4899" />
+                                        <rect x="115" y="20" width="20" height="100" rx="3" fill="#3b82f6" />
+                                        <rect x="195" y="30" width="20" height="90" rx="3" fill="#22c55e" />
+                                        <rect x="275" y="50" width="20" height="70" rx="3" fill="#eab308" />
+                                        <rect x="355" y="120" width="20" height="0" rx="3" fill="#a855f7" />
+                                    </svg>
+                                </div>
+                                <p class="text-muted text-center text-sm mt-1">Weekly coding minutes completed. (Target: 180 min/day)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 2: REGISTER CHILD -->
+                    <div class="dashboard-panel" id="panel-u-register">
+                        <div class="glass-card max-width-700">
+                            <h3>Register Another Child</h3>
+                            <p class="text-muted">Enter details below to submit a registration request. Camps fill up quickly!</p>
+                            <form id="child-reg-form" class="mt-3">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="r-child-name">Child Full Name</label>
+                                        <input type="text" id="r-child-name" class="form-input" placeholder="Daniel Jenkins" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="r-child-age">Age</label>
+                                        <input type="number" id="r-child-age" class="form-input" min="6" max="15" placeholder="8" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="r-child-grade">School Grade (Fall 2026)</label>
+                                        <input type="text" id="r-child-grade" class="form-input" placeholder="3rd Grade" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="r-child-camp">Select STEM Camp Pathway</label>
+                                        <select id="r-child-camp" class="form-select">
+                                            <option value="scratch">Scratch Game Design (Ages 7-10) - $390</option>
+                                            <option value="lego">LEGO SPIKE Prime Robotics (Ages 8-11) - $425</option>
+                                            <option value="python">Python &amp; AI Algorithms (Ages 11-15) - $450</option>
+                                            <option value="arduino">Arduino C++ Microcontrollers (Ages 12-15) - $480</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="r-allergies">Allergies / Special Medical Notes</label>
+                                    <input type="text" id="r-allergies" class="form-input" placeholder="Peanuts (Severe, epipen required)">
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Submit Camp Registration</button>
+                            </form>
+                            <div id="child-reg-success" class="alert alert-success mt-2 hidden">
+                                <i class="fa-solid fa-circle-check"></i> Registration submitted successfully! Pay balance via email invoice.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 3: MEDICAL WAIVERS -->
+                    <div class="dashboard-panel" id="panel-u-waivers">
+                        <div class="glass-card max-width-700">
+                            <h3>Emergency Medical Consent &amp; Liability Waiver</h3>
+                            <p class="text-muted">This form must be completed and electronically signed before camper attendance is authorized.</p>
+                            
+                            <div class="waiver-status-indicator mt-2 bg-red-light text-red p-2 rounded-card">
+                                <i class="fa-solid fa-circle-exclamation"></i> <strong>Waiver Pending for:</strong> Sophia Jenkins (Allergy: Peanuts)
+                            </div>
+                            
+                            <form id="waiver-form" class="mt-3">
+                                <div class="form-group">
+                                    <label><strong>1. Epipen / Prescription Consent</strong></label>
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="w-consent-med" required>
+                                        <label for="w-consent-med">I authorize STEMCamp medical director to store and administer epinephrine / prescriptions provided by parents in emergencies.</label>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label><strong>2. Emergency Medical Release</strong></label>
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="w-consent-release" required>
+                                        <label for="w-consent-release">In the event of medical emergency, I authorize camp directors to transport my child to the nearest regional medical center.</label>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label for="w-sign-name">Parent Digital Signature (Type Full Name)</label>
+                                    <input type="text" id="w-sign-name" class="form-input" placeholder="Amanda Jenkins" required>
+                                </div>
+                                
+                                <!-- Canvas Signature Pad -->
+                                <div class="form-group mt-2">
+                                    <label>Electronic Signature Pad (Draw with Mouse/Touch)</label>
+                                    <div class="signature-pad-wrapper">
+                                        <canvas id="signature-canvas" width="400" height="120"></canvas>
+                                        <button type="button" class="btn btn-secondary btn-sm mt-1" id="btn-clear-sig">Clear Signature</button>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary mt-3 w-100">Sign and Save Waivers</button>
+                            </form>
+                            <div id="waiver-success" class="alert alert-success mt-2 hidden">
+                                <i class="fa-solid fa-circle-check"></i> Waiver signed and stored securely in camp logs!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 4: DAILY SCHEDULES -->
+                    <div class="dashboard-panel" id="panel-u-schedule">
+                        <div class="glass-card">
+                            <h3>Sophia's Active Weekly Calendar</h3>
+                            <p class="text-muted">Track arrival/checkout hours and daily topics for the current week.</p>
+                            
+                            <div class="schedule-calendar-grid mt-3">
+                                <div class="day-slot">
+                                    <div class="day-header bg-pink text-white">Mon, June 15</div>
+                                    <div class="day-body">
+                                        <span class="time">9:00 AM</span>
+                                        <strong>Scratch Canvas Setup</strong>
+                                        <p>Setup visual block environment, import sprite files.</p>
+                                    </div>
+                                </div>
+                                <div class="day-slot">
+                                    <div class="day-header bg-blue text-white">Tue, June 16</div>
+                                    <div class="day-body">
+                                        <span class="time">9:00 AM</span>
+                                        <strong>Variable &amp; Condition Loops</strong>
+                                        <p>Program score counters and obstacle movement thresholds.</p>
+                                    </div>
+                                </div>
+                                <div class="day-slot">
+                                    <div class="day-header bg-green text-white">Wed, June 17</div>
+                                    <div class="day-body">
+                                        <span class="time">9:00 AM</span>
+                                        <strong>Physics Engine Collision</strong>
+                                        <p>Script bounce reactions and game boundaries.</p>
+                                    </div>
+                                </div>
+                                <div class="day-slot">
+                                    <div class="day-header bg-yellow text-white">Thu, June 18</div>
+                                    <div class="day-body">
+                                        <span class="time">9:00 AM</span>
+                                        <strong>Level Designing &amp; Assets</strong>
+                                        <p>Model custom level layouts, configure target triggers.</p>
+                                    </div>
+                                </div>
+                                <div class="day-slot">
+                                    <div class="day-header bg-purple text-white">Fri, June 19</div>
+                                    <div class="day-body">
+                                        <span class="time">9:00 AM</span>
+                                        <strong>Showcase Hackathon</strong>
+                                        <p>Present original games to parents and receive certificates.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 5: PHOTO GALLERIES -->
+                    <div class="dashboard-panel" id="panel-u-gallery">
+                        <div class="glass-card">
+                            <h3>Weekly Parent Photo Stream</h3>
+                            <p class="text-muted">This gallery is password protected and compliant with childhood safety regulations.</p>
+                            
+                            <!-- Password verification wrapper -->
+                            <div id="gallery-auth-box" class="mt-3">
+                                <div class="form-group max-width-400">
+                                    <label for="gallery-pw">Enter Security Password (Hint: 'camp2026')</label>
+                                    <input type="password" id="gallery-pw" class="form-input" placeholder="••••••••">
+                                    <button class="btn btn-primary mt-2" id="btn-verify-gallery">Unlock Photos</button>
+                                </div>
+                                <div id="gallery-error" class="alert alert-danger mt-2 hidden">
+                                    <i class="fa-solid fa-circle-xmark"></i> Incorrect security password!
+                                </div>
+                            </div>
+
+                            <!-- Photo stream container (shown on correct password) -->
+                            <div id="gallery-unlocked" class="hidden mt-3">
+                                <div class="grid grid-3">
+                                    <div class="gallery-photo-card">
+                                        <img src="./s16.jpg" alt="Campers in smart lab" class="gallery-inner-img">
+                                        <div class="p-caption">Sophia and team building Scratch game engine.</div>
+                                    </div>
+                                    <div class="gallery-photo-card">
+                                        <img src="./s6.jpg" alt="Robotics course testing" class="gallery-inner-img">
+                                        <div class="p-caption">Group testing the obstacle avoidance sensor configurations.</div>
+                                    </div>
+                                    <div class="gallery-photo-card">
+                                        <img src="./s11.jpg" alt="Physics experiment" class="gallery-inner-img">
+                                        <div class="p-caption">Analyzing water density trajectories during afternoon tinkers.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 6: SUPPORT & MESSAGES -->
+                    <div class="dashboard-panel" id="panel-u-support">
+                        <div class="grid grid-2-equal">
+                            <!-- Direct Chat Simulator with counselor -->
+                            <div class="glass-card">
+                                <h3>Direct Messenger to Counselor</h3>
+                                <p class="text-muted">Chat directly with Dr. Evelyn Thorne (Sophia's instructor).</p>
+                                <div class="dashboard-chat-box mt-3" id="parent-chat-messages">
+                                    <div class="message msg-other">
+                                        <strong>Dr. Evelyn Thorne:</strong>
+                                        <p>Sophia did a fantastic job with variable logic today! She solved the debugging challenges easily.</p>
+                                        <span class="msg-time">4:15 PM</span>
+                                    </div>
+                                </div>
+                                <div class="dashboard-chat-input-row mt-2">
+                                    <input type="text" id="parent-chat-input" class="form-input" placeholder="Type your response...">
+                                    <button class="btn btn-primary" id="btn-parent-send"><i class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                            <!-- Support Hotline Info -->
+                            <div class="glass-card">
+                                <h3>Support Hotline Directory</h3>
+                                <p class="text-muted">Contact camp administrators directly for immediate operational alerts.</p>
+                                <ul class="support-contact-list mt-3">
+                                    <li><i class="fa-solid fa-phone text-purple"></i> <strong>Registrar Ext:</strong> 105</li>
+                                    <li><i class="fa-solid fa-hospital text-purple"></i> <strong>Medical Director:</strong> Ext 402</li>
+                                    <li><i class="fa-solid fa-shield text-purple"></i> <strong>Security Guard Desk:</strong> Ext 500</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 7: ADMIN DASHBOARD                        -->
+        <!-- ============================================== -->
+        <div id="view-admin-dashboard" class="spa-view dashboard-view">
+            <!-- Left Sidebar -->
+            <aside class="dashboard-sidebar bg-admin-sidebar">
+                <a href="#" class="sidebar-logo" data-target="home-1">
+                    <div class="logo-icon"><i class="fa-solid fa-cubes-stacked text-white"></i></div>
+                    <div class="logo-text text-white"><span class="logo-highlight">STEM</span>Camp</div>
+                </a>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#" class="sidebar-link active" data-panel="a-overview"><i class="fa-solid fa-chart-line"></i> Dashboard Overview</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="a-camps"><i class="fa-solid fa-list-check"></i> Manage Camps (CRUD)</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="a-waivers"><i class="fa-solid fa-signature"></i> Approve Waivers <span class="badge-pending" id="badge-admin-waivers">1</span></a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="a-schedules"><i class="fa-solid fa-calendar-check"></i> Counselor Schedules</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="a-gallery"><i class="fa-solid fa-image-portrait"></i> Gallery Admin</a></li>
+                        <li><a href="#" class="sidebar-link" data-panel="a-audits"><i class="fa-solid fa-file-shield"></i> Safety Audits</a></li>
+                        <li class="logout-item"><a href="#" class="sidebar-link text-red logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Right Content Area -->
+            <div class="dashboard-content">
+                <!-- Top Header Bar -->
+                <header class="dashboard-topbar">
+                    <div class="topbar-left">
+                        <button class="dashboard-sidebar-toggle" aria-label="Toggle Dashboard Sidebar">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <h2 id="admin-panel-title">Admin Overview</h2>
+                    </div>
+                    <div class="topbar-right">
+                        <!-- Toggles inside Dashboard Content Area -->
+                        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                        <button class="dir-toggle" aria-label="Toggle LTR/RTL Text Direction"><span>RTL</span></button>
+                        
+                        <div class="topbar-notification"><i class="fa-solid fa-bell"></i><span class="notif-dot"></span></div>
+                        <div class="topbar-profile">
+                            <img src="./s17.jpg" alt="Admin Profile" class="profile-img">
+                            <span class="profile-name">Dir. Alistair</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="dashboard-panel-container">
+                    <!-- PANEL 1: ADMIN OVERVIEW -->
+                    <div class="dashboard-panel active" id="panel-a-overview">
+                        <div class="grid grid-4 mb-4">
+                            <div class="stat-card border-left-purple">
+                                <div class="stat-card-body">
+                                    <div class="card-details">
+                                        <span class="text-muted text-uppercase text-sm">Total Earnings</span>
+                                        <h3>$46,800</h3>
+                                    </div>
+                                    <div class="card-icon text-purple"><i class="fa-solid fa-wallet"></i></div>
+                                </div>
+                            </div>
+                            <div class="stat-card border-left-pink">
+                                <div class="stat-card-body">
+                                    <div class="card-details">
+                                        <span class="text-muted text-uppercase text-sm">Total Campers</span>
+                                        <h3>112 Registered</h3>
+                                    </div>
+                                    <div class="card-icon text-pink"><i class="fa-solid fa-users"></i></div>
+                                </div>
+                            </div>
+                            <div class="stat-card border-left-green">
+                                <div class="stat-card-body">
+                                    <div class="card-details">
+                                        <span class="text-muted text-uppercase text-sm">Waiver completion</span>
+                                        <h3>94.5% Signed</h3>
+                                    </div>
+                                    <div class="card-icon text-green"><i class="fa-solid fa-file-circle-check"></i></div>
+                                </div>
+                            </div>
+                            <div class="stat-card border-left-yellow">
+                                <div class="stat-card-body">
+                                    <div class="card-details">
+                                        <span class="text-muted text-uppercase text-sm">Safety compliance</span>
+                                        <h3>100% Audit Score</h3>
+                                    </div>
+                                    <div class="card-icon text-yellow"><i class="fa-solid fa-shield-circle-check"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Graphical Charts Area -->
+                        <div class="grid grid-2-equal">
+                            <div class="glass-card">
+                                <h3>Weekly Registration Trends</h3>
+                                <div class="svg-chart-wrapper mt-3">
+                                    <!-- Dynamic registration curve -->
+                                    <svg viewBox="0 0 400 180" class="svg-chart">
+                                        <path d="M 30,150 L 100,120 L 170,110 L 240,60 L 310,40 L 380,20" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                                        <circle cx="30" cy="150" r="4" fill="#3b82f6" />
+                                        <circle cx="100" cy="120" r="4" fill="#3b82f6" />
+                                        <circle cx="170" cy="110" r="4" fill="#3b82f6" />
+                                        <circle cx="240" cy="60" r="4" fill="#3b82f6" />
+                                        <circle cx="310" cy="40" r="4" fill="#3b82f6" />
+                                        <circle cx="380" cy="20" r="4" fill="#3b82f6" />
+                                        
+                                        <line x1="30" y1="160" x2="380" y2="160" stroke="#ccc" stroke-width="2"/>
+                                        <text x="25" y="175" fill="#666" font-size="10">May 1</text>
+                                        <text x="95" y="175" fill="#666" font-size="10">May 15</text>
+                                        <text x="165" y="175" fill="#666" font-size="10">Jun 1</text>
+                                        <text x="235" y="175" fill="#666" font-size="10">Jun 15</text>
+                                        <text x="305" y="175" fill="#666" font-size="10">Jul 1</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="glass-card">
+                                <h3>Sub-Curriculum Enrollments</h3>
+                                <div class="svg-chart-wrapper mt-3">
+                                    <svg viewBox="0 0 200 200" class="svg-chart-pie">
+                                        <!-- Pie charts segments representation using simple circles/arcs -->
+                                        <circle r="60" cx="100" cy="100" fill="transparent"
+                                                stroke="#ec4899" stroke-width="40"
+                                                stroke-dasharray="140 376" stroke-dashoffset="0"/>
+                                        <circle r="60" cx="100" cy="100" fill="transparent"
+                                                stroke="#3b82f6" stroke-width="40"
+                                                stroke-dasharray="120 376" stroke-dashoffset="-140"/>
+                                        <circle r="60" cx="100" cy="100" fill="transparent"
+                                                stroke="#22c55e" stroke-width="40"
+                                                stroke-dasharray="116 376" stroke-dashoffset="-260"/>
+                                    </svg>
+                                </div>
+                                <div class="pie-legends text-center text-sm mt-1">
+                                    <span class="legend"><span class="dot bg-pink"></span> Coding (45%)</span>
+                                    <span class="legend"><span class="dot bg-blue"></span> Robotics (35%)</span>
+                                    <span class="legend"><span class="dot bg-green"></span> Science (20%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 2: MANAGE CAMPS (CRUD) -->
+                    <div class="dashboard-panel" id="panel-a-camps">
+                        <div class="glass-card">
+                            <div class="crud-header">
+                                <h3>Summer Camps Control Panel</h3>
+                                <button class="btn btn-primary btn-sm" id="btn-add-camp-modal"><i class="fa-solid fa-plus"></i> Add New Camp</button>
+                            </div>
+                            
+                            <table class="dashboard-table mt-3" id="admin-camps-table">
+                                <thead>
+                                    <tr>
+                                        <th>Camp Title</th>
+                                        <th>Age Path</th>
+                                        <th>Weeks</th>
+                                        <th>Registered</th>
+                                        <th>Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Scratch Game Design Foundations</td>
+                                        <td>7-10</td>
+                                        <td>Week 1 &amp; 3</td>
+                                        <td>18 / 20</td>
+                                        <td>$390</td>
+                                        <td>
+                                            <button class="btn-action edit"><i class="fa-solid fa-pen"></i></button>
+                                            <button class="btn-action delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>LEGO SPIKE Prime Robotics</td>
+                                        <td>8-11</td>
+                                        <td>Week 2 &amp; 4</td>
+                                        <td>15 / 20</td>
+                                        <td>$425</td>
+                                        <td>
+                                            <button class="btn-action edit"><i class="fa-solid fa-pen"></i></button>
+                                            <button class="btn-action delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Python Scripting &amp; AI Algorithms</td>
+                                        <td>11-15</td>
+                                        <td>Week 3</td>
+                                        <td>12 / 15</td>
+                                        <td>$450</td>
+                                        <td>
+                                            <button class="btn-action edit"><i class="fa-solid fa-pen"></i></button>
+                                            <button class="btn-action delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Mock CRUD Create/Edit Modal (Embedded for simplicity) -->
+                        <div class="modal hidden" id="camp-crud-modal">
+                            <div class="modal-content glass-card">
+                                <h3 id="modal-title-action">Add New Camp</h3>
+                                <div class="form-group mt-3">
+                                    <label for="m-camp-title">Camp Title</label>
+                                    <input type="text" id="m-camp-title" class="form-input" placeholder="Roblox Modding Basics">
+                                </div>
+                                <div class="form-row mt-2">
+                                    <div class="form-group">
+                                        <label for="m-camp-age">Age Path</label>
+                                        <input type="text" id="m-camp-age" class="form-input" placeholder="8-12">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="m-camp-price">Price</label>
+                                        <input type="text" id="m-camp-price" class="form-input" placeholder="$400">
+                                    </div>
+                                </div>
+                                <div class="modal-actions mt-3">
+                                    <button class="btn btn-secondary" id="btn-cancel-modal">Cancel</button>
+                                    <button class="btn btn-primary" id="btn-save-camp">Save Camp</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 3: APPROVE WAIVERS -->
+                    <div class="dashboard-panel" id="panel-a-waivers">
+                        <div class="glass-card">
+                            <h3>Pending Medical Waiver Verifications</h3>
+                            <p class="text-muted">Review digital parent signatures and emergency releases prior to camper check-in.</p>
+                            
+                            <table class="dashboard-table mt-3" id="admin-waiver-table">
+                                <thead>
+                                    <tr>
+                                        <th>Camper Name</th>
+                                        <th>Parent Signature</th>
+                                        <th>Allergies Identified</th>
+                                        <th>Status</th>
+                                        <th>Verify Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="admin-waiver-row-1">
+                                        <td>Sophia Jenkins</td>
+                                        <td>Amanda Jenkins (Verified)</td>
+                                        <td>Peanuts (Severe)</td>
+                                        <td><span class="badge badge-warning">Needs Approval</span></td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm btn-approve-waiver" data-id="1">Approve Signature</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="admin-waiver-empty" class="alert alert-success mt-2 hidden">
+                                <i class="fa-solid fa-circle-check"></i> All submitted parental waivers have been verified.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 4: COUNSELOR SCHEDULES -->
+                    <div class="dashboard-panel" id="panel-a-schedules">
+                        <div class="glass-card">
+                            <h3>Active Counselor Assignments</h3>
+                            <p class="text-muted">Allocate instructors and coordinate supervision duties across labs.</p>
+                            
+                            <table class="dashboard-table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th>Instructor</th>
+                                        <th>Target Lab Group</th>
+                                        <th>Ratio Status</th>
+                                        <th>Assigned Week</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Dr. Evelyn Thorne</td>
+                                        <td>Arduino Hardware Engineering</td>
+                                        <td><span class="badge bg-green text-white">1:5 Ratio (Secure)</span></td>
+                                        <td>Week 1 - 3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mr. Marcus Vance</td>
+                                        <td>Python &amp; AI Algorithms</td>
+                                        <td><span class="badge bg-green text-white">1:6 Ratio (Secure)</span></td>
+                                        <td>Week 2 &amp; 3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ms. Sarah Jenkins</td>
+                                        <td>Junior Scratch &amp; Tinkering</td>
+                                        <td><span class="badge bg-green text-white">1:5 Ratio (Secure)</span></td>
+                                        <td>Week 1 - 4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 5: GALLERY ADMIN -->
+                    <div class="dashboard-panel" id="panel-a-gallery">
+                        <div class="glass-card">
+                            <h3>Upload Weekly Camp Photos</h3>
+                            <p class="text-muted">Select photo assets and add tagging labels before publishing to parent viewports.</p>
+                            
+                            <div class="form-group mt-3">
+                                <label for="a-gallery-file">Select Local Image File</label>
+                                <input type="file" id="a-gallery-file" class="form-input">
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="a-gallery-tag">Tag Camper Names</label>
+                                <input type="text" id="a-gallery-tag" class="form-input" placeholder="e.g. Sophia, Daniel">
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn-admin-upload">Publish Photo to Parent Portal</button>
+                            <div id="admin-upload-success" class="alert alert-success mt-2 hidden">
+                                <i class="fa-solid fa-circle-check"></i> Image tag published successfully to secure parent database.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 6: SAFETY AUDITS & LOGS -->
+                    <div class="dashboard-panel" id="panel-a-audits">
+                        <div class="glass-card">
+                            <h3>Daily Security Checklists &amp; Safety Logs</h3>
+                            <p class="text-muted">Verify compliance checklist points before morning check-in starts.</p>
+                            
+                            <ul class="audit-checklist mt-3">
+                                <li><i class="fa-solid fa-square-check text-green"></i> <strong>Epinephrine Storage checked:</strong> Central temperature cabinet verified at 68°F.</li>
+                                <li><i class="fa-solid fa-square-check text-green"></i> <strong>Intranet Network:</strong> Strict site filtering active on all Chromebook and workstation ports.</li>
+                                <li><i class="fa-solid fa-square-check text-green"></i> <strong>Emergency Access:</strong> Emergency evacuation routes and finger scanners checked and operational.</li>
+                                <li><i class="fa-solid fa-square-check text-green"></i> <strong>Teacher Background Logs:</strong> All active counselors updated in ACA system.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- GLOBAL FOOTER (Visible on Landing Pages, Hidden on Dashboards) -->
+    <footer class="global-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo" data-target="home-1">
+                    <div class="logo-icon"><i class="fa-solid fa-cubes-stacked text-white"></i></div>
+                    <div class="logo-text text-white"><span class="logo-highlight">STEM</span>Camp</div>
+                </a>
+                <p class="footer-tagline">Building coding confidence and logical reasoning through high-trust summer camps since 2018.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links-col">
+                <h4>Summer Programs</h4>
+                <ul>
+                    <li><a href="#" data-target="services">Coding &amp; Games</a></li>
+                    <li><a href="#" data-target="services">Robotics &amp; Engineering</a></li>
+                    <li><a href="#" data-target="services">Tinkering &amp; Science</a></li>
+                    <li><a href="#" data-target="services">Weekend Workshops</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links-col">
+                <h4>Parent Helpdesk</h4>
+                <ul>
+                    <li><a href="#" data-target="contact">Contact support</a></li>
+                    <li><a href="register.html">Register Camper</a></li>
+                    <li><a href="login.html">Sign Medical Waivers</a></li>
+                    <li><a href="#" data-target="home-1">Safety Accreditations</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>Security &amp; Standards</h4>
+                <div class="security-cert-block">
+                    <span class="cert-item"><i class="fa-solid fa-shield-heart text-yellow"></i> 100% HIPAA &amp; COPPA Safe</span>
+                    <span class="cert-item"><i class="fa-solid fa-shield-halved text-blue"></i> Certified Pediatric Nurse On-Site</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; 2026 STEMCamp Summer Camps Portal. All rights reserved.</p>
+                <ul class="footer-legal-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">COPPA Notice</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
