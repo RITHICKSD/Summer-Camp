@@ -217,6 +217,57 @@ img {
 .text-uppercase { text-transform: uppercase; }
 .text-sm { font-size: 14px; }
 
+/* Issue 11: Improve small text contrast across all pages (light mode) */
+/* text-muted in light mode is #64748b which is ~4.5:1 on white — acceptable,
+   but we darken it slightly for small text to ensure AA compliance */
+body.light-theme .text-muted,
+body:not(.dark-theme) .text-muted {
+    color: #4b5563 !important;
+}
+/* Section descriptions and captions */
+.section-desc,
+.author-sub,
+.teacher-bio,
+.teacher-badge,
+.node-content p,
+.timeline-content p,
+.day-body p,
+.p-caption,
+.badge-card p,
+.leader-info p,
+.philosophy-card p,
+.facility-list p,
+.pricing-bullets li,
+.counter-card p {
+    color: #374151 !important;
+}
+body.dark-theme .section-desc,
+body.dark-theme .author-sub,
+body.dark-theme .teacher-bio,
+body.dark-theme .teacher-badge,
+body.dark-theme .node-content p,
+body.dark-theme .timeline-content p,
+body.dark-theme .day-body p,
+body.dark-theme .p-caption,
+body.dark-theme .badge-card p,
+body.dark-theme .leader-info p,
+body.dark-theme .philosophy-card p,
+body.dark-theme .facility-list p,
+body.dark-theme .pricing-bullets li,
+body.dark-theme .counter-card p {
+    color: var(--text-secondary) !important;
+}
+/* Subtitle tags in non-hero areas */
+.subtitle {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
 /* ==========================================================================
    BUTTONS & FORMS
    ========================================================================== */
@@ -252,7 +303,17 @@ img {
 
 .btn-primary:hover {
     background-color: var(--purple-hover);
+    color: #ffffff !important;
     transform: translateY(-2px);
+}
+
+/* Issue 5: Ensure login button always has white text, even on hover */
+.login-btn {
+    color: #ffffff !important;
+}
+.login-btn:hover {
+    color: #ffffff !important;
+    background-color: var(--purple-hover) !important;
 }
 
 .btn-secondary {
@@ -428,11 +489,19 @@ body.dark-theme .global-header {
     color: var(--text-secondary);
     padding: 8px 12px;
     border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
 }
 
 .nav-link:hover {
     color: var(--purple);
     background-color: var(--bg-secondary);
+}
+
+/* Issue 6: Active state highlighting for nav links */
+.nav-link.active {
+    color: var(--purple) !important;
+    background-color: var(--purple-light);
+    font-weight: 700;
 }
 
 /* Dropdown Menu System */
@@ -654,15 +723,6 @@ section {
     margin: 0 auto 48px auto;
 }
 
-.subtitle {
-    font-family: var(--font-heading);
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
 .section-title {
     font-size: 32px;
     margin-bottom: 16px;
@@ -797,12 +857,24 @@ section {
     border-radius: var(--radius-md);
     padding: 32px;
     transition: all var(--transition-fast);
+    /* Issue 8: Equal height flex column for consistent alignment */
+    display: flex;
+    flex-direction: column;
 }
 
 .pathway-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--card-shadow);
     border-color: var(--purple);
+}
+
+/* Issue 2: Image area for pathway cards */
+.pathway-card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
 }
 
 .pathway-icon {
@@ -824,10 +896,13 @@ section {
     color: var(--text-secondary);
     font-size: 14px;
     margin-bottom: 20px;
+    /* Issue 8: ensure description takes consistent space */
+    flex-shrink: 0;
 }
 
 .pathway-details {
     margin-bottom: 24px;
+    flex: 1;
 }
 
 .pathway-details li {
@@ -844,6 +919,8 @@ section {
     display: flex;
     align-items: center;
     gap: 6px;
+    /* Issue 8: pin link to bottom of card */
+    margin-top: auto;
 }
 
 /* Home 1 Section 3: Safety & Compliance */
@@ -1009,6 +1086,9 @@ section {
     border-radius: var(--radius-md);
     padding: 32px;
     box-shadow: var(--card-shadow);
+    /* Issue 9: Equal height flex column for aligned author section */
+    display: flex;
+    flex-direction: column;
 }
 
 .stars {
@@ -1021,6 +1101,14 @@ section {
     font-size: 15px;
     color: var(--text-secondary);
     margin-bottom: 24px;
+    /* Issue 9: push author to bottom */
+    flex: 1;
+}
+
+.testimonial-author {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
 }
 
 .testimonial-author h4 {
@@ -1159,15 +1247,39 @@ body.dark-theme .finder-filter-box {
 /* Home 2 Section 3: Photo Stream */
 .photo-stream-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
     gap: 16px;
 }
 
 .stream-item {
     border-radius: var(--radius-md);
     overflow: hidden;
-    height: 200px;
     box-shadow: var(--card-shadow);
+    position: relative;
+}
+
+/* Caption overlay on stream items */
+.stream-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.75));
+    color: #ffffff;
+    padding: 20px 14px 10px 14px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.stream-item:hover .stream-caption {
+    opacity: 1;
 }
 
 .stream-img {
@@ -1284,6 +1396,35 @@ body.rtl .timeline-content {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+/* Fix: earlybird calculator card uses theme-aware colors in both light and dark mode */
+.earlybird-calculator {
+    color: var(--text-primary) !important;
+}
+
+.earlybird-calculator h3 {
+    color: var(--text-primary) !important;
+}
+
+.earlybird-calculator p,
+.earlybird-calculator label,
+.earlybird-calculator .text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.earlybird-calculator .output-label {
+    color: var(--text-muted) !important;
+}
+
+.earlybird-calculator .output-value {
+    color: var(--purple) !important;
+}
+
+.earlybird-calculator .form-input {
+    background-color: var(--input-bg) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
 }
 
 .price-output-box {
@@ -1619,6 +1760,33 @@ body.rtl .node-content {
 /* ==========================================================================
    CONTACT VIEW
    ========================================================================== */
+/* Issue 14: Remove empty space — tighten contact hero section */
+.contact-hero.section-ct-1 {
+    padding: 64px 0 !important;
+}
+
+.contact-form-section.section-ct-2 {
+    padding: 64px 0 !important;
+}
+
+/* Ensure the contact form grid doesn't create extra whitespace */
+.contact-form-section .grid-2-equal {
+    align-items: center;
+}
+
+/* Left text column — no stretching */
+.c-form-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+/* Right form box — align to top so it doesn't float */
+.c-form-box {
+    align-self: start;
+}
+
 .contact-mini-card {
     background-color: var(--bg-primary);
     border: 1px solid var(--border-color);
@@ -1853,10 +2021,19 @@ body.rtl .sidebar-link.active {
     justify-content: space-between;
 }
 
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    flex: 1;
+}
+
 .topbar-right {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-shrink: 0;
 }
 
 .topbar-notification {
@@ -2257,18 +2434,7 @@ body.rtl .btn-action {
         display: none;
     }
     
-    .dashboard-sidebar {
-        width: 80px;
-    }
-    
-    .sidebar-logo .logo-text, .sidebar-link span {
-        display: none;
-    }
-    
-    .sidebar-link {
-        justify-content: center;
-        font-size: 20px;
-    }
+    /* Icon-only sidebar only on tablets (769px+), NOT on mobile */
 }
 
 @media (max-width: 768px) {
@@ -2359,6 +2525,12 @@ body.rtl .btn-action {
     background: var(--hero-overlay-light), url('./s14.jpg') no-repeat center center/cover !important;
 }
 
+/* Issue 7: Fix hero section text contrast - stronger overlay for all hero sections */
+:root {
+    --hero-overlay-light: linear-gradient(135deg, rgba(15, 23, 42, 0.60), rgba(15, 23, 42, 0.50));
+    --hero-overlay-blue: linear-gradient(135deg, rgba(11, 19, 41, 0.60), rgba(15, 23, 42, 0.50));
+}
+
 /* Ensure headings/text stand out clearly on hero sections */
 .hero-section h1, .hero-finder h1, .about-hero h1, .services-hero h1, .contact-hero h1,
 .hero-section h2, .hero-finder h2, .about-hero h2, .services-hero h2, .contact-hero h2,
@@ -2370,7 +2542,43 @@ body.rtl .btn-action {
 .services-hero .section-title, .services-hero .section-desc,
 .hero-section .stat-num, .hero-section .stat-lbl {
     color: #ffffff !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Issue 1: Fix hero right-side glass card text contrast in Light Mode */
+.hero-interactive-card,
+.hero-interactive-card h3,
+.hero-interactive-card p,
+.hero-interactive-card .progress-label,
+.hero-interactive-card .progress-label span {
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+}
+/* Ensure the glass card itself is opaque enough in light mode */
+.hero-visual .glass-card {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    backdrop-filter: blur(16px);
+}
+body.dark-theme .hero-visual .glass-card {
+    background: rgba(30, 41, 59, 0.96) !important;
+    border: 1px solid rgba(51, 65, 85, 0.9) !important;
+}
+.hero-visual .glass-card .card-header-icon {
+    background-color: var(--purple-light) !important;
+    color: var(--purple) !important;
+}
+.hero-visual .glass-card h3 {
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+}
+.hero-visual .glass-card p {
+    color: var(--text-secondary) !important;
+    text-shadow: none !important;
+}
+.hero-visual .glass-card .progress-label span {
+    color: var(--text-secondary) !important;
+    text-shadow: none !important;
 }
 
 /* 2. Remove whitespace before footer on all pages */
@@ -2569,6 +2777,23 @@ body.rtl .auth-divider:not(:empty)::after {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+}
+
+/* Issue 4: Apple sign-in spans full width when 3rd item */
+.btn-oauth-apple {
+    grid-column: 1 / -1;
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+body.dark-theme .btn-oauth-apple {
+    background-color: #1c1c1e;
+    border-color: #3a3a3c;
+    color: #ffffff;
+}
+.btn-oauth-apple:hover {
+    background-color: #1c1c1e !important;
+    color: #ffffff !important;
 }
 
 .btn-oauth {
@@ -2804,34 +3029,91 @@ body.rtl .auth-divider:not(:empty)::after {
         margin-right: 0;
         margin-left: 12px;
     }
+
+    /* Sidebar: fully hidden off-screen, slides in on .active */
     .dashboard-sidebar {
         position: fixed !important;
-        top: 0;
-        bottom: 0;
-        left: -260px;
-        width: 260px !important;
-        z-index: 2000;
-        transition: all 0.3s ease-in-out;
-        box-shadow: 4px 0 12px rgba(0,0,0,0.15);
+        top: 0 !important;
+        bottom: 0 !important;
+        left: -280px !important;
+        width: 260px !important;       /* override the 72px icon-only from 1024px */
+        z-index: 2000 !important;
+        transition: left 0.3s ease-in-out !important;
+        box-shadow: 4px 0 16px rgba(0,0,0,0.25) !important;
+        overflow-y: auto !important;
+        padding: 24px 0 !important;    /* restore full padding */
+        height: 100vh !important;
     }
     .dashboard-sidebar.active {
         left: 0 !important;
     }
     body.rtl .dashboard-sidebar {
-        left: auto;
-        right: -260px;
-        box-shadow: -4px 0 12px rgba(0,0,0,0.15);
+        left: auto !important;
+        right: -280px !important;
+        transition: right 0.3s ease-in-out !important;
+        box-shadow: -4px 0 16px rgba(0,0,0,0.25) !important;
     }
     body.rtl .dashboard-sidebar.active {
         right: 0 !important;
+        left: auto !important;
     }
-    /* Re-enable logo text and titles in sliding mobile menu */
-    .sidebar-logo .logo-text, .sidebar-link span {
-        display: block !important;
+
+    /* Content area: always full width — sidebar floats above via fixed position */
+    .dashboard-view {
+        flex-direction: row !important;
+        height: 100vh !important;
+        overflow: hidden !important;
+    }
+    .dashboard-content {
+        width: 100% !important;
+        height: 100vh !important;
+        overflow: hidden !important;
+        flex: 1 !important;
+        margin-left: 0 !important;
+    }
+
+    /* Dim overlay when sidebar is open */
+    .dashboard-sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.45);
+        z-index: 1999;
+    }
+    .dashboard-sidebar-overlay.active {
+        display: block;
+    }
+
+    /* Re-enable logo text and full sidebar layout inside slide-in drawer */
+    .sidebar-logo {
+        padding: 0 24px 24px 24px !important;
+        justify-content: flex-start !important;
+        display: flex !important;
+    }
+    .sidebar-logo .logo-text {
+        display: flex !important;
     }
     .sidebar-link {
         justify-content: flex-start !important;
-        font-size: 16px !important;
+        font-size: 15px !important;
+        padding: 12px 24px !important;
+        gap: 12px !important;
+        flex-direction: row !important;
+    }
+    .sidebar-link span {
+        display: inline !important;
+        font-size: 15px !important;
+    }
+    /* Keep badge visible with text */
+    .sidebar-link .badge-pending {
+        display: inline-flex !important;
+        position: static !important;
+        font-size: 10px !important;
+        padding: 2px 6px !important;
+        width: auto !important;
+        height: auto !important;
+        border-radius: var(--radius-full) !important;
+        min-width: unset !important;
     }
 }
 
@@ -2855,5 +3137,228 @@ body.rtl .auth-divider:not(:empty)::after {
     .hero-stats {
         flex-direction: column !important;
         gap: 16px !important;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVENESS FIXES (360px and tablet-specific)
+   ========================================================================== */
+
+/* Responsiveness Issue 1: Fix theme/LTR icon layout on auth pages at 360px */
+@media (max-width: 400px) {
+    .auth-header-toggles {
+        top: 12px;
+        right: 12px;
+        gap: 8px;
+    }
+    .auth-header-toggles .theme-toggle,
+    .auth-header-toggles .dir-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+    .auth-card {
+        padding: 28px 20px;
+        border-radius: var(--radius-md);
+    }
+    /* Ensure card doesn't overflow viewport at 360px */
+    .auth-body {
+        padding: 56px 12px 20px 12px;
+        align-items: flex-start;
+    }
+    .oauth-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsiveness Issue 2: Nav bar contrast at 360px-768px (mobile menu) */
+@media (max-width: 768px) {
+    /* Ensure mobile nav menu has solid non-transparent background for contrast */
+    .nav-menu {
+        background-color: var(--bg-primary) !important;
+        border-bottom: 2px solid var(--border-color) !important;
+        z-index: 999;
+    }
+    /* Ensure nav links in mobile drawer have full contrast */
+    .nav-menu .nav-link {
+        color: var(--text-primary) !important;
+        font-size: 16px;
+        padding: 10px 12px;
+        width: 100%;
+        display: block;
+    }
+    .nav-menu .nav-link:hover {
+        color: var(--purple) !important;
+        background-color: var(--purple-light) !important;
+    }
+    .nav-menu .dropdown-item {
+        color: var(--text-primary) !important;
+        font-size: 15px;
+    }
+    /* Keep hamburger icon always visible against the semi-transparent header */
+    .mobile-nav-toggle {
+        background-color: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+        border-color: var(--border-color) !important;
+    }
+    .header-container {
+        padding: 12px 16px;
+    }
+}
+
+/* Responsiveness Issue 2: Nav bar contrast specifically at 360px */
+@media (max-width: 400px) {
+    .header-container {
+        padding: 10px 12px;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+}
+
+/* Responsiveness Issue 3: Home2 STEM curriculum explorer tab layout at 360px */
+@media (max-width: 480px) {
+    .tabs-list {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+    }
+    .tab-btn {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 14px !important;
+        padding: 10px 16px !important;
+        border-radius: var(--radius-md) !important;
+    }
+    .tab-pane .grid-2-equal {
+        grid-template-columns: 1fr !important;
+    }
+    .outcome-card {
+        margin-top: 16px;
+    }
+    /* Fix tab text content overflow */
+    .tab-text-content,
+    .tab-visual-content {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+    /* Filter controls row single column */
+    .filter-controls-row {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Responsiveness Issue 4: Dashboard sidebar at 1024px — icon-only mode (tablets only, NOT mobile) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Sidebar icon-only: keep the icons readable and properly centered */
+    .dashboard-sidebar {
+        width: 72px !important;
+        padding: 16px 0 !important;
+    }
+    .sidebar-logo {
+        padding: 0 0 20px 0 !important;
+        justify-content: center !important;
+    }
+    .sidebar-logo .logo-text {
+        display: none !important;
+    }
+    .sidebar-link {
+        justify-content: center !important;
+        padding: 14px !important;
+        font-size: 20px !important;
+        gap: 0 !important;
+    }
+    .sidebar-link span,
+    .sidebar-link .badge-pending {
+        display: none !important;
+    }
+    /* Show notification dot on icon-only sidebar */
+    .sidebar-link {
+        position: relative;
+    }
+    .sidebar-link .badge-pending {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        display: flex !important;
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border-radius: 50%;
+        font-size: 0;
+        min-width: unset;
+    }
+    /* Topbar title stays visible */
+    .dashboard-topbar {
+        padding: 14px 20px !important;
+    }
+    /* Dashboard content area adjusts to fill remaining space */
+    .dashboard-content {
+        min-width: 0 !important;
+    }
+    /* Topbar right: reduce gap on smaller screens */
+    .topbar-right {
+        gap: 12px !important;
+    }
+    .profile-name {
+        display: none !important;
+    }
+}
+
+/* Responsiveness Issue 5: Dashboard at 360px — slide-in sidebar, compact topbar */
+@media (max-width: 768px) {
+    .dashboard-topbar {
+        padding: 12px 16px !important;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        flex: 1;
+    }
+    .topbar-left h2 {
+        font-size: 16px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .topbar-right {
+        gap: 8px !important;
+        flex-shrink: 0;
+    }
+    /* Ensure theme/dir toggles in topbar are smaller */
+    .dashboard-topbar .theme-toggle,
+    .dashboard-topbar .dir-toggle {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 13px !important;
+    }
+    .dashboard-panel-container {
+        padding: 16px !important;
+    }
+    /* Stack stat cards */
+    .dashboard-panel .grid-3,
+    .dashboard-panel .grid-4 {
+        grid-template-columns: 1fr !important;
+    }
+    .dashboard-panel .grid-2-equal {
+        grid-template-columns: 1fr !important;
+    }
+    /* Fix schedule calendar */
+    .schedule-calendar-grid {
+        grid-template-columns: 1fr !important;
+    }
+    /* Fix signature canvas overflow */
+    #signature-canvas {
+        max-width: 100% !important;
+        width: 100% !important;
     }
 }

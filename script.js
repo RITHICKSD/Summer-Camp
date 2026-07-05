@@ -76,10 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update active class on links
         navLinks.forEach(link => {
-            if (link.getAttribute('data-target') === targetId) {
+            const linkTarget = link.getAttribute('data-target');
+            if (linkTarget === targetId) {
                 link.classList.add('active');
+                // Also mark the parent nav-item as active if inside nav
+                const parentNavItem = link.closest('.nav-item');
+                if (parentNavItem) {
+                    parentNavItem.querySelectorAll('.nav-link, .dropdown-toggle').forEach(nl => {
+                        nl.classList.add('active');
+                    });
+                }
             } else {
                 link.classList.remove('active');
+                const parentNavItem = link.closest('.nav-item');
+                if (parentNavItem && !parentNavItem.querySelector(`[data-target="${targetId}"]`)) {
+                    link.classList.remove('active');
+                }
+            }
+        });
+
+        // For dropdown parents — mark parent nav-link active if child is active
+        document.querySelectorAll('.has-dropdown').forEach(item => {
+            const hasActive = item.querySelector(`[data-target="${targetId}"]`);
+            const toggle = item.querySelector('.dropdown-toggle');
+            if (toggle) {
+                if (hasActive) {
+                    toggle.classList.add('active');
+                } else {
+                    toggle.classList.remove('active');
+                }
             }
         });
     }
@@ -129,23 +154,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const dashboardView = btn.closest('.dashboard-view');
             if (dashboardView) {
                 const sidebar = dashboardView.querySelector('.dashboard-sidebar');
+                const overlay = dashboardView.querySelector('.dashboard-sidebar-overlay');
                 if (sidebar) {
-                    sidebar.classList.toggle('active');
+                    const isOpen = sidebar.classList.toggle('active');
+                    if (overlay) overlay.classList.toggle('active', isOpen);
                 }
             }
         });
     });
 
-    // Close dashboard sidebar when clicking outside on mobile
+    // Close dashboard sidebar when clicking overlay or outside on mobile
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
             const activeSidebars = document.querySelectorAll('.dashboard-sidebar.active');
             activeSidebars.forEach(sidebar => {
                 if (!sidebar.contains(e.target) && !e.target.closest('.dashboard-sidebar-toggle')) {
                     sidebar.classList.remove('active');
+                    const overlay = sidebar.closest('.dashboard-view')?.querySelector('.dashboard-sidebar-overlay');
+                    if (overlay) overlay.classList.remove('active');
                 }
             });
         }
+    });
+
+    // Close sidebar when clicking the overlay directly
+    document.querySelectorAll('.dashboard-sidebar-overlay').forEach(overlay => {
+        overlay.addEventListener('click', () => {
+            const dashboardView = overlay.closest('.dashboard-view');
+            if (dashboardView) {
+                const sidebar = dashboardView.querySelector('.dashboard-sidebar');
+                if (sidebar) sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        });
     });
 
     /* --- 2. THEME & DIRECTION TOGGLES --- */
@@ -210,6 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewParam = urlParams.get('view');
     if (viewParam) {
         navigateTo(viewParam);
+    } else {
+        // Default: mark Home 1 as active
+        navigateTo('home-1');
     }
 
 
