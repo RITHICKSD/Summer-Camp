@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – STEM & Coding Summer Camp</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 L85 32 L50 50 L15 32 Z' fill='%23a855f7'/%3E%3Cpath d='M15 32 L50 50 L50 85 L15 67 Z' fill='%237c3aed'/%3E%3Cpath d='M50 50 L85 32 L85 67 L50 85 Z' fill='%236d28d9'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..900&family=Quicksand:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="header-container">
+            <a href="home1.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                <div class="logo-text"><span class="logo-highlight">STEM</span>Camp</div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Home <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="home1.html" class="dropdown-item">Home 1</a></li>
+                            <li><a href="home2.html" class="dropdown-item">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Dashboard <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="user-dashboard.html" class="dropdown-item">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mobile-menu-actions">
+                    <div class="mobile-toggles">
+                        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                        <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                    </div>
+                    <a href="login.html" class="btn btn-primary login-btn w-100"><i class="fa-solid fa-user-lock"></i> Login</a>
+                </div>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                <a href="login.html" class="btn btn-primary login-btn"><i class="fa-solid fa-user-lock"></i> Login</a>
+                <button class="mobile-nav-toggle" aria-label="Open Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Section 1: Hero -->
+        <section class="contact-hero section-ct-1">
+            <div class="container text-center">
+                <span class="subtitle text-purple">Reach out to us</span>
+                <h1 class="hero-title">We are here to help your family's STEM journey</h1>
+                <p class="hero-desc max-width-700">Have questions about registration details, medical waivers, class schedules, or specific coding tracks? Our support staff answers emails within 2 hours during office hours.</p>
+                <div class="grid grid-3 mt-4">
+                    <div class="contact-mini-card"><div class="c-icon text-pink"><i class="fa-solid fa-phone"></i></div><h3>Phone Support</h3><p class="text-purple">+1 (800) 555-STEM</p><p class="text-muted text-sm">Mon-Fri: 8:00 AM - 5:00 PM</p></div>
+                    <div class="contact-mini-card"><div class="c-icon text-blue"><i class="fa-solid fa-envelope"></i></div><h3>Email Desk</h3><p class="text-purple">support@stemcamp.org</p><p class="text-muted text-sm">We respond in under 2 hours.</p></div>
+                    <div class="contact-mini-card"><div class="c-icon text-green"><i class="fa-solid fa-location-dot"></i></div><h3>Smart Campus</h3><p class="text-purple">512 Innovation Dr, Suite A</p><p class="text-muted text-sm">Fenced facility with guest access.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Inquiry Form -->
+        <section class="contact-form-section section-ct-2 bg-alt">
+            <div class="container grid grid-2-equal">
+                <div class="c-form-text">
+                    <span class="subtitle text-blue">Parent Helpdesk</span>
+                    <h2>Send us an Inquiry</h2>
+                    <p>Complete the form, and our registrar will contact you with specific curriculum guides, seat availability, and pricing quotes tailored to your children's details.</p>
+                    <div class="support-avatar-row mt-3">
+                        <img src="./s2.jpg" alt="Registrar Sarah" class="support-avatar">
+                        <div><h4>Sarah Jenkins</h4><p class="text-muted text-sm">Lead Registrar (10+ Years Helping Parents)</p></div>
+                    </div>
+                </div>
+                <div class="c-form-box glass-card">
+                    <h3>Registration Inquiry Form</h3>
+                    <form id="contact-inquiry-form" class="mt-3">
+                        <div class="form-row">
+                            <div class="form-group"><label for="p-name">Parent Name</label><input type="text" id="p-name" class="form-input" placeholder="Amanda Jenkins" required></div>
+                            <div class="form-group"><label for="p-email">Email Address</label><input type="email" id="p-email" class="form-input" placeholder="amanda@mail.com" required></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="c-age">Camper Age</label><input type="number" id="c-age" class="form-input" min="5" max="17" placeholder="9"></div>
+                            <div class="form-group"><label for="c-subject">Primary Interest</label><select id="c-subject" class="form-select"><option value="coding">Coding &amp; Games</option><option value="robotics">Robotics &amp; Hardware</option><option value="science">Applied Science</option></select></div>
+                        </div>
+                        <div class="form-group"><label for="c-message">How can we assist you?</label><textarea id="c-message" class="form-textarea" rows="4" placeholder="My child is a beginner programmer, can she register..." required></textarea></div>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Send Message</button>
+                    </form>
+                    <div id="form-success" class="alert alert-success mt-2 hidden"><i class="fa-solid fa-circle-check"></i> Thank you! Our Registrar will contact you shortly.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Campus Directory -->
+        <section class="campus-directory section-ct-3">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="subtitle text-green">Emergency &amp; Direct Numbers</span>
+                    <h2 class="section-title">Direct Campus Hotline Directory</h2>
+                    <p class="section-desc">Connect directly to our specific campus sections during active camp hours.</p>
+                </div>
+                <div class="grid grid-3 mt-3">
+                    <div class="directory-card"><h4>Medical Room &amp; Nurse</h4><p class="text-purple"><i class="fa-solid fa-heart-pulse"></i> Ext: 402</p><p class="text-muted">Reach our on-site pediatrician nurse directly for waiver updates or medication guidelines.</p></div>
+                    <div class="directory-card"><h4>Registrar &amp; Billing</h4><p class="text-purple"><i class="fa-solid fa-credit-card"></i> Ext: 105</p><p class="text-muted">Billing changes, cancellations, invoices, or certificate reprint requests.</p></div>
+                    <div class="directory-card"><h4>Counselor Central Desk</h4><p class="text-purple"><i class="fa-solid fa-chalkboard-user"></i> Ext: 201</p><p class="text-muted">Urgent check-in coordination, early pick-up alerts, or camper messages.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Chat Simulator -->
+        <section class="contact-chat section-ct-4 bg-alt">
+            <div class="container grid grid-2-equal">
+                <div class="chat-visual">
+                    <div class="chat-simulator-box glass-card">
+                        <div class="chat-sim-header bg-purple text-white">
+                            <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div><h4>STEMy Bot</h4><span class="status-online"><span class="dot"></span> Online</span></div>
+                        </div>
+                        <div class="chat-sim-messages" id="chat-messages-container">
+                            <div class="message msg-bot"><p>Hello! I am STEMy, your camp assistant. Are you looking to register a child, sign waivers, or explore curriculum pathways?</p><span class="msg-time">6:47 PM</span></div>
+                        </div>
+                        <div class="chat-sim-input-row">
+                            <input type="text" id="chat-input" class="form-input" placeholder="Type 'waivers' or 'coding'...">
+                            <button class="btn btn-primary btn-icon" id="btn-send-chat"><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-text-info">
+                    <span class="subtitle text-yellow">Instant Virtual Assistant</span>
+                    <h2>Interactive Help Bot</h2>
+                    <p>Need quick answers? Try our chatbot simulator. It can explain registration steps, safety compliance rules, waiver status checks, and curriculum segments instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Tour Booking -->
+        <section class="tour-booking section-ct-5">
+            <div class="container grid grid-2-equal">
+                <div class="tour-text">
+                    <span class="subtitle text-purple">Visit our Smart Campus</span>
+                    <h2>Book a Physical Campus Tour</h2>
+                    <p>We believe seeing is believing. Book a guided 20-minute tour of our smart tech labs, science classrooms, and outdoor play space. Meet lead counselors and inspect safety controls.</p>
+                    <div class="tour-requirements mt-3">
+                        <p><i class="fa-solid fa-circle-info text-purple"></i> Tours held every Tuesday and Thursday at 4:30 PM (after camper checkout).</p>
+                        <p><i class="fa-solid fa-circle-info text-purple"></i> Valid ID required for facility entrance registration.</p>
+                    </div>
+                </div>
+                <div class="tour-form glass-card">
+                    <h3>Select a Tour Slot</h3>
+                    <div class="form-group mt-3"><label for="tour-date">Target Date</label><input type="date" id="tour-date" class="form-input" required></div>
+                    <div class="form-group mt-2"><label for="tour-time">Available Time</label><select id="tour-time" class="form-select"><option value="16:30">4:30 PM (Tues/Thurs)</option><option value="17:00">5:00 PM (Tues/Thurs)</option></select></div>
+                    <div class="form-group mt-2"><label for="tour-visitors">Number of Visitors</label><input type="number" id="tour-visitors" class="form-input" min="1" max="5" value="2"></div>
+                    <button class="btn btn-primary w-100 mt-3" id="btn-book-tour">Submit Tour Booking</button>
+                    <div id="tour-success" class="alert alert-success mt-2 hidden"><i class="fa-solid fa-circle-check"></i> Tour booked successfully! Check your email for details.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Directions & Map -->
+        <section class="directions-section section-ct-6 bg-alt">
+            <div class="container grid grid-2-equal">
+                <div class="directions-info">
+                    <span class="subtitle text-pink">Smart Campus Operations</span>
+                    <h2>Directions &amp; Administration Hours</h2>
+                    <p>Our facility is situated close to the central technology park, with convenient parent drop-off lanes and ample guest parking slots.</p>
+                    <table class="hours-table mt-3">
+                        <tr><td><strong>Monday - Friday:</strong></td><td>8:00 AM - 5:30 PM (Active Camp Hours)</td></tr>
+                        <tr><td><strong>Saturday:</strong></td><td>9:00 AM - 1:00 PM (Weekend Workshops)</td></tr>
+                        <tr><td><strong>Sunday:</strong></td><td>Closed (Facility Maintenance)</td></tr>
+                    </table>
+                </div>
+                <div class="directions-visual">
+                    <div id="contact-map" class="rounded-card box-shadow-lg" style="height:320px;z-index:10;"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="global-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand"><a href="home1.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-cubes-stacked text-white"></i></div><div class="logo-text text-white"><span class="logo-highlight">STEM</span>Camp</div></a><p class="footer-tagline">Building coding confidence and logical reasoning through high-trust summer camps since 2018.</p><div class="social-links"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a><a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div></div>
+            <div class="footer-links-col"><h4>Summer Programs</h4><ul><li><a href="programs.html">Coding &amp; Games</a></li><li><a href="programs.html">Robotics &amp; Engineering</a></li><li><a href="programs.html">Tinkering &amp; Science</a></li><li><a href="programs.html">Weekend Workshops</a></li></ul></div>
+            <div class="footer-links-col"><h4>Parent Helpdesk</h4><ul><li><a href="contact.html">Contact Support</a></li><li><a href="register.html">Register Camper</a></li><li><a href="login.html">Sign Medical Waivers</a></li><li><a href="home1.html">Safety Accreditations</a></li></ul></div>
+            <div class="footer-links-col"><h4>Security &amp; Standards</h4><div class="security-cert-block"><span class="cert-item"><i class="fa-solid fa-shield-heart text-yellow"></i> 100% HIPAA &amp; COPPA Safe</span><span class="cert-item"><i class="fa-solid fa-shield-halved text-blue"></i> Certified Pediatric Nurse On-Site</span></div></div>
+        </div>
+        <div class="footer-bottom"><div class="container footer-bottom-flex"><p>&copy; 2026 STEMCamp Summer Camps Portal. All rights reserved.</p><ul class="footer-legal-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">COPPA Notice</a></li></ul></div></div>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script>
+        // Leaflet map
+        window.addEventListener('load', () => {
+            const map = L.map('contact-map', { scrollWheelZoom: false }).setView([37.4275, -122.1697], 14);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+            L.marker([37.4275, -122.1697]).addTo(map).bindPopup('<strong>STEMCamp Campus</strong><br>512 Innovation Dr.<br>Stanford, CA 94305').openPopup();
+        });
+        // Contact form
+        const cForm = document.getElementById('contact-inquiry-form');
+        if (cForm) cForm.addEventListener('submit', e => { e.preventDefault(); document.getElementById('form-success').classList.remove('hidden'); cForm.reset(); setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 4000); });
+        // Tour booking
+        const tourBtn = document.getElementById('btn-book-tour');
+        if (tourBtn) tourBtn.addEventListener('click', e => { e.preventDefault(); document.getElementById('tour-success').classList.remove('hidden'); setTimeout(() => document.getElementById('tour-success').classList.add('hidden'), 4000); });
+        // Chatbot
+        const chatInput = document.getElementById('chat-input');
+        const btnSend = document.getElementById('btn-send-chat');
+        const chatBox = document.getElementById('chat-messages-container');
+        function sendChat() {
+            const txt = chatInput.value.trim(); if (!txt) return;
+            chatBox.innerHTML += `<div class="message msg-user"><p>${txt}</p><span class="msg-time">${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></div>`;
+            chatInput.value = ''; chatBox.scrollTop = chatBox.scrollHeight;
+            const t = txt.toLowerCase();
+            let r = "I can assist with 'waivers', 'camps', 'safety', or 'pricing'!";
+            if (t.includes('waiver')||t.includes('medical')) r = "Sign medical waivers inside the secure Parent Dashboard. Log in and select 'Medical Waivers'.";
+            else if (t.includes('camp')||t.includes('coding')||t.includes('python')) r = "We offer 1-week camps: Scratch (Ages 7-10), Python AI (Ages 10-14), Arduino (Ages 12-15). 1:6 ratio!";
+            else if (t.includes('safety')||t.includes('nurse')||t.includes('allergy')) r = "Our nut-free facility has fingerprint security and an on-site pediatric nurse managing all waivers.";
+            else if (t.includes('pric')||t.includes('cost')||t.includes('discount')) r = "Base rate $390-$480/week. Register early and save 15%! Sibling discounts also available.";
+            setTimeout(() => { chatBox.innerHTML += `<div class="message msg-bot"><p>${r}</p><span class="msg-time">${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></div>`; chatBox.scrollTop = chatBox.scrollHeight; }, 700);
+        }
+        if (btnSend) { btnSend.addEventListener('click', sendChat); chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendChat(); }); }
+    </script>
+</body>
+</html>

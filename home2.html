@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Finder – STEM & Coding Summer Camp</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 L85 32 L50 50 L15 32 Z' fill='%23a855f7'/%3E%3Cpath d='M15 32 L50 50 L50 85 L15 67 Z' fill='%237c3aed'/%3E%3Cpath d='M50 50 L85 32 L85 67 L50 85 Z' fill='%236d28d9'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..900&family=Quicksand:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="header-container">
+            <a href="home1.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                <div class="logo-text"><span class="logo-highlight">STEM</span>Camp</div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active">Home <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="home1.html" class="dropdown-item">Home 1</a></li>
+                            <li><a href="home2.html" class="dropdown-item active">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Dashboard <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="user-dashboard.html" class="dropdown-item">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mobile-menu-actions">
+                    <div class="mobile-toggles">
+                        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                        <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                    </div>
+                    <a href="login.html" class="btn btn-primary login-btn w-100"><i class="fa-solid fa-user-lock"></i> Login</a>
+                </div>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                <a href="login.html" class="btn btn-primary login-btn"><i class="fa-solid fa-user-lock"></i> Login</a>
+                <button class="mobile-nav-toggle" aria-label="Open Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Section 1: Hero & Camp Finder -->
+        <section class="hero-finder section-h2-1">
+            <div class="container">
+                <div class="finder-hero-wrapper text-center">
+                    <div class="badge-interactive bg-blue text-white"><i class="fa-solid fa-magnifying-glass"></i> Interactive Camp Finder</div>
+                    <h1 class="hero-title mt-2">Find the Perfect Summer STEM Experience</h1>
+                    <p class="hero-desc">Enter your child's age and main interest area, and find tailored curriculum tracks that fit your weekly summer schedule.</p>
+                    <div class="glass-card finder-filter-box mt-4">
+                        <div class="filter-controls-row">
+                            <div class="filter-control">
+                                <label for="finder-age"><i class="fa-solid fa-child"></i> Camper Age</label>
+                                <select id="finder-age" class="form-select">
+                                    <option value="all">Show All Ages</option>
+                                    <option value="6-8">Ages 6-8 (Junior Tinkers)</option>
+                                    <option value="9-11">Ages 9-11 (Intermediate Coders)</option>
+                                    <option value="12-15">Ages 12-15 (Advanced Engineers)</option>
+                                </select>
+                            </div>
+                            <div class="filter-control">
+                                <label for="finder-category"><i class="fa-solid fa-flask"></i> Primary Subject</label>
+                                <select id="finder-category" class="form-select">
+                                    <option value="all">All Subjects</option>
+                                    <option value="coding">Coding &amp; Games</option>
+                                    <option value="robotics">Robotics &amp; Arduino</option>
+                                    <option value="science">Applied Science</option>
+                                </select>
+                            </div>
+                            <div class="filter-control">
+                                <label for="finder-week"><i class="fa-solid fa-calendar-week"></i> Target Week</label>
+                                <select id="finder-week" class="form-select">
+                                    <option value="all">Any Week (June - July)</option>
+                                    <option value="w1">Week 1 (June 15 - 19)</option>
+                                    <option value="w2">Week 2 (June 22 - 26)</option>
+                                    <option value="w3">Week 3 (June 29 - July 3)</option>
+                                </select>
+                            </div>
+                            <div class="filter-control flex-end">
+                                <a href="programs.html" class="btn btn-primary w-100" id="btn-find-camps">
+                                    <i class="fa-solid fa-search"></i> Find Camps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Curriculum Explorer Tabs -->
+        <section class="curriculum-explorer section-h2-2 bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle text-purple">STEM Curriculum Explorer</span>
+                    <h2 class="section-title">Age-Appropriate Development Paths</h2>
+                    <p class="section-desc">Select an age segment to explore the tools, technologies, and projects your camper will build.</p>
+                </div>
+                <div class="tabs-container">
+                    <div class="tabs-list">
+                        <button class="tab-btn active" data-tab="junior">Junior (Ages 6-8)</button>
+                        <button class="tab-btn" data-tab="inter">Intermediate (Ages 9-11)</button>
+                        <button class="tab-btn" data-tab="senior">Senior (Ages 12-15)</button>
+                    </div>
+                    <div class="tabs-content-wrapper">
+                        <div class="tab-pane active" id="tab-junior">
+                            <div class="grid grid-2-equal">
+                                <div class="tab-text-content">
+                                    <h3>Junior Explorers: Building Analytical Foundations</h3>
+                                    <p>For our youngest campers, we prioritize tangible learning, spatial reasoning, and introductory coding concepts using block visual tools.</p>
+                                    <ul class="tab-list-bullets">
+                                        <li><strong>Scratch Junior:</strong> Program simple animations and interactive digital greeting cards.</li>
+                                        <li><strong>LEGO Education WeDo:</strong> Build smart motor gears and program simple reactions to light sensors.</li>
+                                        <li><strong>Tinkering Lab:</strong> Build mini-racers driven by solar panels and rubber bands.</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-visual-content">
+                                    <div class="outcome-card bg-pink-light">
+                                        <h4>Junior Outcomes:</h4>
+                                        <div class="outcome-stat"><span class="outcome-val">100%</span> Visual Block Mastery</div>
+                                        <div class="outcome-stat"><span class="outcome-val">4+</span> Working Motor Assemblies</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-inter">
+                            <div class="grid grid-2-equal">
+                                <div class="tab-text-content">
+                                    <h3>Intermediate Architects: Expanding Engineering Depth</h3>
+                                    <p>Middle campers transition into logical scripting and build more complex structural robotic projects.</p>
+                                    <ul class="tab-list-bullets">
+                                        <li><strong>Scratch &amp; Python Basics:</strong> Transition from block coding to writing raw syntax commands.</li>
+                                        <li><strong>LEGO SPIKE Prime:</strong> Build multi-wheeled rovers that navigate custom logic grids.</li>
+                                        <li><strong>3D Designing &amp; Printing:</strong> Model original keychains and structures in CAD, then watch them print.</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-visual-content">
+                                    <div class="outcome-card bg-blue-light">
+                                        <h4>Intermediate Outcomes:</h4>
+                                        <div class="outcome-stat"><span class="outcome-val">100%</span> Basic Python Scripting</div>
+                                        <div class="outcome-stat"><span class="outcome-val">5+</span> Functional CAD Models</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-senior">
+                            <div class="grid grid-2-equal">
+                                <div class="tab-text-content">
+                                    <h3>Senior Innovators: Advanced Applied Engineering</h3>
+                                    <p>Senior students build production-ready projects, using text-based scripts, microprocessors, and custom electronic circuits.</p>
+                                    <ul class="tab-list-bullets">
+                                        <li><strong>Robotics with Arduino:</strong> Assemble and solder real microprocessors, wire resistors, and code in C++.</li>
+                                        <li><strong>Unity 3D Game Engineering:</strong> Develop complex interactive physics engines and test original builds.</li>
+                                        <li><strong>Web Development &amp; AI:</strong> Write raw HTML/CSS websites and train basic machine learning datasets.</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-visual-content">
+                                    <div class="outcome-card bg-green-light">
+                                        <h4>Senior Outcomes:</h4>
+                                        <div class="outcome-stat"><span class="outcome-val">100%</span> Text-Based Coding (Python/C++)</div>
+                                        <div class="outcome-stat"><span class="outcome-val">1+</span> Advanced Electronic Prototype to Keep</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Photo Stream Gallery -->
+        <section class="camp-gallery-preview section-h2-3">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle text-green">Weekly Photo Stream</span>
+                    <h2 class="section-title">Campers in Action: Visual Highlights</h2>
+                    <p class="section-desc">See the energy and concentration inside our smart labs. These images are captured daily by our photography team.</p>
+                </div>
+                <div class="photo-stream-grid">
+                    <div class="stream-item"><img src="./s6.jpg" alt="Robotics test stream" class="stream-img"><div class="stream-caption"><i class="fa-solid fa-robot"></i> Robotics Lab</div></div>
+                    <div class="stream-item"><img src="./s7.jpg" alt="Tinkering lab stream" class="stream-img"><div class="stream-caption"><i class="fa-solid fa-wrench"></i> Tinkering Session</div></div>
+                    <div class="stream-item"><img src="./s13.jpg" alt="LEGO robotics stream" class="stream-img"><div class="stream-caption"><i class="fa-solid fa-cubes"></i> LEGO Engineering</div></div>
+                    <div class="stream-item"><img src="./s8.jpg" alt="Chemistry lab stream" class="stream-img"><div class="stream-caption"><i class="fa-solid fa-flask"></i> Chemistry Lab</div></div>
+                    <div class="stream-item"><img src="./s15.jpg" alt="Python coding stream" class="stream-img"><div class="stream-caption"><i class="fa-solid fa-code"></i> Python Workshop</div></div>
+                    <div class="stream-item"><img src="./s16.jpg" alt="Arduino circuits stream" class="stream-img"><div class="stream-caption"><i class="fa-solid fa-microchip"></i> Arduino Circuits</div></div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="login.html" class="btn btn-secondary">Access Secure Parent Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Daily Schedule Timeline -->
+        <section class="daily-schedule section-h2-4 bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle text-yellow">Daily Schedule Tracker</span>
+                    <h2 class="section-title">A Balanced Day-in-the-Life at STEM Camp</h2>
+                    <p class="section-desc">Our schedule alternates intensive coding workshops with collaborative outdoor exercises to maintain energy levels and focus.</p>
+                </div>
+                <div class="interactive-timeline">
+                    <div class="timeline-step"><div class="time-label">8:30 AM - 9:00 AM</div><div class="timeline-content"><h4>Morning Check-In &amp; Brain Gym</h4><p>Campers arrive, settle in, and participate in logic warmups, riddles, and collaborative icebreaker games.</p></div></div>
+                    <div class="timeline-step"><div class="time-label">9:00 AM - 11:30 AM</div><div class="timeline-content"><h4>Coding Lab (Core Coding/Robotics)</h4><p>Guided development session focused on programming theory, system design, and hardware troubleshooting.</p></div></div>
+                    <div class="timeline-step"><div class="time-label">11:30 AM - 12:30 PM</div><div class="timeline-content"><h4>Catered Lunch &amp; Outdoor Play</h4><p>Healthy balanced lunch followed by outdoor sports, obstacle courses, or physical water balloon physics challenges.</p></div></div>
+                    <div class="timeline-step"><div class="time-label">12:30 PM - 2:30 PM</div><div class="timeline-content"><h4>Tinkering Labs &amp; Collaborative Projects</h4><p>Hands-on engineering, 3D printing assemblies, chemistry experiments, and team hackathons.</p></div></div>
+                    <div class="timeline-step"><div class="time-label">2:30 PM - 3:30 PM</div><div class="timeline-content"><h4>Presentation &amp; Wrap-Up</h4><p>Campers showcase their daily achievements in a group presentation, fostering public speaking confidence.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Impact Numbers -->
+        <section class="impact-section section-h2-5">
+            <div class="container grid grid-4">
+                <div class="counter-card text-center"><div class="counter-icon text-pink"><i class="fa-solid fa-graduation-cap"></i></div><div class="counter-num">12,000+</div><h4>Graduated Campers</h4><p>Successful registrations and camp certificates awarded since 2018.</p></div>
+                <div class="counter-card text-center"><div class="counter-icon text-blue"><i class="fa-solid fa-code-branch"></i></div><div class="counter-num">450k+</div><h4>Lines of Python Written</h4><p>Total code syntax written and debugged inside our systems.</p></div>
+                <div class="counter-card text-center"><div class="counter-icon text-green"><i class="fa-solid fa-shield"></i></div><div class="counter-num">100%</div><h4>Background-Checked Staff</h4><p>Strict safety checks ensure top academic instructors and counselors.</p></div>
+                <div class="counter-card text-center"><div class="counter-icon text-yellow"><i class="fa-solid fa-handshake"></i></div><div class="counter-num">42</div><h4>Partner Schools</h4><p>Collaborating school districts for year-round curriculum development.</p></div>
+            </div>
+        </section>
+
+        <!-- Section 6: Early Bird Calculator -->
+        <section class="earlybird-section section-h2-6 bg-purple text-white">
+            <div class="container grid grid-2-equal">
+                <div class="earlybird-text">
+                    <span class="badge-discount">Save 15% Today</span>
+                    <h2>Early Bird Registration Open!</h2>
+                    <p>Secure your slots today. Early registration ensures priority choosing for coding tracks, specific summer weeks, and customized camp counselor requests.</p>
+                    <ul class="earlybird-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Free take-home robotics starter kit ($60 value)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Cancel or reschedule with zero fee up to 14 days prior</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Installment payment options available</li>
+                    </ul>
+                </div>
+                <div class="earlybird-calculator glass-card">
+                    <h3>Interactive Quote Estimator</h3>
+                    <p class="text-muted">Estimate total camp fee with early-bird discounts applied.</p>
+                    <div class="form-group mt-3">
+                        <label for="calc-camps">Number of Camps/Weeks</label>
+                        <input type="number" id="calc-camps" class="form-input" min="1" max="6" value="1">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="calc-siblings">Number of Siblings Registered</label>
+                        <input type="number" id="calc-siblings" class="form-input" min="0" max="4" value="0">
+                    </div>
+                    <div class="price-output-box mt-3 text-center">
+                        <div class="output-label">Estimated Total Fee</div>
+                        <div class="output-value text-purple" id="calc-total">$425</div>
+                        <span class="text-green text-sm" id="calc-savings">You saved $75 (Early Bird)</span>
+                    </div>
+                    <a href="register.html" class="btn btn-primary w-100 mt-3 text-center">Book Camp Slot Now</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="global-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="home1.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-cubes-stacked text-white"></i></div><div class="logo-text text-white"><span class="logo-highlight">STEM</span>Camp</div></a>
+                <p class="footer-tagline">Building coding confidence and logical reasoning through high-trust summer camps since 2018.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col"><h4>Summer Programs</h4><ul><li><a href="programs.html">Coding &amp; Games</a></li><li><a href="programs.html">Robotics &amp; Engineering</a></li><li><a href="programs.html">Tinkering &amp; Science</a></li><li><a href="programs.html">Weekend Workshops</a></li></ul></div>
+            <div class="footer-links-col"><h4>Parent Helpdesk</h4><ul><li><a href="contact.html">Contact Support</a></li><li><a href="register.html">Register Camper</a></li><li><a href="login.html">Sign Medical Waivers</a></li><li><a href="home1.html">Safety Accreditations</a></li></ul></div>
+            <div class="footer-links-col"><h4>Security &amp; Standards</h4><div class="security-cert-block"><span class="cert-item"><i class="fa-solid fa-shield-heart text-yellow"></i> 100% HIPAA &amp; COPPA Safe</span><span class="cert-item"><i class="fa-solid fa-shield-halved text-blue"></i> Certified Pediatric Nurse On-Site</span></div></div>
+        </div>
+        <div class="footer-bottom"><div class="container footer-bottom-flex"><p>&copy; 2026 STEMCamp Summer Camps Portal. All rights reserved.</p><ul class="footer-legal-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">COPPA Notice</a></li></ul></div></div>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script>
+        // Age tabs
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('tab-' + btn.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+        // Calculator
+        const calcCamps = document.getElementById('calc-camps');
+        const calcSiblings = document.getElementById('calc-siblings');
+        function calculateCost() {
+            const camps = parseInt(calcCamps.value) || 0;
+            const siblings = parseInt(calcSiblings.value) || 0;
+            const base = camps * 450;
+            const savings = base * 0.15 + base * Math.min(siblings * 0.10, 0.30);
+            const final = Math.max(base - savings, 0);
+            document.getElementById('calc-total').textContent = '$' + Math.round(final);
+            document.getElementById('calc-savings').textContent = 'You saved $' + Math.round(savings) + ' (Early Bird + Sibling discounts)';
+        }
+        if (calcCamps) { calcCamps.addEventListener('input', calculateCost); calcSiblings.addEventListener('input', calculateCost); }
+    </script>
+</body>
+</html>

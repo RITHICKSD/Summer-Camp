@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs – STEM & Coding Summer Camp</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 L85 32 L50 50 L15 32 Z' fill='%23a855f7'/%3E%3Cpath d='M15 32 L50 50 L50 85 L15 67 Z' fill='%237c3aed'/%3E%3Cpath d='M50 50 L85 32 L85 67 L50 85 Z' fill='%236d28d9'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..900&family=Quicksand:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="header-container">
+            <a href="home1.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                <div class="logo-text"><span class="logo-highlight">STEM</span>Camp</div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Home <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="home1.html" class="dropdown-item">Home 1</a></li>
+                            <li><a href="home2.html" class="dropdown-item">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="programs.html" class="nav-link active">Programs</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Dashboard <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="user-dashboard.html" class="dropdown-item">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mobile-menu-actions">
+                    <div class="mobile-toggles">
+                        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                        <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                    </div>
+                    <a href="login.html" class="btn btn-primary login-btn w-100"><i class="fa-solid fa-user-lock"></i> Login</a>
+                </div>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                <a href="login.html" class="btn btn-primary login-btn"><i class="fa-solid fa-user-lock"></i> Login</a>
+                <button class="mobile-nav-toggle" aria-label="Open Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Section 1: Summer Camps Catalog -->
+        <section class="services-hero section-sv-1">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="subtitle text-blue">Weekly Summer Programs</span>
+                    <h2 class="section-title">Summer Camps: Program Pathways Catalog</h2>
+                    <p class="section-desc">Choose from our core 1-week summer camps, designed for specific age segments and skill sets.</p>
+                </div>
+                <div class="text-center catalog-filters mb-4">
+                    <button class="btn btn-filter active" data-filter="all">All Camps</button>
+                    <button class="btn btn-filter" data-filter="coding">Coding &amp; Games</button>
+                    <button class="btn btn-filter" data-filter="robotics">Robotics &amp; Engineering</button>
+                    <button class="btn btn-filter" data-filter="science">Applied Science</button>
+                </div>
+                <div class="grid grid-3" id="catalog-grid">
+                    <div class="camp-catalog-card" data-category="coding"><div class="catalog-badge">Ages 7-10</div><img src="./l1.jpg" alt="Scratch Game Design" class="camp-cat-img"><div class="camp-cat-info"><h3>Scratch Game Design Foundations</h3><p>Learn game logic, variables, and sprite physics. Campers build 4 full games they can share and play at home.</p><div class="camp-meta"><span><i class="fa-solid fa-calendar"></i> June 15-19</span><span><i class="fa-solid fa-chair text-red"></i> 4 Seats Left</span></div><div class="camp-footer-price"><span class="price-val">$390</span><a href="register.html" class="btn btn-secondary btn-sm">Register</a></div></div></div>
+                    <div class="camp-catalog-card" data-category="robotics"><div class="catalog-badge">Ages 8-11</div><img src="./l2.jpg" alt="LEGO Engineering" class="camp-cat-img"><div class="camp-cat-info"><h3>LEGO SPIKE Prime Robotics</h3><p>Construct motorized robotic gears and write logic loops to help motors avoid obstacle course walls.</p><div class="camp-meta"><span><i class="fa-solid fa-calendar"></i> June 22-26</span><span><i class="fa-solid fa-chair text-green"></i> Available</span></div><div class="camp-footer-price"><span class="price-val">$425</span><a href="register.html" class="btn btn-secondary btn-sm">Register</a></div></div></div>
+                    <div class="camp-catalog-card" data-category="coding"><div class="catalog-badge">Ages 11-15</div><img src="./l3.jpg" alt="Python Hackathon" class="camp-cat-img"><div class="camp-cat-info"><h3>Python Scripting &amp; AI Algorithms</h3><p>Write actual text syntax. Seniors code calculators, chat networks, and program simple neural arrays.</p><div class="camp-meta"><span><i class="fa-solid fa-calendar"></i> June 29-July 3</span><span><i class="fa-solid fa-chair text-green"></i> Available</span></div><div class="camp-footer-price"><span class="price-val">$450</span><a href="register.html" class="btn btn-secondary btn-sm">Register</a></div></div></div>
+                    <div class="camp-catalog-card" data-category="robotics"><div class="catalog-badge">Ages 12-15</div><img src="./l4.jpg" alt="Arduino Engineering" class="camp-cat-img"><div class="camp-cat-info"><h3>Arduino Circuits &amp; C++ Microprocessors</h3><p>Solder components, wire sensors, and write C++ routines. Campers take home their final microprocessor board.</p><div class="camp-meta"><span><i class="fa-solid fa-calendar"></i> July 6-10</span><span><i class="fa-solid fa-chair text-red"></i> 2 Seats Left</span></div><div class="camp-footer-price"><span class="price-val">$480</span><a href="register.html" class="btn btn-secondary btn-sm">Register</a></div></div></div>
+                    <div class="camp-catalog-card" data-category="science"><div class="catalog-badge">Ages 6-9</div><img src="./l5.jpg" alt="Tinkering Lab junior" class="camp-cat-img"><div class="camp-cat-info"><h3>Solar Racers &amp; Junior Tinkering</h3><p>Learn solar power, kinetic force, and wind energy. Kids assemble small cars that run on sunlight.</p><div class="camp-meta"><span><i class="fa-solid fa-calendar"></i> July 13-17</span><span><i class="fa-solid fa-chair text-green"></i> Available</span></div><div class="camp-footer-price"><span class="price-val">$380</span><a href="register.html" class="btn btn-secondary btn-sm">Register</a></div></div></div>
+                    <div class="camp-catalog-card" data-category="science"><div class="catalog-badge">Ages 9-12</div><img src="./l6.jpg" alt="Chemistry lab science" class="camp-cat-img"><div class="camp-cat-info"><h3>Experimental Chemistry &amp; Rocket Physics</h3><p>Run safe experiments with polymers, thermal reactions, and rocket trajectories. Includes take-home kits.</p><div class="camp-meta"><span><i class="fa-solid fa-calendar"></i> July 20-24</span><span><i class="fa-solid fa-chair text-green"></i> Available</span></div><div class="camp-footer-price"><span class="price-val">$410</span><a href="register.html" class="btn btn-secondary btn-sm">Register</a></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: School-Year Programs -->
+        <section class="schoolyear-section section-sv-2 bg-alt">
+            <div class="container grid grid-2-equal">
+                <div class="schoolyear-visual">
+                    <div class="grid grid-2">
+                        <div class="mini-card bg-pink-light"><img src="./s12.jpg" alt="After-School Coding Club" style="width:100%;height:100px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:12px;"><h4>After-School Clubs</h4><p>Weekly 90-minute coding support sessions held on Tuesdays &amp; Thursdays.</p></div>
+                        <div class="mini-card bg-blue-light"><img src="./s15.jpg" alt="Coding Mentors" style="width:100%;height:100px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:12px;"><h4>Coding Mentors</h4><p>Help students build high school CS portfolios and pass AP computer tests.</p></div>
+                    </div>
+                </div>
+                <div class="schoolyear-content">
+                    <span class="subtitle text-purple">Year-Round Learning</span>
+                    <h2 class="section-title">After-School STEM Clubs &amp; Tutoring</h2>
+                    <p class="section-desc">Our mission doesn't stop when summer ends. We offer school-year coding clubs and private tutors to support your child's academic growth and prepare them for computer science credentials.</p>
+                    <a href="contact.html" class="btn btn-secondary mt-3">Inquire for School Term</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Weekend Workshops -->
+        <section class="weekend-section section-sv-3">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="subtitle text-green">Short term learning sessions</span>
+                    <h2 class="section-title">Weekend STEM Jams &amp; Workshops</h2>
+                    <p class="section-desc">Short, 3-hour weekend sessions to introduce kids to specific technologies and tools.</p>
+                </div>
+                <div class="grid grid-3 mt-3">
+                    <div class="workshop-box border-pink"><span class="date-badge bg-pink text-white">Sat, June 20</span><h3>Minecraft Modding Jam</h3><p>Write simple loops to build automated towers and construct custom maps in Minecraft Education Edition.</p><span class="w-price">$55</span></div>
+                    <div class="workshop-box border-blue"><span class="date-badge bg-blue text-white">Sat, July 11</span><h3>Roblox Game Scripting</h3><p>Learn script properties in Lua. Kids program teleporters, trapdoors, and high-score systems.</p><span class="w-price">$60</span></div>
+                    <div class="workshop-box border-green"><span class="date-badge bg-green text-white">Sat, July 25</span><h3>3D Print &amp; Modeling Lab</h3><p>Learn CAD, design a customized action figure, and print it using high-grade PLA printer units.</p><span class="w-price">$65</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Birthday Parties -->
+        <section class="parties-section section-sv-4 bg-alt">
+            <div class="container grid grid-2-equal">
+                <div class="parties-content">
+                    <span class="subtitle text-yellow">Celebrate with STEM</span>
+                    <h2 class="section-title">Host a Customized STEM &amp; Coding Birthday Party!</h2>
+                    <p class="section-desc">Give your child an unforgettable birthday. We host fully structured 2.5-hour events at our secure campus facility, complete with custom science labs or coding tournaments run by certified instructors.</p>
+                    <div class="themes-row">
+                        <span class="theme-tag"><i class="fa-solid fa-gamepad"></i> Roblox Mod Party</span>
+                        <span class="theme-tag"><i class="fa-solid fa-flask"></i> Slime &amp; Chemical Fizz Party</span>
+                        <span class="theme-tag"><i class="fa-solid fa-robot"></i> Robot Battle Arena Party</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary mt-3">Book Party Date</a>
+                </div>
+                <div class="parties-visual">
+                    <div class="party-card-visual glass-card text-center">
+                        <div class="party-icon"><i class="fa-solid fa-cake-candles animate-bounce" style="font-size:48px;color:var(--pink);"></i></div>
+                        <h3>Birthday Package Includes:</h3>
+                        <ul class="party-details-list" style="list-style:none;margin-top:12px;text-align:left;">
+                            <li style="margin-bottom:8px;"><i class="fa-solid fa-check text-green"></i> Up to 15 children</li>
+                            <li style="margin-bottom:8px;"><i class="fa-solid fa-check text-green"></i> Personal certified lab instructor</li>
+                            <li style="margin-bottom:8px;"><i class="fa-solid fa-check text-green"></i> All STEM parts, gears, and lab coats provided</li>
+                            <li style="margin-bottom:8px;"><i class="fa-solid fa-check text-green"></i> Custom invitations &amp; cupcakes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Private Tutoring -->
+        <section class="tutoring-section section-sv-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="subtitle text-purple">1-on-1 Academic Support</span>
+                    <h2 class="section-title">Private Coding Mentorship Packages</h2>
+                    <p class="section-desc">Personalized, face-to-face coding guidance from Stanford, Berkeley, or MIT computer majors.</p>
+                </div>
+                <div class="grid grid-3 mt-3">
+                    <div class="pricing-card text-center"><h4>Starter Path</h4><div class="price-circle"><span class="price-val">$180</span>/mo</div><ul class="pricing-bullets"><li>2 Tutoring Sessions (60m each)</li><li>1-on-1 Debugging Slack access</li><li>Scratch &amp; Python curriculum</li><li>Progress report dashboard updates</li></ul><a href="contact.html" class="btn btn-secondary w-100 mt-3">Inquire Starter</a></div>
+                    <div class="pricing-card active text-center"><span class="badge-popular">Best Choice</span><h4>Accelerator Path</h4><div class="price-circle"><span class="price-val">$320</span>/mo</div><ul class="pricing-bullets"><li>4 Tutoring Sessions (60m each)</li><li>24/7 priority debugger channel</li><li>Arduino circuit boards included</li><li>Interactive portfolio development</li></ul><a href="contact.html" class="btn btn-primary w-100 mt-3">Inquire Accelerator</a></div>
+                    <div class="pricing-card text-center"><h4>Advanced CS Path</h4><div class="price-circle"><span class="price-val">$580</span>/mo</div><ul class="pricing-bullets"><li>8 Tutoring Sessions (60m each)</li><li>College application CS review</li><li>Unity game project publishing</li><li>24/7 director support line</li></ul><a href="contact.html" class="btn btn-secondary w-100 mt-3">Inquire Advanced</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: School Groups -->
+        <section class="schoolgroups-section section-sv-6 bg-alt">
+            <div class="container grid grid-2-equal">
+                <div class="sg-visual"><img src="./s7.jpg" alt="School Group Tinkering" class="img-responsive rounded-card box-shadow-lg"></div>
+                <div class="sg-content">
+                    <span class="subtitle text-pink">Educational Collaborations</span>
+                    <h2 class="section-title">Field Trips &amp; District Bookings</h2>
+                    <p class="section-desc">We offer custom STEM field trips for public and private school districts. Bring your classroom (up to 45 students) for a 4-hour hands-on robotics tournament and chemical lab session run by certified teachers.</p>
+                    <ul class="sg-checklist">
+                        <li><i class="fa-solid fa-circle-check text-pink"></i> Meets regional NGSS science curriculum targets</li>
+                        <li><i class="fa-solid fa-circle-check text-pink"></i> Fully insured facility up to $5M</li>
+                        <li><i class="fa-solid fa-circle-check text-pink"></i> All teachers are background check verified</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary mt-3">Download School Catalog</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="global-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand"><a href="home1.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-cubes-stacked text-white"></i></div><div class="logo-text text-white"><span class="logo-highlight">STEM</span>Camp</div></a><p class="footer-tagline">Building coding confidence and logical reasoning through high-trust summer camps since 2018.</p><div class="social-links"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a><a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div></div>
+            <div class="footer-links-col"><h4>Summer Programs</h4><ul><li><a href="programs.html">Coding &amp; Games</a></li><li><a href="programs.html">Robotics &amp; Engineering</a></li><li><a href="programs.html">Tinkering &amp; Science</a></li><li><a href="programs.html">Weekend Workshops</a></li></ul></div>
+            <div class="footer-links-col"><h4>Parent Helpdesk</h4><ul><li><a href="contact.html">Contact Support</a></li><li><a href="register.html">Register Camper</a></li><li><a href="login.html">Sign Medical Waivers</a></li><li><a href="home1.html">Safety Accreditations</a></li></ul></div>
+            <div class="footer-links-col"><h4>Security &amp; Standards</h4><div class="security-cert-block"><span class="cert-item"><i class="fa-solid fa-shield-heart text-yellow"></i> 100% HIPAA &amp; COPPA Safe</span><span class="cert-item"><i class="fa-solid fa-shield-halved text-blue"></i> Certified Pediatric Nurse On-Site</span></div></div>
+        </div>
+        <div class="footer-bottom"><div class="container footer-bottom-flex"><p>&copy; 2026 STEMCamp Summer Camps Portal. All rights reserved.</p><ul class="footer-legal-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">COPPA Notice</a></li></ul></div></div>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script>
+        // Camp catalog filter
+        const filterBtns = document.querySelectorAll('.btn-filter');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const val = btn.getAttribute('data-filter');
+                document.querySelectorAll('.camp-catalog-card').forEach(card => {
+                    card.style.display = (val === 'all' || card.getAttribute('data-category') === val) ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

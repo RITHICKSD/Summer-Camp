@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard – STEMCamp</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 L85 32 L50 50 L15 32 Z' fill='%23a855f7'/%3E%3Cpath d='M15 32 L50 50 L50 85 L15 67 Z' fill='%237c3aed'/%3E%3Cpath d='M50 50 L85 32 L85 67 L50 85 Z' fill='%236d28d9'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..900&family=Quicksand:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard-view">
+    <div class="dashboard-sidebar-overlay" id="sidebar-overlay"></div>
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+        <a href="home1.html" class="sidebar-logo">
+            <div class="logo-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+            <div class="logo-text"><span class="logo-highlight">STEM</span>Camp</div>
+        </a>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" class="sidebar-link active" data-panel="a-overview"><i class="fa-solid fa-chart-line"></i> <span>Dashboard Overview</span></a></li>
+                <li><a href="#" class="sidebar-link" data-panel="a-camps"><i class="fa-solid fa-list-check"></i> <span>Manage Camps</span></a></li>
+                <li><a href="#" class="sidebar-link" data-panel="a-waivers"><i class="fa-solid fa-signature"></i> <span>Approve Waivers</span> <span class="badge-pending" id="badge-admin-waivers">1</span></a></li>
+                <li><a href="#" class="sidebar-link" data-panel="a-schedules"><i class="fa-solid fa-calendar-check"></i> <span>Counselor Schedules</span></a></li>
+                <li><a href="#" class="sidebar-link" data-panel="a-gallery"><i class="fa-solid fa-image-portrait"></i> <span>Gallery Admin</span></a></li>
+                <li><a href="#" class="sidebar-link" data-panel="a-audits"><i class="fa-solid fa-file-shield"></i> <span>Safety Audits</span></a></li>
+                <li class="logout-item"><a href="home1.html" class="sidebar-link text-red"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+    <!-- MAIN CONTENT -->
+    <div class="dashboard-content">
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <button class="dashboard-sidebar-toggle" aria-label="Toggle Sidebar"><i class="fa-solid fa-bars"></i></button>
+                <h2 id="panel-title">Admin Overview</h2>
+            </div>
+            <div class="topbar-right">
+                <button class="theme-toggle" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="dir-toggle" aria-label="Toggle Direction"><span>RTL</span></button>
+                <div class="topbar-notification"><i class="fa-solid fa-bell"></i><span class="notif-dot"></span></div>
+                <div class="topbar-profile">
+                    <img src="./s17.jpg" alt="Admin" class="profile-img">
+                    <span class="profile-name">Dir. Alistair</span>
+                </div>
+            </div>
+        </header>
+        <div class="dashboard-panel-container">
+
+            <!-- PANEL 1: OVERVIEW -->
+            <div class="dashboard-panel active" id="panel-a-overview">
+                <div class="grid grid-4 mb-4">
+                    <div class="stat-card border-left-purple"><div class="stat-card-body"><div class="card-details"><span class="text-muted text-uppercase text-sm">Total Earnings</span><h3>$46,800</h3></div><div class="card-icon text-purple"><i class="fa-solid fa-wallet"></i></div></div></div>
+                    <div class="stat-card border-left-pink"><div class="stat-card-body"><div class="card-details"><span class="text-muted text-uppercase text-sm">Total Campers</span><h3>112 Registered</h3></div><div class="card-icon text-pink"><i class="fa-solid fa-users"></i></div></div></div>
+                    <div class="stat-card border-left-green"><div class="stat-card-body"><div class="card-details"><span class="text-muted text-uppercase text-sm">Waiver Completion</span><h3>94.5% Signed</h3></div><div class="card-icon text-green"><i class="fa-solid fa-file-circle-check"></i></div></div></div>
+                    <div class="stat-card border-left-yellow"><div class="stat-card-body"><div class="card-details"><span class="text-muted text-uppercase text-sm">Safety Compliance</span><h3>100% Audit Score</h3></div><div class="card-icon text-yellow"><i class="fa-solid fa-shield-circle-check"></i></div></div></div>
+                </div>
+                <div class="grid grid-2-equal">
+                    <div class="glass-card">
+                        <h3>Weekly Registration Trends</h3>
+                        <div class="svg-chart-wrapper mt-3">
+                            <svg viewBox="0 0 400 180" class="svg-chart">
+                                <path d="M 30,150 L 100,120 L 170,110 L 240,60 L 310,40 L 380,20" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                                <circle cx="30" cy="150" r="4" fill="#3b82f6"/><circle cx="100" cy="120" r="4" fill="#3b82f6"/>
+                                <circle cx="170" cy="110" r="4" fill="#3b82f6"/><circle cx="240" cy="60" r="4" fill="#3b82f6"/>
+                                <circle cx="310" cy="40" r="4" fill="#3b82f6"/><circle cx="380" cy="20" r="4" fill="#3b82f6"/>
+                                <line x1="30" y1="160" x2="380" y2="160" stroke="#ccc" stroke-width="2"/>
+                                <text x="25" y="175" fill="#666" font-size="10">May 1</text>
+                                <text x="95" y="175" fill="#666" font-size="10">May 15</text>
+                                <text x="165" y="175" fill="#666" font-size="10">Jun 1</text>
+                                <text x="235" y="175" fill="#666" font-size="10">Jun 15</text>
+                                <text x="305" y="175" fill="#666" font-size="10">Jul 1</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Sub-Curriculum Enrollments</h3>
+                        <div class="svg-chart-wrapper mt-3">
+                            <svg viewBox="0 0 200 200" class="svg-chart-pie">
+                                <circle r="60" cx="100" cy="100" fill="transparent" stroke="#ec4899" stroke-width="40" stroke-dasharray="140 376" stroke-dashoffset="0"/>
+                                <circle r="60" cx="100" cy="100" fill="transparent" stroke="#3b82f6" stroke-width="40" stroke-dasharray="120 376" stroke-dashoffset="-140"/>
+                                <circle r="60" cx="100" cy="100" fill="transparent" stroke="#22c55e" stroke-width="40" stroke-dasharray="116 376" stroke-dashoffset="-260"/>
+                            </svg>
+                        </div>
+                        <div class="pie-legends text-center text-sm mt-1">
+                            <span class="legend"><span class="dot bg-pink"></span> Coding (45%)</span>
+                            <span class="legend"><span class="dot bg-blue"></span> Robotics (35%)</span>
+                            <span class="legend"><span class="dot bg-green"></span> Science (20%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 2: MANAGE CAMPS (CRUD) -->
+            <div class="dashboard-panel" id="panel-a-camps">
+                <div class="glass-card">
+                    <div class="crud-header">
+                        <h3>Summer Camps Control Panel</h3>
+                        <button class="btn btn-primary btn-sm" id="btn-add-camp-modal"><i class="fa-solid fa-plus"></i> Add New Camp</button>
+                    </div>
+                    <table class="dashboard-table mt-3" id="admin-camps-table">
+                        <thead><tr><th>Camp Title</th><th>Age Path</th><th>Weeks</th><th>Registered</th><th>Price</th><th>Actions</th></tr></thead>
+                        <tbody>
+                            <tr><td>Scratch Game Design Foundations</td><td>7-10</td><td>Week 1 &amp; 3</td><td>18 / 20</td><td>$390</td><td><button class="btn-action edit"><i class="fa-solid fa-pen"></i></button><button class="btn-action delete"><i class="fa-solid fa-trash"></i></button></td></tr>
+                            <tr><td>LEGO SPIKE Prime Robotics</td><td>8-11</td><td>Week 2 &amp; 4</td><td>15 / 20</td><td>$425</td><td><button class="btn-action edit"><i class="fa-solid fa-pen"></i></button><button class="btn-action delete"><i class="fa-solid fa-trash"></i></button></td></tr>
+                            <tr><td>Python Scripting &amp; AI Algorithms</td><td>11-15</td><td>Week 3</td><td>12 / 15</td><td>$450</td><td><button class="btn-action edit"><i class="fa-solid fa-pen"></i></button><button class="btn-action delete"><i class="fa-solid fa-trash"></i></button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- CRUD Modal -->
+                <div class="modal hidden" id="camp-crud-modal">
+                    <div class="modal-content glass-card">
+                        <h3 id="modal-title-action">Add New Camp</h3>
+                        <div class="form-group mt-3"><label for="m-camp-title">Camp Title</label><input type="text" id="m-camp-title" class="form-input" placeholder="Roblox Modding Basics"></div>
+                        <div class="form-row mt-2">
+                            <div class="form-group"><label for="m-camp-age">Age Path</label><input type="text" id="m-camp-age" class="form-input" placeholder="8-12"></div>
+                            <div class="form-group"><label for="m-camp-price">Price</label><input type="text" id="m-camp-price" class="form-input" placeholder="$400"></div>
+                        </div>
+                        <div class="modal-actions mt-3">
+                            <button class="btn btn-secondary" id="btn-cancel-modal">Cancel</button>
+                            <button class="btn btn-primary" id="btn-save-camp">Save Camp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 3: APPROVE WAIVERS -->
+            <div class="dashboard-panel" id="panel-a-waivers">
+                <div class="glass-card">
+                    <h3>Pending Medical Waiver Verifications</h3>
+                    <p class="text-muted">Review digital parent signatures and emergency releases prior to camper check-in.</p>
+                    <table class="dashboard-table mt-3" id="admin-waiver-table">
+                        <thead><tr><th>Camper Name</th><th>Parent Signature</th><th>Allergies</th><th>Status</th><th>Verify</th></tr></thead>
+                        <tbody>
+                            <tr id="admin-waiver-row-1"><td>Sophia Jenkins</td><td>Amanda Jenkins (Verified)</td><td>Peanuts (Severe)</td><td><span class="badge badge-warning">Needs Approval</span></td><td><button class="btn btn-primary btn-sm btn-approve-waiver" data-id="1">Approve Signature</button></td></tr>
+                        </tbody>
+                    </table>
+                    <div id="admin-waiver-empty" class="alert alert-success mt-2 hidden"><i class="fa-solid fa-circle-check"></i> All submitted waivers have been verified.</div>
+                </div>
+            </div>
+
+            <!-- PANEL 4: COUNSELOR SCHEDULES -->
+            <div class="dashboard-panel" id="panel-a-schedules">
+                <div class="glass-card">
+                    <h3>Active Counselor Assignments</h3>
+                    <p class="text-muted">Allocate instructors and coordinate supervision duties across labs.</p>
+                    <table class="dashboard-table mt-3">
+                        <thead><tr><th>Instructor</th><th>Target Lab Group</th><th>Ratio Status</th><th>Assigned Week</th></tr></thead>
+                        <tbody>
+                            <tr><td>Dr. Evelyn Thorne</td><td>Arduino Hardware Engineering</td><td><span class="badge bg-green text-white">1:5 Ratio (Secure)</span></td><td>Week 1 - 3</td></tr>
+                            <tr><td>Mr. Marcus Vance</td><td>Python &amp; AI Algorithms</td><td><span class="badge bg-green text-white">1:6 Ratio (Secure)</span></td><td>Week 2 &amp; 3</td></tr>
+                            <tr><td>Ms. Sarah Jenkins</td><td>Junior Scratch &amp; Tinkering</td><td><span class="badge bg-green text-white">1:5 Ratio (Secure)</span></td><td>Week 1 - 4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PANEL 5: GALLERY ADMIN -->
+            <div class="dashboard-panel" id="panel-a-gallery">
+                <div class="glass-card">
+                    <h3>Upload Weekly Camp Photos</h3>
+                    <p class="text-muted">Select photo assets and add tagging labels before publishing to parent viewports.</p>
+                    <div class="form-group mt-3"><label for="a-gallery-file">Select Local Image File</label><input type="file" id="a-gallery-file" class="form-input"></div>
+                    <div class="form-group mt-2"><label for="a-gallery-tag">Tag Camper Names</label><input type="text" id="a-gallery-tag" class="form-input" placeholder="e.g. Sophia, Daniel"></div>
+                    <button class="btn btn-primary mt-3" id="btn-admin-upload">Publish Photo to Parent Portal</button>
+                    <div id="admin-upload-success" class="alert alert-success mt-2 hidden"><i class="fa-solid fa-circle-check"></i> Image published successfully to secure parent database.</div>
+                </div>
+            </div>
+
+            <!-- PANEL 6: SAFETY AUDITS -->
+            <div class="dashboard-panel" id="panel-a-audits">
+                <div class="glass-card">
+                    <h3>Daily Security Checklists &amp; Safety Logs</h3>
+                    <p class="text-muted">Verify compliance checklist points before morning check-in starts.</p>
+                    <ul class="audit-checklist mt-3">
+                        <li><i class="fa-solid fa-square-check text-green"></i> <strong>Epinephrine Storage checked:</strong> Central temperature cabinet verified at 68°F.</li>
+                        <li><i class="fa-solid fa-square-check text-green"></i> <strong>Intranet Network:</strong> Strict site filtering active on all workstation ports.</li>
+                        <li><i class="fa-solid fa-square-check text-green"></i> <strong>Emergency Access:</strong> Evacuation routes and finger scanners checked and operational.</li>
+                        <li><i class="fa-solid fa-square-check text-green"></i> <strong>Teacher Background Logs:</strong> All active counselors updated in ACA system.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- end panel-container -->
+    </div><!-- end dashboard-content -->
+</div><!-- end dashboard-view -->
+
+<script src="shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* --- Sidebar toggle (mobile) --- */
+    const sidebarToggle = document.querySelector('.dashboard-sidebar-toggle');
+    const sidebar = document.querySelector('.dashboard-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = sidebar.classList.toggle('active');
+            overlay.classList.toggle('active', open);
+        });
+    }
+    if (overlay) overlay.addEventListener('click', () => { sidebar.classList.remove('active'); overlay.classList.remove('active'); });
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) { sidebar.classList.remove('active'); overlay.classList.remove('active'); }
+        }
+    });
+
+    /* --- Sub-panel navigation --- */
+    const sidebarLinks = document.querySelectorAll('.sidebar-link[data-panel]');
+    const panels = document.querySelectorAll('.dashboard-panel');
+    const panelTitle = document.getElementById('panel-title');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const panelId = link.getAttribute('data-panel');
+            sidebarLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            panels.forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('panel-' + panelId);
+            if (target) target.classList.add('active');
+            if (panelTitle) panelTitle.textContent = link.querySelector('span') ? link.querySelector('span').textContent.trim() : link.textContent.trim();
+            if (window.innerWidth <= 768) { sidebar.classList.remove('active'); overlay.classList.remove('active'); }
+        });
+    });
+
+    /* --- Waiver approve --- */
+    document.querySelectorAll('.btn-approve-waiver').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const row = document.getElementById('admin-waiver-row-' + btn.getAttribute('data-id'));
+            if (row) row.remove();
+            const badge = document.getElementById('badge-admin-waivers');
+            if (badge) badge.style.display = 'none';
+            document.getElementById('admin-waiver-empty').classList.remove('hidden');
+        });
+    });
+
+    /* --- CRUD Camps --- */
+    const modal = document.getElementById('camp-crud-modal');
+    const btnAdd = document.getElementById('btn-add-camp-modal');
+    const btnCancel = document.getElementById('btn-cancel-modal');
+    const btnSave = document.getElementById('btn-save-camp');
+    const tbody = document.getElementById('admin-camps-table').getElementsByTagName('tbody')[0];
+    let editRow = null;
+
+    function attachRowListeners(row) {
+        row.querySelector('.edit').addEventListener('click', () => {
+            editRow = row;
+            document.getElementById('modal-title-action').textContent = 'Edit Camp';
+            document.getElementById('m-camp-title').value = row.cells[0].textContent;
+            document.getElementById('m-camp-age').value = row.cells[1].textContent;
+            document.getElementById('m-camp-price').value = row.cells[4].textContent;
+            modal.classList.remove('hidden');
+        });
+        row.querySelector('.delete').addEventListener('click', () => { if (confirm('Delete this camp?')) row.remove(); });
+    }
+    Array.from(tbody.rows).forEach(attachRowListeners);
+
+    if (btnAdd) btnAdd.addEventListener('click', () => { editRow = null; document.getElementById('modal-title-action').textContent = 'Add New Camp'; document.getElementById('m-camp-title').value = ''; document.getElementById('m-camp-age').value = ''; document.getElementById('m-camp-price').value = ''; modal.classList.remove('hidden'); });
+    if (btnCancel) btnCancel.addEventListener('click', () => modal.classList.add('hidden'));
+    if (btnSave) btnSave.addEventListener('click', () => {
+        const title = document.getElementById('m-camp-title').value.trim();
+        const age = document.getElementById('m-camp-age').value.trim();
+        const price = document.getElementById('m-camp-price').value.trim();
+        if (!title || !age || !price) { alert('Please fill all fields.'); return; }
+        if (editRow) { editRow.cells[0].textContent = title; editRow.cells[1].textContent = age; editRow.cells[4].textContent = price; }
+        else { const nr = tbody.insertRow(); nr.innerHTML = `<td>${title}</td><td>${age}</td><td>Week 1 & 2</td><td>0 / 15</td><td>${price}</td><td><button class="btn-action edit"><i class="fa-solid fa-pen"></i></button><button class="btn-action delete"><i class="fa-solid fa-trash"></i></button></td>`; attachRowListeners(nr); }
+        modal.classList.add('hidden');
+    });
+
+    /* --- Gallery upload mock --- */
+    const btnUpload = document.getElementById('btn-admin-upload');
+    if (btnUpload) btnUpload.addEventListener('click', () => { document.getElementById('admin-upload-success').classList.remove('hidden'); setTimeout(() => document.getElementById('admin-upload-success').classList.add('hidden'), 4000); });
+
+});
+</script>
+</body>
+</html>

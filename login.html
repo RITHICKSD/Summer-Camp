@@ -32,7 +32,7 @@
     <!-- Login Container -->
     <div class="auth-card">
         <!-- Logo -->
-        <a href="index.html" class="logo">
+        <a href="home1.html" class="logo">
             <div class="logo-icon">
                 <i class="fa-solid fa-cubes-stacked"></i>
             </div>
@@ -150,9 +150,9 @@
                     
                     // Simple simulated routing logic
                     if (email.toLowerCase().includes('admin')) {
-                        window.location.href = 'index.html?view=admin-dashboard';
+                        window.location.href = 'admin-dashboard.html';
                     } else {
-                        window.location.href = 'index.html?view=user-dashboard';
+                        window.location.href = 'user-dashboard.html';
                     }
                 });
             }
@@ -161,7 +161,7 @@
             const socialButtons = document.querySelectorAll('.btn-oauth');
             socialButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    window.location.href = 'index.html?view=user-dashboard';
+                    window.location.href = 'user-dashboard.html';
                 });
             });
         });

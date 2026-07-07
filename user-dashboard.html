@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard – STEMCamp</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 L85 32 L50 50 L15 32 Z' fill='%23a855f7'/%3E%3Cpath d='M15 32 L50 50 L50 85 L15 67 Z' fill='%237c3aed'/%3E%3Cpath d='M50 50 L85 32 L85 67 L50 85 Z' fill='%236d28d9'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..900&family=Quicksand:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-view">
+
+        <!-- Dim overlay for mobile sidebar -->
+        <div class="dashboard-sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="dashboard-sidebar">
+            <a href="home1.html" class="sidebar-logo">
+                <div class="logo-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                <div class="logo-text"><span class="logo-highlight">STEM</span>Camp</div>
+            </a>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="sidebar-link active" data-panel="u-overview"><i class="fa-solid fa-columns"></i> <span>Overview</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-panel="u-register"><i class="fa-solid fa-child-reaching"></i> <span>Register Child</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-panel="u-waivers"><i class="fa-solid fa-file-signature"></i> <span>Medical Waivers</span> <span class="badge-pending" id="badge-waiver-count">1</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-panel="u-schedule"><i class="fa-solid fa-calendar-days"></i> <span>Daily Schedules</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-panel="u-gallery"><i class="fa-solid fa-images"></i> <span>Photo Galleries</span></a></li>
+                    <li><a href="#" class="sidebar-link" data-panel="u-support"><i class="fa-solid fa-headset"></i> <span>Support &amp; Chat</span></a></li>
+                    <li class="logout-item"><a href="home1.html" class="sidebar-link text-red"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <div class="dashboard-content">
+
+            <!-- Topbar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button class="dashboard-sidebar-toggle" aria-label="Toggle Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h2 id="panel-title">Parent Overview</h2>
+                </div>
+                <div class="topbar-right">
+                    <button class="theme-toggle" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                    <button class="dir-toggle" aria-label="Toggle Direction"><span>RTL</span></button>
+                    <div class="topbar-notification"><i class="fa-solid fa-bell"></i><span class="notif-dot"></span></div>
+                    <div class="topbar-profile">
+                        <img src="./s15.jpg" alt="Amanda" class="profile-img">
+                        <span class="profile-name">Amanda J.</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Panels -->
+            <div class="dashboard-panel-container">
+
+                <!-- PANEL 1: OVERVIEW -->
+                <div class="dashboard-panel active" id="panel-u-overview">
+                    <div class="grid grid-3 mb-4">
+                        <div class="stat-card border-left-purple">
+                            <div class="stat-card-body">
+                                <div class="card-details"><span class="text-muted text-uppercase text-sm">Active Campers</span><h3>1 Child (Sophia)</h3></div>
+                                <div class="card-icon text-purple"><i class="fa-solid fa-child"></i></div>
+                            </div>
+                        </div>
+                        <div class="stat-card border-left-green">
+                            <div class="stat-card-body">
+                                <div class="card-details"><span class="text-muted text-uppercase text-sm">Waiver Status</span><h3 id="overview-waiver-status" class="text-red">1 Pending Action</h3></div>
+                                <div class="card-icon text-red"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+                            </div>
+                        </div>
+                        <div class="stat-card border-left-blue">
+                            <div class="stat-card-body">
+                                <div class="card-details"><span class="text-muted text-uppercase text-sm">Next Session</span><h3>June 15 (9:00 AM)</h3></div>
+                                <div class="card-icon text-blue"><i class="fa-solid fa-clock"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-2-equal">
+                        <div class="glass-card">
+                            <h3>Registered Child: Sophia Jenkins</h3>
+                            <p class="text-muted">Age: 11 | Skill Group: Scratch Game Design Foundations</p>
+                            <div class="progress-section mt-3">
+                                <h4>Weekly Curriculum Milestones Completion</h4>
+                                <div class="progress-bar-row"><span>Milestone 1: Variables &amp; Logic</span><span class="text-green">100%</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width:100%;"></div></div>
+                                <div class="progress-bar-row mt-2"><span>Milestone 2: Sprite Physics Loops</span><span class="text-green">80%</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width:80%;"></div></div>
+                            </div>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Camp Attendance Activity</h3>
+                            <div class="svg-chart-wrapper mt-2">
+                                <svg viewBox="0 0 400 150" class="svg-chart">
+                                    <line x1="40" y1="120" x2="360" y2="120" stroke="#ccc" stroke-width="2"/>
+                                    <text x="40" y="140" fill="#666" font-size="12">Mon</text>
+                                    <text x="120" y="140" fill="#666" font-size="12">Tue</text>
+                                    <text x="200" y="140" fill="#666" font-size="12">Wed</text>
+                                    <text x="280" y="140" fill="#666" font-size="12">Thu</text>
+                                    <text x="360" y="140" fill="#666" font-size="12">Fri</text>
+                                    <rect x="35" y="40" width="20" height="80" rx="3" fill="#ec4899"/>
+                                    <rect x="115" y="20" width="20" height="100" rx="3" fill="#3b82f6"/>
+                                    <rect x="195" y="30" width="20" height="90" rx="3" fill="#22c55e"/>
+                                    <rect x="275" y="50" width="20" height="70" rx="3" fill="#eab308"/>
+                                    <rect x="355" y="120" width="20" height="0" rx="3" fill="#a855f7"/>
+                                </svg>
+                            </div>
+                            <p class="text-muted text-center text-sm mt-1">Weekly coding minutes completed. (Target: 180 min/day)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 2: REGISTER CHILD -->
+                <div class="dashboard-panel" id="panel-u-register">
+                    <div class="glass-card max-width-700">
+                        <h3>Register Another Child</h3>
+                        <p class="text-muted">Enter details below to submit a registration request. Camps fill up quickly!</p>
+                        <form id="child-reg-form" class="mt-3">
+                            <div class="form-row">
+                                <div class="form-group"><label for="r-child-name">Child Full Name</label><input type="text" id="r-child-name" class="form-input" placeholder="Daniel Jenkins" required></div>
+                                <div class="form-group"><label for="r-child-age">Age</label><input type="number" id="r-child-age" class="form-input" min="6" max="15" placeholder="8" required></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="r-child-grade">School Grade (Fall 2026)</label><input type="text" id="r-child-grade" class="form-input" placeholder="3rd Grade" required></div>
+                                <div class="form-group">
+                                    <label for="r-child-camp">Select STEM Camp Pathway</label>
+                                    <select id="r-child-camp" class="form-select">
+                                        <option value="scratch">Scratch Game Design (Ages 7-10) - $390</option>
+                                        <option value="lego">LEGO SPIKE Prime Robotics (Ages 8-11) - $425</option>
+                                        <option value="python">Python &amp; AI Algorithms (Ages 11-15) - $450</option>
+                                        <option value="arduino">Arduino C++ Microcontrollers (Ages 12-15) - $480</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group"><label for="r-allergies">Allergies / Special Medical Notes</label><input type="text" id="r-allergies" class="form-input" placeholder="Peanuts (Severe, epipen required)"></div>
+                            <button type="submit" class="btn btn-primary mt-2">Submit Camp Registration</button>
+                        </form>
+                        <div id="child-reg-success" class="alert alert-success mt-2 hidden"><i class="fa-solid fa-circle-check"></i> Registration submitted! Pay balance via email invoice.</div>
+                    </div>
+                </div>
+
+                <!-- PANEL 3: MEDICAL WAIVERS -->
+                <div class="dashboard-panel" id="panel-u-waivers">
+                    <div class="glass-card max-width-700">
+                        <h3>Emergency Medical Consent &amp; Liability Waiver</h3>
+                        <p class="text-muted">This form must be completed and electronically signed before camper attendance is authorized.</p>
+                        <div class="waiver-status-indicator mt-2 bg-red-light text-red p-2 rounded-card">
+                            <i class="fa-solid fa-circle-exclamation"></i> <strong>Waiver Pending for:</strong> Sophia Jenkins (Allergy: Peanuts)
+                        </div>
+                        <form id="waiver-form" class="mt-3">
+                            <div class="form-group">
+                                <label><strong>1. Epipen / Prescription Consent</strong></label>
+                                <div class="checkbox-group"><input type="checkbox" id="w-consent-med" required><label for="w-consent-med">I authorize STEMCamp medical director to store and administer epinephrine / prescriptions provided by parents in emergencies.</label></div>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label><strong>2. Emergency Medical Release</strong></label>
+                                <div class="checkbox-group"><input type="checkbox" id="w-consent-release" required><label for="w-consent-release">In the event of medical emergency, I authorize camp directors to transport my child to the nearest regional medical center.</label></div>
+                            </div>
+                            <div class="form-group mt-2"><label for="w-sign-name">Parent Digital Signature (Type Full Name)</label><input type="text" id="w-sign-name" class="form-input" placeholder="Amanda Jenkins" required></div>
+                            <div class="form-group mt-2">
+                                <label>Electronic Signature Pad (Draw with Mouse/Touch)</label>
+                                <div class="signature-pad-wrapper">
+                                    <canvas id="signature-canvas" width="400" height="120"></canvas>
+                                    <button type="button" class="btn btn-secondary btn-sm mt-1" id="btn-clear-sig">Clear Signature</button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3 w-100">Sign and Save Waivers</button>
+                        </form>
+                        <div id="waiver-success" class="alert alert-success mt-2 hidden"><i class="fa-solid fa-circle-check"></i> Waiver signed and stored securely in camp logs!</div>
+                    </div>
+                </div>
+
+                <!-- PANEL 4: DAILY SCHEDULES -->
+                <div class="dashboard-panel" id="panel-u-schedule">
+                    <div class="glass-card">
+                        <h3>Sophia's Active Weekly Calendar</h3>
+                        <p class="text-muted">Track arrival/checkout hours and daily topics for the current week.</p>
+                        <div class="schedule-calendar-grid mt-3">
+                            <div class="day-slot"><div class="day-header bg-pink text-white">Mon, June 15</div><div class="day-body"><span class="time">9:00 AM</span><strong>Scratch Canvas Setup</strong><p>Setup visual block environment, import sprite files.</p></div></div>
+                            <div class="day-slot"><div class="day-header bg-blue text-white">Tue, June 16</div><div class="day-body"><span class="time">9:00 AM</span><strong>Variable &amp; Condition Loops</strong><p>Program score counters and obstacle movement thresholds.</p></div></div>
+                            <div class="day-slot"><div class="day-header bg-green text-white">Wed, June 17</div><div class="day-body"><span class="time">9:00 AM</span><strong>Physics Engine Collision</strong><p>Script bounce reactions and game boundaries.</p></div></div>
+                            <div class="day-slot"><div class="day-header bg-yellow text-white">Thu, June 18</div><div class="day-body"><span class="time">9:00 AM</span><strong>Level Designing &amp; Assets</strong><p>Model custom level layouts, configure target triggers.</p></div></div>
+                            <div class="day-slot"><div class="day-header bg-purple text-white">Fri, June 19</div><div class="day-body"><span class="time">9:00 AM</span><strong>Showcase Hackathon</strong><p>Present original games to parents and receive certificates.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 5: PHOTO GALLERIES -->
+                <div class="dashboard-panel" id="panel-u-gallery">
+                    <div class="glass-card">
+                        <h3>Weekly Parent Photo Stream</h3>
+                        <p class="text-muted">This gallery is password protected and compliant with childhood safety regulations.</p>
+                        <div id="gallery-auth-box" class="mt-3">
+                            <div class="form-group max-width-400">
+                                <label for="gallery-pw">Enter Security Password (Hint: 'camp2026')</label>
+                                <input type="password" id="gallery-pw" class="form-input" placeholder="••••••••">
+                                <button class="btn btn-primary mt-2" id="btn-verify-gallery">Unlock Photos</button>
+                            </div>
+                            <div id="gallery-error" class="alert alert-danger mt-2 hidden"><i class="fa-solid fa-circle-xmark"></i> Incorrect security password!</div>
+                        </div>
+                        <div id="gallery-unlocked" class="hidden mt-3">
+                            <div class="grid grid-3">
+                                <div class="gallery-photo-card"><img src="./s16.jpg" alt="Lab photo" class="gallery-inner-img"><div class="p-caption">Sophia and team building Scratch game engine.</div></div>
+                                <div class="gallery-photo-card"><img src="./s6.jpg" alt="Robotics" class="gallery-inner-img"><div class="p-caption">Group testing obstacle avoidance sensor configurations.</div></div>
+                                <div class="gallery-photo-card"><img src="./s11.jpg" alt="Experiment" class="gallery-inner-img"><div class="p-caption">Analyzing water density trajectories during afternoon tinkers.</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 6: SUPPORT & CHAT -->
+                <div class="dashboard-panel" id="panel-u-support">
+                    <div class="grid grid-2-equal">
+                        <div class="glass-card">
+                            <h3>Direct Messenger to Counselor</h3>
+                            <p class="text-muted">Chat directly with Dr. Evelyn Thorne (Sophia's instructor).</p>
+                            <div class="dashboard-chat-box mt-3" id="parent-chat-messages">
+                                <div class="message msg-other"><strong>Dr. Evelyn Thorne:</strong><p>Sophia did a fantastic job with variable logic today! She solved the debugging challenges easily.</p><span class="msg-time">4:15 PM</span></div>
+                            </div>
+                            <div class="dashboard-chat-input-row mt-2">
+                                <input type="text" id="parent-chat-input" class="form-input" placeholder="Type your response...">
+                                <button class="btn btn-primary" id="btn-parent-send"><i class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Support Hotline Directory</h3>
+                            <p class="text-muted">Contact camp administrators directly for immediate operational alerts.</p>
+                            <ul class="support-contact-list mt-3">
+                                <li><i class="fa-solid fa-phone text-purple"></i> <strong>Registrar Ext:</strong> 105</li>
+                                <li><i class="fa-solid fa-hospital text-purple"></i> <strong>Medical Director:</strong> Ext 402</li>
+                                <li><i class="fa-solid fa-shield text-purple"></i> <strong>Security Guard Desk:</strong> Ext 500</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end panel-container -->
+        </div><!-- end dashboard-content -->
+    </div><!-- end dashboard-view -->
+
+    <script src="shared.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        /* --- Sidebar toggle (mobile) --- */
+        const sidebarToggle = document.querySelector('.dashboard-sidebar-toggle');
+        const sidebar = document.querySelector('.dashboard-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const open = sidebar.classList.toggle('active');
+                overlay.classList.toggle('active', open);
+            });
+        }
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        }
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            }
+        });
+
+        /* --- Sub-panel navigation --- */
+        const sidebarLinks = document.querySelectorAll('.sidebar-link[data-panel]');
+        const panels = document.querySelectorAll('.dashboard-panel');
+        const panelTitle = document.getElementById('panel-title');
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const panelId = link.getAttribute('data-panel');
+
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                panels.forEach(p => p.classList.remove('active'));
+                const target = document.getElementById('panel-' + panelId);
+                if (target) target.classList.add('active');
+
+                if (panelTitle) panelTitle.textContent = link.querySelector('span') ? link.querySelector('span').textContent.trim() : link.textContent.trim();
+
+                // Close sidebar on mobile after selection
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        /* --- Signature Pad --- */
+        const canvas = document.getElementById('signature-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2;
+            let drawing = false;
+
+            const getPos = (e) => {
+                const r = canvas.getBoundingClientRect();
+                const src = e.touches ? e.touches[0] : e;
+                return { x: src.clientX - r.left, y: src.clientY - r.top };
+            };
+            canvas.addEventListener('mousedown', e => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+            canvas.addEventListener('mousemove', e => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); });
+            canvas.addEventListener('mouseup', () => drawing = false);
+            canvas.addEventListener('mouseleave', () => drawing = false);
+            canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+            canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); });
+            canvas.addEventListener('touchend', () => drawing = false);
+
+            document.getElementById('btn-clear-sig').addEventListener('click', () => ctx.clearRect(0, 0, canvas.width, canvas.height));
+        }
+
+        /* --- Waiver form --- */
+        const waiverForm = document.getElementById('waiver-form');
+        if (waiverForm) {
+            waiverForm.addEventListener('submit', e => {
+                e.preventDefault();
+                document.getElementById('waiver-success').classList.remove('hidden');
+                const badge = document.getElementById('badge-waiver-count');
+                if (badge) badge.style.display = 'none';
+                const status = document.getElementById('overview-waiver-status');
+                if (status) { status.textContent = 'All Waivers Completed'; status.className = 'text-green'; }
+                setTimeout(() => document.getElementById('waiver-success').classList.add('hidden'), 4000);
+            });
+        }
+
+        /* --- Child registration form --- */
+        const regForm = document.getElementById('child-reg-form');
+        if (regForm) {
+            regForm.addEventListener('submit', e => {
+                e.preventDefault();
+                document.getElementById('child-reg-success').classList.remove('hidden');
+                regForm.reset();
+                setTimeout(() => document.getElementById('child-reg-success').classList.add('hidden'), 4000);
+            });
+        }
+
+        /* --- Photo gallery unlock --- */
+        const btnGallery = document.getElementById('btn-verify-gallery');
+        if (btnGallery) {
+            btnGallery.addEventListener('click', () => {
+                const pw = document.getElementById('gallery-pw').value;
+                if (pw === 'camp2026') {
+                    document.getElementById('gallery-auth-box').classList.add('hidden');
+                    document.getElementById('gallery-unlocked').classList.remove('hidden');
+                } else {
+                    const err = document.getElementById('gallery-error');
+                    err.classList.remove('hidden');
+                    setTimeout(() => err.classList.add('hidden'), 3000);
+                }
+            });
+        }
+
+        /* --- Parent messenger --- */
+        const parentInput = document.getElementById('parent-chat-input');
+        const parentSend = document.getElementById('btn-parent-send');
+        const parentChat = document.getElementById('parent-chat-messages');
+        if (parentSend && parentInput) {
+            const send = () => {
+                const txt = parentInput.value.trim();
+                if (!txt) return;
+                parentChat.innerHTML += `<div class="message msg-user"><p>${txt}</p><span class="msg-time">${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></div>`;
+                parentInput.value = '';
+                parentChat.scrollTop = parentChat.scrollHeight;
+                setTimeout(() => {
+                    parentChat.innerHTML += `<div class="message msg-other"><strong>Dr. Evelyn Thorne:</strong><p>Thank you! I'll keep you updated during tomorrow's Scratch debugging session.</p><span class="msg-time">${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></div>`;
+                    parentChat.scrollTop = parentChat.scrollHeight;
+                }, 1000);
+            };
+            parentSend.addEventListener('click', send);
+            parentInput.addEventListener('keypress', e => { if (e.key === 'Enter') send(); });
+        }
+
+    });
+    </script>
+</body>
+</html>

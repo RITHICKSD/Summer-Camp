@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home – STEM & Coding Summer Camp</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 15 L85 32 L50 50 L15 32 Z' fill='%23a855f7'/%3E%3Cpath d='M15 32 L50 50 L50 85 L15 67 Z' fill='%237c3aed'/%3E%3Cpath d='M50 50 L85 32 L85 67 L50 85 Z' fill='%236d28d9'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..900&family=Quicksand:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="header-container">
+            <a href="home1.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                <div class="logo-text"><span class="logo-highlight">STEM</span>Camp</div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active">Home <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="home1.html" class="dropdown-item active">Home 1</a></li>
+                            <li><a href="home2.html" class="dropdown-item">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Dashboard <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="user-dashboard.html" class="dropdown-item">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mobile-menu-actions">
+                    <div class="mobile-toggles">
+                        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                        <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                    </div>
+                    <a href="login.html" class="btn btn-primary login-btn w-100"><i class="fa-solid fa-user-lock"></i> Login</a>
+                </div>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                <button class="dir-toggle" aria-label="Toggle LTR/RTL"><span>RTL</span></button>
+                <a href="login.html" class="btn btn-primary login-btn"><i class="fa-solid fa-user-lock"></i> Login</a>
+                <button class="mobile-nav-toggle" aria-label="Open Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Section 1: Hero -->
+        <section class="hero-section section-h1-1">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">Empowering Future Innovators through Hands-on STEM & Coding</h1>
+                    <p class="hero-desc">Welcome to the ultimate summer experience for kids ages 6-15! Where logic meets creativity, and kids learn coding, robotics, and science while building lifelong friendships.</p>
+                    <div class="hero-buttons">
+                        <a href="programs.html" class="btn btn-primary btn-lg">Explore Pathways</a>
+                        <a href="register.html" class="btn btn-secondary btn-lg">Register Now</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-mini"><span class="stat-num">15+</span><span class="stat-lbl">STEM Pathways</span></div>
+                        <div class="stat-mini"><span class="stat-num">98%</span><span class="stat-lbl">Parent Trust Score</span></div>
+                        <div class="stat-mini"><span class="stat-num">1:6</span><span class="stat-lbl">Counselor Ratio</span></div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="glass-card hero-interactive-card">
+                        <div class="card-header-icon"><i class="fa-solid fa-rocket animate-bounce"></i></div>
+                        <h3>Active Learning</h3>
+                        <p>Build real robots, code apps, and run scientific chemical experiments in a collaborative space.</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-label"><span>Robotics Project Completion</span><span>85%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width:85%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Curriculum Pathways -->
+        <section class="pathways-section section-h1-2 bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle text-purple">STEM Curriculum Pathways</span>
+                    <h2 class="section-title">Nurturing curiosity from beginner block coding to advanced AI</h2>
+                    <p class="section-desc">Our tiered learning paths ensure every camper finds their perfect level of challenge and discovery.</p>
+                </div>
+                <div class="grid grid-3">
+                    <div class="pathway-card">
+                        <img src="./s12.jpg" alt="Coding and Game Design" class="pathway-card-img">
+                        <div class="pathway-icon bg-pink-light text-pink"><i class="fa-solid fa-code"></i></div>
+                        <h3>Coding & Game Design</h3>
+                        <p>From Scratch blocks to Python script. Campers build custom 2D/3D games, program algorithms, and learn critical problem-solving skills.</p>
+                        <ul class="pathway-details">
+                            <li><i class="fa-solid fa-check text-green"></i> Ages: 7-9 &amp; 10-14</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Scratch, Python, Unity 3D</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Build 4 publishable games</li>
+                        </ul>
+                        <a href="programs.html" class="pathway-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="pathway-card">
+                        <img src="./s13.jpg" alt="Robotics and Engineering" class="pathway-card-img">
+                        <div class="pathway-icon bg-blue-light text-blue"><i class="fa-solid fa-robot"></i></div>
+                        <h3>Robotics &amp; Engineering</h3>
+                        <p>Build, wire, and command smart machines. Campers master mechanical structures, micro-controllers, and custom sensor integrations.</p>
+                        <ul class="pathway-details">
+                            <li><i class="fa-solid fa-check text-green"></i> Ages: 8-11 &amp; 12-15</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Arduino, LEGO SPIKE Prime</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Solve obstacle course maps</li>
+                        </ul>
+                        <a href="programs.html" class="pathway-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="pathway-card">
+                        <img src="./s8.jpg" alt="Science and Tinkering" class="pathway-card-img">
+                        <div class="pathway-icon bg-green-light text-green"><i class="fa-solid fa-flask"></i></div>
+                        <h3>Science &amp; Tinkering</h3>
+                        <p>Hands-on physics, chemistry, and environmental science. Kids experiment with polymers, clean energy systems, and rocketry.</p>
+                        <ul class="pathway-details">
+                            <li><i class="fa-solid fa-check text-green"></i> Ages: 6-8 &amp; 9-12</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Polymer experiments &amp; solar power</li>
+                            <li><i class="fa-solid fa-check text-green"></i> Take-home lab kits</li>
+                        </ul>
+                        <a href="programs.html" class="pathway-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Safety & Compliance -->
+        <section class="safety-section section-h1-3">
+            <div class="container grid grid-2-equal">
+                <div class="safety-visual">
+                    <div class="badge-grid">
+                        <div class="badge-card"><div class="badge-icon text-yellow"><i class="fa-solid fa-shield-halved"></i></div><h4>CPR &amp; First Aid Certified</h4><p>Every counselor holds active emergency care certifications.</p></div>
+                        <div class="badge-card"><div class="badge-icon text-blue"><i class="fa-solid fa-user-shield"></i></div><h4>Background Screened</h4><p>Rigorous federal background check for all faculty &amp; directors.</p></div>
+                        <div class="badge-card"><div class="badge-icon text-green"><i class="fa-solid fa-user-doctor"></i></div><h4>Medical Director</h4><p>On-site pediatric nurse managing waivers &amp; prescription schedules.</p></div>
+                        <div class="badge-card"><div class="badge-icon text-purple"><i class="fa-solid fa-door-closed"></i></div><h4>Secure Access</h4><p>Fingerprint scan check-in/out and 24/7 security guard presence.</p></div>
+                    </div>
+                </div>
+                <div class="safety-content">
+                    <span class="subtitle text-yellow">High-Trust Safety Protocols</span>
+                    <h2 class="section-title">Your Child's Physical and Digital Safety is Our #1 Priority</h2>
+                    <p class="section-desc">We combine premium academic programming with medical-grade operations safety. From strict allergy management in our allergen-free facility to filtered digital networks, we guarantee a safe, creative harbor for young minds.</p>
+                    <ul class="safety-list">
+                        <li><i class="fa-solid fa-check-double text-yellow"></i> HIPAA compliant digital waiver storage</li>
+                        <li><i class="fa-solid fa-check-double text-yellow"></i> Max 1:6 instructor-to-camper ratios for coding</li>
+                        <li><i class="fa-solid fa-check-double text-yellow"></i> 100% fenced campus with supervised breaks</li>
+                    </ul>
+                    <a href="about.html" class="btn btn-secondary mt-3">Read Safety Document</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Teacher Bios -->
+        <section class="teachers-section section-h1-4 bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle text-blue">World-Class Educators</span>
+                    <h2 class="section-title">Learn from Certified Teachers &amp; MIT/Stanford Graduates</h2>
+                    <p class="section-desc">Our instructors aren't just great coders; they are passionate mentors trained in positive behavioral support and dynamic lesson structures.</p>
+                </div>
+                <div class="grid grid-3">
+                    <div class="teacher-card">
+                        <div class="teacher-image-wrapper">
+                            <img src="./f1.avif" alt="Dr. Evelyn Thorne" class="teacher-image">
+                            <span class="teacher-role bg-purple text-white">Lead Robotics Director</span>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Dr. Evelyn Thorne</h3>
+                            <p class="teacher-degree"><i class="fa-solid fa-graduation-cap"></i> Ph.D. in Robotics, Stanford University</p>
+                            <p class="teacher-bio">Evelyn spent 8 years designing autonomous systems before transitioning to childhood education. She specializes in making Arduino coding intuitive and exciting.</p>
+                            <div class="teacher-badges">
+                                <span class="teacher-badge"><i class="fa-solid fa-award text-yellow"></i> 10+ Years Exp</span>
+                                <span class="teacher-badge"><i class="fa-solid fa-heart-pulse text-pink"></i> CPR Trained</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teacher-card">
+                        <div class="teacher-image-wrapper">
+                            <img src="./male1.avif" alt="Mr. Marcus Vance" class="teacher-image">
+                            <span class="teacher-role bg-pink text-white">Senior Coding Specialist</span>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Mr. Marcus Vance</h3>
+                            <p class="teacher-degree"><i class="fa-solid fa-graduation-cap"></i> M.S. in Computer Science, MIT</p>
+                            <p class="teacher-bio">Marcus is a former lead software engineer at a major tech startup. He designed our Python curriculum and Roblox engineering modules to challenge advanced thinkers.</p>
+                            <div class="teacher-badges">
+                                <span class="teacher-badge"><i class="fa-solid fa-award text-yellow"></i> Certified Educator</span>
+                                <span class="teacher-badge"><i class="fa-solid fa-heart-pulse text-pink"></i> First Aid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teacher-card">
+                        <div class="teacher-image-wrapper">
+                            <img src="./a1.webp" alt="Ms. Sarah Jenkins" class="teacher-image">
+                            <span class="teacher-role bg-green text-white">Science Lab Coordinator</span>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Ms. Sarah Jenkins</h3>
+                            <p class="teacher-degree"><i class="fa-solid fa-graduation-cap"></i> B.S. in Chemistry, UC Berkeley</p>
+                            <p class="teacher-bio">Sarah is a certified middle school science teacher with a passion for creative chemistry. Her lab is renowned for chemical reactions that glow, pop, and fizz safely.</p>
+                            <div class="teacher-badges">
+                                <span class="teacher-badge"><i class="fa-solid fa-award text-yellow"></i> K-8 Certified</span>
+                                <span class="teacher-badge"><i class="fa-solid fa-heart-pulse text-pink"></i> Pediatric CPR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: FAQ Accordion -->
+        <section class="faq-section section-h1-5">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle text-purple">Frequently Asked Questions</span>
+                    <h2 class="section-title">Everything parents need to know about STEM Camp</h2>
+                    <p class="section-desc">Got questions? We have answers. If you don't find what you need, contact our helpful support desk.</p>
+                </div>
+                <div class="faq-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header"><span>What is the camper-to-staff ratio in coding labs?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="accordion-body"><p>We maintain a strict 1:6 ratio for computer and robotics lab settings. This ensures that every child receives immediate debugging help, customized mentorship, and personal attention to prevent frustration.</p></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header"><span>How do you handle severe nut and food allergies?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="accordion-body"><p>Our entire facility is strictly nut-free. Parents submit allergy details in our medical waiver portal, and campers with allergies wear color-coded wristbands. Our registered nurse coordinates and stores epinephrine autoinjectors in central, labeled safety cabinets.</p></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header"><span>Can absolute beginners with no coding experience join?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="accordion-body"><p>Absolutely! We design our entry pathways (like Scratch Coding and LEGO Robotics Foundations) specifically for absolute beginners. We split campers by age and skill group to ensure everyone works at a comfortable, rewarding pace.</p></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header"><span>How does the weekly photo gallery work?</span><i class="fa-solid fa-plus"></i></button>
+                        <div class="accordion-body"><p>Registered parents receive a secure, password-protected link inside the parent dashboard. Photos taken by our staff are uploaded every Monday and Wednesday evening, allowing you to see your child's creations in real-time.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Testimonials -->
+        <section class="testimonials-section section-h1-6 bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle text-pink">Parent Stories &amp; Testimonials</span>
+                    <h2 class="section-title">What parents say about the STEM Camp experience</h2>
+                    <p class="section-desc">Join thousands of families who have seen their children build immense coding confidence over a single summer.</p>
+                </div>
+                <div class="grid grid-3">
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"My daughter Sophia had never touched computer programming. After two weeks of python game design, she came home explaining how loops work. The safety waivers and pediatrician review gave me complete peace of mind."</p>
+                        <div class="testimonial-author"><h4>Amanda Jenkins</h4><span class="author-sub">Mother of Sophia (Age 11)</span></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"The dashboard made it so easy to upload medical waivers and track schedules. Leo was always excited for the morning coding projects and absolutely loved the outdoor water-balloon physics break!"</p>
+                        <div class="testimonial-author"><h4>Robert Chen</h4><span class="author-sub">Father of Leo (Age 8)</span></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="testimonial-text">"What a stellar team. Having MIT graduates teaching my son Arduino circuits made a massive difference. He wasn't just copying code; he understood how transistors work. We have registered for three terms already."</p>
+                        <div class="testimonial-author"><h4>Sarah Higgins</h4><span class="author-sub">Mother of Daniel (Age 13)</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="global-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="home1.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-cubes-stacked text-white"></i></div><div class="logo-text text-white"><span class="logo-highlight">STEM</span>Camp</div></a>
+                <p class="footer-tagline">Building coding confidence and logical reasoning through high-trust summer camps since 2018.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h4>Summer Programs</h4>
+                <ul>
+                    <li><a href="programs.html">Coding &amp; Games</a></li>
+                    <li><a href="programs.html">Robotics &amp; Engineering</a></li>
+                    <li><a href="programs.html">Tinkering &amp; Science</a></li>
+                    <li><a href="programs.html">Weekend Workshops</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <h4>Parent Helpdesk</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Support</a></li>
+                    <li><a href="register.html">Register Camper</a></li>
+                    <li><a href="login.html">Sign Medical Waivers</a></li>
+                    <li><a href="home1.html">Safety Accreditations</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <h4>Security &amp; Standards</h4>
+                <div class="security-cert-block">
+                    <span class="cert-item"><i class="fa-solid fa-shield-heart text-yellow"></i> 100% HIPAA &amp; COPPA Safe</span>
+                    <span class="cert-item"><i class="fa-solid fa-shield-halved text-blue"></i> Certified Pediatric Nurse On-Site</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; 2026 STEMCamp Summer Camps Portal. All rights reserved.</p>
+                <ul class="footer-legal-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">COPPA Notice</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="shared.js"></script>
+</body>
+</html>
