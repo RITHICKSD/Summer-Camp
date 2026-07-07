@@ -310,6 +310,9 @@ body.dark-theme .counter-card p {
 /* Issue 5: Ensure login button always has white text, even on hover */
 .login-btn {
     color: #ffffff !important;
+    padding: 8px 16px !important;
+    font-size: 13.5px !important;
+    gap: 6px !important;
 }
 .login-btn:hover {
     color: #ffffff !important;
@@ -434,36 +437,39 @@ body.dark-theme .global-header {
 }
 
 .header-container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 12px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
 }
 
 /* LOGO DESIGNS */
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-family: var(--font-heading);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--text-primary);
+    flex-shrink: 0;
 }
 
 .logo-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-md);
     background: linear-gradient(135deg, var(--purple), var(--pink));
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+    flex-shrink: 0;
 }
 
 .logo-highlight {
@@ -472,10 +478,19 @@ body.dark-theme .global-header {
     -webkit-text-fill-color: transparent;
 }
 
+/* NAV MENU — desktop: centered flex between logo and actions */
+.nav-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 2px;
+    flex-wrap: nowrap;
 }
 
 .nav-item {
@@ -485,11 +500,15 @@ body.dark-theme .global-header {
 .nav-link {
     font-family: var(--font-heading);
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    padding: 8px 12px;
+    padding: 7px 11px;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav-link:hover {
@@ -544,12 +563,13 @@ body.dark-theme .global-header {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .theme-toggle, .dir-toggle, .mobile-nav-toggle {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
     background-color: var(--bg-primary);
@@ -559,6 +579,7 @@ body.dark-theme .global-header {
     align-items: center;
     justify-content: center;
     transition: all var(--transition-fast);
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover, .dir-toggle:hover, .mobile-nav-toggle:hover {
@@ -567,7 +588,7 @@ body.dark-theme .global-header {
 }
 
 .dir-toggle span {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
 }
 
@@ -1758,7 +1779,235 @@ body.rtl .node-content {
 }
 
 /* ==========================================================================
-   CONTACT VIEW
+   BLOG VIEW
+   ========================================================================== */
+
+/* Section 1: Hero */
+.blog-hero {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.60), rgba(15, 23, 42, 0.50)), url('./h1.webp') no-repeat center center / cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Blog hero text — white on dark overlay */
+.blog-hero .subtitle,
+.blog-hero .section-title,
+.blog-hero .section-desc {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+.blog-filter-btn.active {
+    background-color: var(--purple) !important;
+    color: #ffffff !important;
+    border-color: var(--purple) !important;
+}
+
+/* Section 2: Article cards */
+.blog-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+}
+
+.blog-card.hidden {
+    display: none !important;
+}
+
+.blog-card-header {
+    padding: 24px 24px 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.blog-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.6);
+    flex-shrink: 0;
+}
+
+.blog-category-tag {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.blog-card-body {
+    padding: 0 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+}
+
+.blog-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.blog-card-body h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    line-height: 1.35;
+}
+
+.blog-card-body p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.blog-author-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.blog-author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.blog-author-row strong {
+    display: block;
+    font-size: 13px;
+    font-family: var(--font-heading);
+}
+
+.blog-author-row .text-sm {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.blog-read-more {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    transition: gap var(--transition-fast);
+}
+
+.blog-read-more:hover {
+    gap: 10px;
+    color: var(--purple-hover);
+}
+
+/* Section 3: Newsletter */
+.blog-newsletter-section {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-alt));
+}
+
+.blog-newsletter-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px;
+}
+
+.blog-newsletter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.blog-nl-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.blog-nl-left h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.blog-nl-perks {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.blog-nl-perks li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.blog-nl-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Responsive: Blog */
+@media (max-width: 768px) {
+    .blog-newsletter-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .blog-newsletter-card {
+        padding: 28px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-articles-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ==========================================================================
+   DIRECTORY CARD
    ========================================================================== */
 /* Issue 14: Remove empty space — tighten contact hero section */
 .contact-hero.section-ct-1 {
@@ -3178,6 +3427,9 @@ body.dark-theme .btn-oauth-apple {
         background-color: var(--bg-primary) !important;
         border-bottom: 2px solid var(--border-color) !important;
         z-index: 999;
+        /* Reset desktop flex centering */
+        flex: none;
+        justify-content: flex-start;
     }
     /* Ensure nav links in mobile drawer have full contrast */
     .nav-menu .nav-link {

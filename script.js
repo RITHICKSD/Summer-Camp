@@ -781,4 +781,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         });
     }
+
+    /* --- BLOG: Filter buttons --- */
+    const blogFilterBtns = document.querySelectorAll('.blog-filter-btn');
+    blogFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            blogFilterBtns.forEach(b => {
+                b.classList.remove('active', 'btn-primary');
+                b.classList.add('btn-filter');
+            });
+            btn.classList.add('active', 'btn-primary');
+            btn.classList.remove('btn-filter');
+
+            const filter = btn.getAttribute('data-filter');
+            document.querySelectorAll('.blog-card').forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    /* --- BLOG: Newsletter form submit --- */
+    const nlForm = document.getElementById('blog-nl-form');
+    if (nlForm) {
+        nlForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('nl-success').classList.remove('hidden');
+            nlForm.reset();
+            setTimeout(() => {
+                document.getElementById('nl-success').classList.add('hidden');
+            }, 4000);
+        });
+    }
+
 });

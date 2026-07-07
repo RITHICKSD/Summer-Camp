@@ -51,6 +51,9 @@
                         <a href="#" class="nav-link" data-target="services">Programs</a>
                     </li>
                     <li class="nav-item">
+                        <a href="#" class="nav-link" data-target="blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link" data-target="contact">Contact</a>
                     </li>
                     <li class="nav-item has-dropdown">
@@ -1362,6 +1365,244 @@
                 </div>
             </section>
         </div>
+
+        <!-- ============================================== -->
+        <!-- VIEW 6: BLOG                                   -->
+        <!-- ============================================== -->
+        <div id="view-blog" class="spa-view">
+
+            <!-- Section 1: Blog Hero -->
+            <section class="blog-hero section-bg-1">
+                <div class="container">
+                    <div class="section-header max-width-700 text-center" style="margin-bottom:0; padding: 40px 0;">
+                        <span class="subtitle text-purple">Our Blog</span>
+                        <h1 class="section-title" style="font-size:40px;">Ideas, Insights &amp; STEM Stories</h1>
+                        <p class="section-desc" style="font-size:17px; margin-top:12px;">Explore articles written by our educators and directors — covering curriculum design, parenting advice, tech trends for kids, and behind-the-scenes camp life.</p>
+                        <div style="margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                            <button class="btn btn-primary blog-filter-btn active" data-filter="all">All Posts</button>
+                            <button class="btn btn-filter blog-filter-btn" data-filter="curriculum">Curriculum</button>
+                            <button class="btn btn-filter blog-filter-btn" data-filter="parenting">Parenting</button>
+                            <button class="btn btn-filter blog-filter-btn" data-filter="technology">Technology</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Featured Articles Grid -->
+            <section class="blog-articles-section bg-alt">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="subtitle text-pink">Latest Posts</span>
+                        <h2 class="section-title">Fresh from Our Educators</h2>
+                        <p class="section-desc">Each post is written by a certified member of our staff. Filter by topic or browse everything.</p>
+                    </div>
+
+                    <div class="grid grid-3 blog-articles-grid">
+
+                        <!-- Article 1 -->
+                        <article class="blog-card" data-category="curriculum">
+                            <div class="blog-card-header bg-purple-light">
+                                <div class="blog-card-icon text-purple"><i class="fa-solid fa-code"></i></div>
+                                <span class="blog-category-tag text-purple">Curriculum</span>
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-meta">
+                                    <span><i class="fa-regular fa-calendar"></i> June 2, 2025</span>
+                                    <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+                                </div>
+                                <h3>Why We Teach Scratch Before Python</h3>
+                                <p>Block-based coding removes syntax barriers so young learners can focus on logic, loops, and sequencing — the real foundations of programming thinking.</p>
+                                <div class="blog-author-row">
+                                    <div class="blog-author-avatar bg-purple text-white"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <strong>Dr. Evelyn Thorne</strong>
+                                        <span class="text-muted text-sm">Lead Robotics &amp; Code Director</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Article 2 -->
+                        <article class="blog-card" data-category="parenting">
+                            <div class="blog-card-header bg-pink-light">
+                                <div class="blog-card-icon text-pink"><i class="fa-solid fa-heart"></i></div>
+                                <span class="blog-category-tag text-pink">Parenting</span>
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-meta">
+                                    <span><i class="fa-regular fa-calendar"></i> June 9, 2025</span>
+                                    <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+                                </div>
+                                <h3>How to Talk to Your Child About Tech Careers</h3>
+                                <p>Starting the conversation early doesn't mean pressuring — it means opening doors. Here's how to inspire curiosity without creating anxiety around performance.</p>
+                                <div class="blog-author-row">
+                                    <div class="blog-author-avatar bg-pink text-white"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <strong>Dr. Melissa Vance</strong>
+                                        <span class="text-muted text-sm">Co-Founder &amp; Curriculum Director</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Article 3 -->
+                        <article class="blog-card" data-category="technology">
+                            <div class="blog-card-header bg-blue-light">
+                                <div class="blog-card-icon text-blue"><i class="fa-solid fa-robot"></i></div>
+                                <span class="blog-category-tag text-blue">Technology</span>
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-meta">
+                                    <span><i class="fa-regular fa-calendar"></i> June 14, 2025</span>
+                                    <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+                                </div>
+                                <h3>AI in the Classroom: What Age Is Right?</h3>
+                                <p>We explore age-appropriate entry points for machine learning concepts — from visual sorting games at age 7 to building simple neural arrays at age 14.</p>
+                                <div class="blog-author-row">
+                                    <div class="blog-author-avatar bg-blue text-white"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <strong>Mr. Marcus Vance</strong>
+                                        <span class="text-muted text-sm">Senior Coding Specialist</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Article 4 -->
+                        <article class="blog-card" data-category="curriculum">
+                            <div class="blog-card-header bg-green-light">
+                                <div class="blog-card-icon text-green"><i class="fa-solid fa-flask"></i></div>
+                                <span class="blog-category-tag text-green">Curriculum</span>
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-meta">
+                                    <span><i class="fa-regular fa-calendar"></i> June 20, 2025</span>
+                                    <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+                                </div>
+                                <h3>The Science Behind Our Tinkering Labs</h3>
+                                <p>From polymer reactions to solar-powered racers, our lab curriculum is grounded in NGSS standards while keeping the wonder alive in every experiment.</p>
+                                <div class="blog-author-row">
+                                    <div class="blog-author-avatar bg-green text-white"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <strong>Ms. Sarah Jenkins</strong>
+                                        <span class="text-muted text-sm">Science Lab Coordinator</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Article 5 -->
+                        <article class="blog-card" data-category="parenting">
+                            <div class="blog-card-header bg-yellow-light">
+                                <div class="blog-card-icon text-yellow"><i class="fa-solid fa-shield-halved"></i></div>
+                                <span class="blog-category-tag text-yellow">Parenting</span>
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-meta">
+                                    <span><i class="fa-regular fa-calendar"></i> June 25, 2025</span>
+                                    <span><i class="fa-regular fa-clock"></i> 3 min read</span>
+                                </div>
+                                <h3>Digital Safety for Young Coders at Home</h3>
+                                <p>Our campers build great habits at camp — here's how to reinforce safe browsing, password hygiene, and responsible sharing once they're back home.</p>
+                                <div class="blog-author-row">
+                                    <div class="blog-author-avatar bg-yellow text-white"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <strong>Mr. Jordan Kross</strong>
+                                        <span class="text-muted text-sm">Operations &amp; Security Director</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Article 6 -->
+                        <article class="blog-card" data-category="technology">
+                            <div class="blog-card-header bg-red-light">
+                                <div class="blog-card-icon text-red"><i class="fa-solid fa-microchip"></i></div>
+                                <span class="blog-category-tag text-red">Technology</span>
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-meta">
+                                    <span><i class="fa-regular fa-calendar"></i> July 1, 2025</span>
+                                    <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+                                </div>
+                                <h3>Arduino vs LEGO SPIKE: Which Is Better for Kids?</h3>
+                                <p>Both platforms produce incredible results in our camps. We break down the learning curves, project potential, and age suitability for each system.</p>
+                                <div class="blog-author-row">
+                                    <div class="blog-author-avatar bg-red text-white"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <strong>Dr. Alistair Cross</strong>
+                                        <span class="text-muted text-sm">Founder &amp; Managing Director</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Newsletter Signup -->
+            <section class="blog-newsletter-section">
+                <div class="container">
+                    <div class="blog-newsletter-card glass-card">
+                        <div class="blog-newsletter-grid">
+                            <div class="blog-nl-left">
+                                <div class="blog-nl-icon bg-purple-light text-purple">
+                                    <i class="fa-solid fa-envelope-open-text"></i>
+                                </div>
+                                <h2>Stay in the Loop</h2>
+                                <p class="section-desc">Get new articles, camp updates, and early-bird offers delivered straight to your inbox. No spam — only content worth reading.</p>
+                                <ul class="blog-nl-perks">
+                                    <li><i class="fa-solid fa-check text-green"></i> Weekly educator-written articles</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> First access to enrollment windows</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Free STEM activity PDFs for home</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Camp event announcements</li>
+                                </ul>
+                            </div>
+                            <div class="blog-nl-right">
+                                <form class="blog-nl-form" id="blog-nl-form">
+                                    <div class="form-group">
+                                        <label class="form-label">Your Name</label>
+                                        <input type="text" class="form-input" placeholder="Amanda Jenkins" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-input" placeholder="amanda@mail.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">I am a…</label>
+                                        <select class="form-select">
+                                            <option>Parent / Guardian</option>
+                                            <option>Educator / Teacher</option>
+                                            <option>Student</option>
+                                            <option>Camp Alumni</option>
+                                        </select>
+                                    </div>
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="nl-consent" checked>
+                                        <label for="nl-consent">I agree to receive email updates from STEMCamp. I can unsubscribe at any time.</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 mt-3">
+                                        <i class="fa-solid fa-paper-plane"></i> Subscribe Now
+                                    </button>
+                                    <div id="nl-success" class="alert alert-success mt-2 hidden">
+                                        <i class="fa-solid fa-circle-check"></i> You're subscribed! Check your inbox.
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- END VIEW: BLOG -->
 
         <!-- ============================================== -->
         <!-- VIEW 6: USER DASHBOARD (PARENT PORTAL)         -->
