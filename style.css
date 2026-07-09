@@ -423,10 +423,12 @@ body.dark-theme .counter-card p {
    GLOBAL HEADER & MENU
    ========================================================================== */
 .global-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     transition: background-color var(--transition-normal), border-color var(--transition-normal);
@@ -2835,6 +2837,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    /* Offset for fixed header so content is never hidden beneath it */
+    padding-top: 70px;
 }
 main.spa-container {
     flex: 1;
@@ -2860,6 +2864,16 @@ main.spa-container {
 body.dashboard-active .global-header,
 body.dashboard-active .global-footer {
     display: none !important;
+}
+
+/* Dashboard pages have no fixed header — remove the body offset */
+body.dashboard-active {
+    padding-top: 0 !important;
+}
+
+/* Standalone dashboard pages (user-dashboard.html, admin-dashboard.html) */
+body:has(> .dashboard-view) {
+    padding-top: 0 !important;
 }
 
 /* 4. Leaflet map styles */
@@ -3505,60 +3519,51 @@ body.dark-theme .btn-oauth-apple {
     }
 }
 
-/* Responsiveness Issue 4: Dashboard sidebar at 1024px — icon-only mode (tablets only, NOT mobile) */
+/* Responsiveness Issue 4: Dashboard at 1024px — keep full sidebar with text */
 @media (min-width: 769px) and (max-width: 1024px) {
-    /* Sidebar icon-only: keep the icons readable and properly centered */
+    /* Keep sidebar full width with text visible */
     .dashboard-sidebar {
-        width: 72px !important;
-        padding: 16px 0 !important;
+        width: 220px !important;
+        padding: 24px 0 !important;
     }
     .sidebar-logo {
-        padding: 0 0 20px 0 !important;
-        justify-content: center !important;
+        padding: 0 20px 24px 20px !important;
+        justify-content: flex-start !important;
     }
     .sidebar-logo .logo-text {
-        display: none !important;
-    }
-    .sidebar-link {
-        justify-content: center !important;
-        padding: 14px !important;
-        font-size: 20px !important;
-        gap: 0 !important;
-    }
-    .sidebar-link span,
-    .sidebar-link .badge-pending {
-        display: none !important;
-    }
-    /* Show notification dot on icon-only sidebar */
-    .sidebar-link {
-        position: relative;
-    }
-    .sidebar-link .badge-pending {
-        position: absolute;
-        top: 6px;
-        right: 6px;
         display: flex !important;
-        width: 8px;
-        height: 8px;
-        padding: 0;
-        border-radius: 50%;
-        font-size: 0;
-        min-width: unset;
     }
-    /* Topbar title stays visible */
+    .sidebar-link {
+        justify-content: flex-start !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        gap: 10px !important;
+    }
+    .sidebar-link span {
+        display: inline !important;
+    }
+    .sidebar-link .badge-pending {
+        display: inline-flex !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        font-size: 10px !important;
+        padding: 2px 6px !important;
+        border-radius: 999px !important;
+    }
+    /* Topbar adjustments */
     .dashboard-topbar {
         padding: 14px 20px !important;
     }
-    /* Dashboard content area adjusts to fill remaining space */
     .dashboard-content {
         min-width: 0 !important;
     }
-    /* Topbar right: reduce gap on smaller screens */
     .topbar-right {
         gap: 12px !important;
     }
     .profile-name {
-        display: none !important;
+        display: inline !important;
+        font-size: 13px !important;
     }
 }
 
